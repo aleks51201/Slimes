@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c18b30b5dc2264089350762efc9ec3, type: 3}
+  m_Name: GenomeResources
+  m_EditorClassIdentifier: 
+  typeArray: 4
+  genomeSprites:
+  - {fileID: 11400000, guid: 0bbfb2b3a36ebbb40b2f6929695bd744, type: 2}
+  - {fileID: 11400000, guid: af9de2a786ddf7943b6672d262773608, type: 2}
+  - {fileID: 11400000, guid: d90127a503360c844b867c2f078ec636, type: 2}
+  - {fileID: 11400000, guid: f0e9d74276cdb7f488cd62ab351f2859, type: 2}
