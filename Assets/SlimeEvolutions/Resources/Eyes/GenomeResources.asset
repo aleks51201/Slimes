@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeArray: 4
   genomeSprites:
-  - {fileID: 11400000, guid: 0bbfb2b3a36ebbb40b2f6929695bd744, type: 2}
   - {fileID: 11400000, guid: af9de2a786ddf7943b6672d262773608, type: 2}
   - {fileID: 11400000, guid: d90127a503360c844b867c2f078ec636, type: 2}
   - {fileID: 11400000, guid: f0e9d74276cdb7f488cd62ab351f2859, type: 2}
