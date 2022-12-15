@@ -12,10 +12,10 @@ public class GenomeResources : ScriptableObject
     public GenomeSprite[] GenomeSprites => genomeSprites;
     public Genome.Genes TypeArray => typeArray;
 
-    
+
     private void AttrubuteTypeCheck()
     {
-        foreach(GenomeSprite genomeSprite in genomeSprites)
+        foreach (GenomeSprite genomeSprite in genomeSprites)
         {
             if (typeArray != genomeSprite.Genes)
                 throw new Exception("Data types do not match");
@@ -32,7 +32,7 @@ public class GenomeResources : ScriptableObject
             ids.Add(genomeSprite.Id);
         }
     }
-    
+
     private void Awake()
     {
         Debug.Log($"awake {typeArray}");
