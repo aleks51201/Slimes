@@ -31,17 +31,13 @@ public abstract class Gene
             idCollections.Add(genomeSprite.Id);
         }
         id = idCollections[RandomNumber(idCollections.Count)];
-        IsDominant = GetDominantProperty();
+        IsDominant = RandomNumber(2) == 1;
     }
 
     private protected int RandomNumber(int num)
     {
         System.Random rnd = new();
         return rnd.Next(num);
-    }
-    private protected bool GetDominantProperty()
-    {
-        return genomResources.GenomeSprites[id].IsDominant;
     }
 
     private protected CellView GetCellView(GameObject gameObject)
