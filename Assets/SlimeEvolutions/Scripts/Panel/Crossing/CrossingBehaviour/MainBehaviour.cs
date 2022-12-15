@@ -43,6 +43,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             }
             InventoryButtonLogic.OnInventoryButtonClickEvent += CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent += crossLogic.Crossing;
+            ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += crossLogic.ClearSpace;
             isSubscribe = true;
         }
 
@@ -54,6 +55,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             }
             InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent -= crossLogic.Crossing;
+            ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= crossLogic.ClearSpace;
             isSubscribe = false;
         }
 

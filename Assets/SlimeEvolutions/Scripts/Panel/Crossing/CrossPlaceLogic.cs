@@ -49,6 +49,30 @@ namespace SlimeEvolutions.Panel.Crossing
             crossPlaceView.RightCrossSlimePositionView.ResearchSpaceUpdate(this, slime);
         }
 
+        public void ClearSpace(Slime slime)
+        {
+            if (IsSlimesAreEqual(slime, LSlime))
+            {
+                LeftSpaceClear();
+                isLeft = true;
+            }
+            else if (IsSlimesAreEqual(slime, RSlime))
+            {
+                RightSpaceClear();
+                isLeft = false;
+            }
+        }
+
+        private void LeftSpaceClear()
+        {
+            crossPlaceView.LeftCrossSlimePositionView.ClearSpace();
+        }
+
+        private void RightSpaceClear()
+        {
+            crossPlaceView.RightCrossSlimePositionView.ClearSpace();
+        }
+
         private bool IsSlimesAreEqual(Slime slime1, Slime slime2 = null)
         {
             if (slime2 is null)

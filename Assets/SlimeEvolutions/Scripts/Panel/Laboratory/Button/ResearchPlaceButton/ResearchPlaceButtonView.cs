@@ -7,10 +7,12 @@ namespace SlimeEvolutions.Panel.Laboratory
     public class ResearchPlaceButtonView : MonoBehaviour
     {
         public static Action OnButtonClickEvent;
+        public static Action<Slime> OnButtonWithSlimeClickEvent;
 
         public void OnClick()
         {
             OnButtonClickEvent?.Invoke();
+            OnButtonWithSlimeClickEvent?.Invoke(GetSlime());
         }
 
         private Slime GetSlime()
