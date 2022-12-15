@@ -1,4 +1,5 @@
 ﻿using SlimeEvolutions.InventoryCell;
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,10 +22,15 @@ public abstract class Gene
         }
     }
     public bool IsDominant { get; set; }
-    
+
     public void RandomGenerate()
     {
-        id = RandomNumber(genomResources.GenomeSprites.Length);
+        List<int> idCollections = new();
+        foreach (GenomeSprite genomeSprite in genomResources.GenomeSprites)
+        {
+            idCollections.Add(genomeSprite.Id);
+        }
+        id = idCollections[RandomNumber(idCollections.Count)];
         IsDominant = GetDominantProperty();
     }
 

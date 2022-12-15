@@ -52,6 +52,7 @@ public class Slime
         IsExplored = false;
         genome.RandomGenome();
     }
+
     public void RandomSlimeWithoutGenome()
     {
         id = new SlimeID().GetUniqueId();
