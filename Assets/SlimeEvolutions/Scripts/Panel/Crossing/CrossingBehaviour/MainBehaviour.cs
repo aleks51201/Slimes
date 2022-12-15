@@ -1,11 +1,5 @@
-﻿using SlimeEvolutions.Architecture.Scene;
-using SlimeEvolutions.Inventory;
+﻿using SlimeEvolutions.Inventory;
 using SlimeEvolutions.Panel.Laboratory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SlimeEvolutions.Panel.Crossing.Behaviour
 {
@@ -58,7 +52,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             {
                 return;
             }
-            InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate; 
+            InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent -= crossLogic.Crossing;
             isSubscribe = false;
         }
@@ -83,33 +77,38 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
 
         private void ResearchSpaceUpdate(Slime slime)
         {
-/*            if(!slime.IsExplored)
-                crossLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
-*/        }
+            /*            if(!slime.IsExplored)
+                            crossLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
+            */
+        }
 
 
         private void SetAfterResearchBehaviour()
         {
-/*            crossLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
-*/        }
+            /*            crossLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
+            */
+        }
 
         private void StartResearch()
         {
-/*            crossLogic.StartResearch();
-            SetResearchBehaviour();
-*/        }
+            /*            crossLogic.StartResearch();
+                        SetResearchBehaviour();
+            */
+        }
 
         private void SetResearchBehaviour()
         {
-/*            crossLogic.LaboratoryBehaviour.SetResearchBehaviour();
-*/        }
+            /*            crossLogic.LaboratoryBehaviour.SetResearchBehaviour();
+            */
+        }
 
         private void ResearchSpaceClear()
         {
-/*            Slime researchingSlime = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime;
-            //labLogic.ResearchPlaceView.ResearchSpaceUpdate(researchingSlime);
-            crossLogic.ResearchPlaceView.ClearSpace();
-*/        }
+            /*            Slime researchingSlime = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime;
+                        //labLogic.ResearchPlaceView.ResearchSpaceUpdate(researchingSlime);
+                        crossLogic.ResearchPlaceView.ClearSpace();
+            */
+        }
 
     }
 }

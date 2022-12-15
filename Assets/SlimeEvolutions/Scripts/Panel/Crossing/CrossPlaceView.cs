@@ -10,7 +10,7 @@ namespace SlimeEvolutions.Panel.Crossing
         [SerializeField] private ResearchPlaceView rightCrossSlimePositionView;
 
         public ResearchPlaceView LeftCrossSlimePositionView => leftCrossSlimePositionView;
-        public ResearchPlaceView RightCrossSlimePositionView => rightCrossSlimePositionView ;
+        public ResearchPlaceView RightCrossSlimePositionView => rightCrossSlimePositionView;
 
         private CrossPlaceLogic crossPlaceLogic;
 

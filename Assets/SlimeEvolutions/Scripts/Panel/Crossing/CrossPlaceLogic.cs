@@ -27,20 +27,12 @@ namespace SlimeEvolutions.Panel.Crossing
 
         public void UpdateSlots(Slime slime)
         {
-            if (LSlime is null )
-            {
-                LeftSpaceUpdate(slime);
-            }
-            else if (RSlime is null )
-            {
-                RightSpaceUpdate(slime);
-            }
-            else if (isLeft && !IsSlimesAreEqual(slime, LSlime)&& !IsSlimesAreEqual(slime, RSlime))
+            if (isLeft && !IsSlimesAreEqual(slime, LSlime) && !IsSlimesAreEqual(slime, RSlime))
             {
                 LeftSpaceUpdate(slime);
                 isLeft = false;
             }
-            else if (!isLeft && !IsSlimesAreEqual(slime, LSlime)&& !IsSlimesAreEqual(slime, RSlime))
+            else if (!isLeft && !IsSlimesAreEqual(slime, LSlime) && !IsSlimesAreEqual(slime, RSlime))
             {
                 RightSpaceUpdate(slime);
                 isLeft = true;
@@ -57,9 +49,9 @@ namespace SlimeEvolutions.Panel.Crossing
             crossPlaceView.RightCrossSlimePositionView.ResearchSpaceUpdate(this, slime);
         }
 
-        private bool IsSlimesAreEqual(Slime slime1, Slime slime2 =null)
+        private bool IsSlimesAreEqual(Slime slime1, Slime slime2 = null)
         {
-            if(slime2 is null)
+            if (slime2 is null)
             {
                 return false;
             }
