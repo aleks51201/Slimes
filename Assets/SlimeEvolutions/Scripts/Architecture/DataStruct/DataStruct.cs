@@ -8,6 +8,7 @@ namespace SlimeEvolutions.Architecture
         public List<Slime> InventorySlimes { get; set; }
         public DateTime LastDateTime { get; set; }
         public LaboratoryData LaboratoryData { get; set; }
+        public CrossingData CrossingData { get; set; }
         public int Experience{ get; set; }
         public int Mutagen { get; set; }
     }

@@ -4,7 +4,7 @@ namespace SlimeEvolutions.Panel.Mutatron
 {
     public class RecycleButtonView : MonoBehaviour
     {
-        RecycleButtonLogic recycleButtonLogic;
+        private RecycleButtonLogic recycleButtonLogic;
 
         private void Start()
         {

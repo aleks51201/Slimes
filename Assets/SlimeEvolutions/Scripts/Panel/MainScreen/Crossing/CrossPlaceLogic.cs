@@ -1,10 +1,9 @@
-﻿using SlimeEvolutions.Architecture;
+﻿using SlimeEvolutions.Architecture.CrossData;
 using SlimeEvolutions.Architecture.Interactors.Instances;
+using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Crossing.Behaviour;
 using SlimeEvolutions.Panel.MainScreen.Stuff;
 using System;
-using System.Collections;
-using static SlimeEvolutions.Panel.LaboratoryLogic;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -15,8 +14,8 @@ namespace SlimeEvolutions.Panel.Crossing
         private CrossingBehaviour crossingBehaviour;
         private bool isLeft = true;
 
-        private Slime LSlime => crossPlaceView.LeftCrossSlimePositionView.Slime;
-        private Slime RSlime => crossPlaceView.RightCrossSlimePositionView.Slime;
+        public Slime LSlime => crossPlaceView.LeftCrossSlimePositionView.Slime;
+        public Slime RSlime => crossPlaceView.RightCrossSlimePositionView.Slime;
 
 
         public CrossPlaceLogic(CrossPlaceView crossPlaceView)
@@ -82,7 +81,7 @@ namespace SlimeEvolutions.Panel.Crossing
             return slime1.Id == slime2.Id;
         }
 
-        public void Crossing()
+        public void SaveData()
         {
             if (LSlime is null || RSlime is null)
             {
@@ -90,26 +89,20 @@ namespace SlimeEvolutions.Panel.Crossing
             }
             Cross cross = new(LSlime, RSlime);
             Slime newSlime = cross.Crossing();
-            SlimesInventory.AddSlime(this, newSlime);
-        }
-
-        public void StartCrossing()
-        {
-        }
-
-        private void StartTimerAsync(AnyActionDelegate anyAction)
-        {
-            Coroutines.StartRoutine(TimerRoutine(anyAction));
-        }
-
-        private IEnumerator TimerRoutine(AnyActionDelegate anyAction)
-        {
-            DateTime dateTime = DateTime.Now.AddMinutes(0.5);
-            while (DateTime.Now < dateTime)
+            var interact = Game.GetInteractor<CrossingSpaceInteractor>();
+            if (interact.AreThereAnySlotsAvailable())
             {
-                yield return null;
+                var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddMinutes(1));
+                DeleteSlimeFromInventory(LSlime);
+                DeleteSlimeFromInventory(RSlime);
+                interact.SetCrossingSpaceData(interact.GetEmptySlotId(), i);
             }
-            anyAction();
+        }
+
+        private void DeleteSlimeFromInventory(Slime slime)
+        {
+            SlimesInventory.RemoveSlime(this, slime);
+            ClearSpace(slime);
         }
 
         public void OnEnable()

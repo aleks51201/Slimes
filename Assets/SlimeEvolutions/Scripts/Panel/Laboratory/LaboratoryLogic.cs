@@ -4,6 +4,7 @@ using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Laboratory;
 using SlimeEvolutions.Panel.Laboratory.Behaviours;
+using SlimeEvolutions.Timers;
 using System;
 using System.Collections;
 
@@ -14,11 +15,14 @@ namespace SlimeEvolutions.Panel
         private LaboratoryView laboratoryView;
         private LaboratoryDataInteractor labInteract;
         private LaboratoryBehaviour labBehaviour;
+        private Timer timer;
 
         public LaboratoryBehaviour LaboratoryBehaviour => labBehaviour;
         public ResearchPlaceView ResearchPlaceView => laboratoryView.ResearchPlace;
         public BackButton BackButton => laboratoryView.BackButton;
         public double ResearchTimeInMinutes => laboratoryView.ResearchTimeInMinutes;
+        public Timer Timer => timer;
+        public float Seconds => laboratoryView.ResearchTimeInMinutes*60;
 
         private LaboratoryDataInteractor LabInteract
         {
@@ -60,6 +64,12 @@ namespace SlimeEvolutions.Panel
             StartResearchSlimeEvent?.Invoke();
         }
 
+        public void StartTimer(float seconds)
+        {
+            timer = new(TimerTypes.OneSecTick,seconds);
+            timer.Start();
+        }
+
         private void SaveResearchableSlime()
         {
             LabInteract.SetResearchableSlime(this, GetResearchableSlime(), DateTime.Now.AddMinutes(ResearchTimeInMinutes));
@@ -71,7 +81,7 @@ namespace SlimeEvolutions.Panel
             SlimesInventory.RemoveSlime(this, GetResearchableSlime());
         }
 
-        public delegate void AnyActionDelegate();
+/*        public delegate void AnyActionDelegate();
         public void StartTimer(AnyActionDelegate anyAction)
         {
             Coroutines.StartRoutine(StartTimerRoutine(anyAction));
@@ -86,8 +96,13 @@ namespace SlimeEvolutions.Panel
             anyAction();
             EndResearch();
         }
+*/
+        public void UpdateTimerText(float seconds)
+        {
+            laboratoryView.Text.text = $"{(int)seconds}";
+        }
 
-        private void EndResearch()
+        public void EndResearch()
         {
             SetTrueSlimeResearch(LabInteract.ResearchableSlime);
             EndResearchSlimeEvent?.Invoke();

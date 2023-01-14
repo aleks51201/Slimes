@@ -5,7 +5,7 @@ namespace SlimeEvolutions.Panel.Mutatron
 {
     public class RandomSlimeButtonView : MonoBehaviour
     {
-        RandomSlimeButtonLogic randomSlimeButtonLogic;
+        private RandomSlimeButtonLogic randomSlimeButtonLogic;
 
         private void Start()
         {

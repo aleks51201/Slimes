@@ -50,7 +50,7 @@ public abstract class Gene
         return genomResources.GenomeSprites[id].Spr;
     }
 
-    public void SetSpite(GameObject cellGameObject, Sprite sprite)
+    public void SetSprite(GameObject cellGameObject, Sprite sprite)
     {
         cellGameObject.GetComponent<Image>().sprite = sprite;
     }

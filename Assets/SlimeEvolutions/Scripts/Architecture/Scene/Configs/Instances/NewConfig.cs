@@ -18,6 +18,7 @@ namespace SlimeEvolutions.Architecture.Scene
             CreateRepository<LaboratoryDataRepository>(repositoriesMap);
             CreateRepository<ExperienceRepository>(repositoriesMap);
             CreateRepository<MutagenRepository>(repositoriesMap);
+            CreateRepository<CrossingPlaceRepository>(repositoriesMap);
             return repositoriesMap;
         }
 
@@ -29,6 +30,7 @@ namespace SlimeEvolutions.Architecture.Scene
             CreateInteractor<LaboratoryDataInteractor>(interactorsMap);
             CreateInteractor<ExperienceInteractor>(interactorsMap);
             CreateInteractor<MutagenInteractor>(interactorsMap);
+            CreateInteractor<CrossingSpaceInteractor>(interactorsMap);
             return interactorsMap;
         }
     }

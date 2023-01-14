@@ -8,7 +8,10 @@ namespace SlimeEvolutions.Inventory
     public class InventoryButtonLogic
     {
         private GameObject gameObject;
+
+        
         public static Action<Slime> OnInventoryButtonClickEvent;
+
 
         public InventoryButtonLogic(GameObject gameObject)
         {

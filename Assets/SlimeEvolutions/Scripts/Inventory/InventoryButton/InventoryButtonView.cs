@@ -4,7 +4,7 @@ namespace SlimeEvolutions.Inventory
 {
     public class InventoryButtonView : MonoBehaviour
     {
-        InventoryButtonLogic buttonLogic;
+        private InventoryButtonLogic buttonLogic;
 
         private void Start()
         {

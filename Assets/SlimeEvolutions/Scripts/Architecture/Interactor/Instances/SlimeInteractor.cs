@@ -27,6 +27,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
         public void AddSlime(object sender, Slime slime)
         {
             CheckSlime(sender, slime);
+            AssignId(sender, slime);
             slimeRepository.Slimes.Add(slime);
             slimeRepository.Save();
             OnDataChangedEvent?.Invoke();
@@ -66,6 +67,14 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
                 }
             }
             return false;
+        }
+
+        private void AssignId(object sender, Slime slime)
+        {
+            CheckSlime(this, slime);
+            var slId = new SlimeID();
+            int id = slId.GetUniqueId();
+            slime.Id = id;
         }
 
         private void CheckSlime(object sender, Slime slime)

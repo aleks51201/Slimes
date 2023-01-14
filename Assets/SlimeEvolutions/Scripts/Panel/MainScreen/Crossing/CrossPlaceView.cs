@@ -12,7 +12,9 @@ namespace SlimeEvolutions.Panel.Crossing
         public ResearchPlaceView LeftCrossSlimePositionView => leftCrossSlimePositionView;
         public ResearchPlaceView RightCrossSlimePositionView => rightCrossSlimePositionView;
 
+
         private CrossPlaceLogic crossPlaceLogic;
+
 
         private void Awake()
         {

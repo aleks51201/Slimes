@@ -6,6 +6,8 @@ namespace SlimeEvolutions.InventoryCell
     public class CellView : MonoBehaviour
     {
         private Slime slime;
+
+
         public Slime Slime
         {
             get { return slime; }
@@ -16,6 +18,7 @@ namespace SlimeEvolutions.InventoryCell
                 slime = value;
             }
         }
+
 
         private void Start()
         {
