@@ -391,6 +391,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -67.2
       objectReference: {fileID: 0}
+    - target: {fileID: 5835913055242990850, guid: 07855cd45ad60f4469f0f5a033212717, type: 3}
+      propertyPath: isExplored
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7545647280027123272, guid: 07855cd45ad60f4469f0f5a033212717, type: 3}
       propertyPath: m_Name
       value: Cell

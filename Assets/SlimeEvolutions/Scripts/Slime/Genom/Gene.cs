@@ -47,7 +47,15 @@ public abstract class Gene
 
     public Sprite GetSprite(GameObject cellGameObject, int id)
     {
-        return genomResources.GenomeSprites[id].Spr;
+        foreach (var i in genomResources.GenomeSprites)
+        {
+            if (i.Id == id)
+            {
+                return i.Spr;
+            }
+        }
+        throw new ArgumentOutOfRangeException(" Missing slime's part");
+        //return genomResources.GenomeSprites[id].Spr;
     }
 
     public void SetSprite(GameObject cellGameObject, Sprite sprite)
