@@ -7,7 +7,7 @@ namespace Assets.Scripts
     [RequireComponent(typeof(Button))]
     public class BackButton : MonoBehaviour
     {
-        [SerializeField] GameObject currentPanel;
+        [SerializeField] private GameObject currentPanel;
 
         public static Action OnButtonClickEvent;
 

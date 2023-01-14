@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.InventoryCell;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,21 +22,22 @@ public abstract class Gene
         }
     }
     public bool IsDominant { get; set; }
-    
+
     public void RandomGenerate()
     {
-        id = RandomNumber(genomResources.GenomeSprites.Length);
-        IsDominant = GetDominantProperty();
+        List<int> idCollections = new();
+        foreach (GenomeSprite genomeSprite in genomResources.GenomeSprites)
+        {
+            idCollections.Add(genomeSprite.Id);
+        }
+        id = idCollections[RandomNumber(idCollections.Count)];
+        IsDominant = RandomNumber(2) == 1;
     }
 
     private protected int RandomNumber(int num)
     {
         System.Random rnd = new();
         return rnd.Next(num);
-    }
-    private protected bool GetDominantProperty()
-    {
-        return genomResources.GenomeSprites[id].IsDominant;
     }
 
     private protected CellView GetCellView(GameObject gameObject)
@@ -48,7 +50,7 @@ public abstract class Gene
         return genomResources.GenomeSprites[id].Spr;
     }
 
-    public void SetSpite(GameObject cellGameObject, Sprite sprite)
+    public void SetSprite(GameObject cellGameObject, Sprite sprite)
     {
         cellGameObject.GetComponent<Image>().sprite = sprite;
     }

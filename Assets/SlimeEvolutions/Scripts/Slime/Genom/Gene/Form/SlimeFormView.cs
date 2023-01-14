@@ -7,7 +7,7 @@ namespace SlimeEvolutions.Slimes.Gemom
         private void Start()
         {
             SlimeForm slimeForm = new();
-            slimeForm.SetSpite(this.gameObject, slimeForm.GetSprite(this.gameObject, slimeForm.GetCellSlimeId(this.gameObject)));
+            slimeForm.SetSprite(this.gameObject, slimeForm.GetSprite(this.gameObject, slimeForm.GetCellSlimeId(this.gameObject)));
         }
     }
 }

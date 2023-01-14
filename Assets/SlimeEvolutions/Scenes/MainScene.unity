@@ -871,6 +871,7 @@ GameObject:
   - component: {fileID: 139398003}
   - component: {fileID: 139398002}
   - component: {fileID: 139398005}
+  - component: {fileID: 139398006}
   m_Layer: 5
   m_Name: Back button
   m_TagString: Untagged
@@ -955,6 +956,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 139398006}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: ActivationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 139398006}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &139398003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1031,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPanel: {fileID: 1579106379}
+--- !u!114 &139398006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139398000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activPanel:
+  - {fileID: 939685660}
+  - {fileID: 1878470371}
+  deactivPanel:
+  - {fileID: 1579106379}
 --- !u!1 &154373316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1207,8 @@ GameObject:
   - component: {fileID: 186973461}
   - component: {fileID: 186973463}
   - component: {fileID: 186973462}
+  - component: {fileID: 186973465}
+  - component: {fileID: 186973466}
   m_Layer: 5
   m_Name: Crossing
   m_TagString: Untagged
@@ -1189,6 +1233,7 @@ RectTransform:
   - {fileID: 2036421811}
   - {fileID: 452874455}
   - {fileID: 2076212632}
+  - {fileID: 1172625576}
   m_Father: {fileID: 1663471356}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1235,6 +1280,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186973460}
   m_CullTransparentMesh: 1
+--- !u!114 &186973465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186973460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10508ff465eb954086638556a9eeab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossingPositions:
+  - {fileID: 2888343199891236636, guid: c661b732fc46307449d08e54020a7892, type: 3}
+--- !u!114 &186973466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186973460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5814891114836641ac4af0c1588b0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderForCrossedPairsSlimes: {fileID: 186973465}
 --- !u!1 &190244641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,6 +1705,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 199891728}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &199891726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,7 +1767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPanel: {fileID: 1579106379}
+  activPanel:
+  - {fileID: 1579106379}
+  deactivPanel:
+  - {fileID: 939685660}
+  - {fileID: 1878470371}
 --- !u!1 &221020061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5713,6 +5801,7 @@ GameObject:
   - component: {fileID: 760816704}
   - component: {fileID: 760816703}
   - component: {fileID: 760816706}
+  - component: {fileID: 760816707}
   m_Layer: 5
   m_Name: Back button
   m_TagString: Untagged
@@ -5797,6 +5886,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 760816707}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: ActivationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 760816707}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760816704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5848,6 +5961,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPanel: {fileID: 221020061}
+--- !u!114 &760816707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760816701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activPanel:
+  - {fileID: 939685660}
+  deactivPanel:
+  - {fileID: 221020061}
 --- !u!1 &764469154
 GameObject:
   m_ObjectHideFlags: 0
@@ -7141,6 +7270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8003a4e10dcac2349b59f525d813f993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holderForCrossedPairsSlimes: {fileID: 186973465}
 --- !u!1 &951999901
 GameObject:
   m_ObjectHideFlags: 0
@@ -7233,7 +7363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchPlaceView: {fileID: 1807395748}
-  researchTimeInMinutes: 0.20000000298023224
+  researchTimeInMinutes: 1
   backbutton: {fileID: 1208814341}
 --- !u!1 &977538846
 GameObject:
@@ -8668,6 +8798,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1160872762}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1160872760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8718,7 +8860,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPanel: {fileID: 951999901}
+  activPanel:
+  - {fileID: 951999901}
+  deactivPanel:
+  - {fileID: 939685660}
 --- !u!114 &1160872763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8731,6 +8876,112 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2317f3f605299b44985fb99e5bb41fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1172625575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 186973461}
+    m_Modifications:
+    - target: {fileID: 374030118722129815, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1042.5984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 286.6059
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975090051267972847, guid: c661b732fc46307449d08e54020a7892, type: 3}
+      propertyPath: m_Name
+      value: CrossWithTimer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c661b732fc46307449d08e54020a7892, type: 3}
+--- !u!224 &1172625576 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4975090051267972846, guid: c661b732fc46307449d08e54020a7892, type: 3}
+  m_PrefabInstance: {fileID: 1172625575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1192849340
 GameObject:
   m_ObjectHideFlags: 0
@@ -9301,6 +9552,7 @@ GameObject:
   - component: {fileID: 1208814339}
   - component: {fileID: 1208814338}
   - component: {fileID: 1208814341}
+  - component: {fileID: 1208814342}
   m_Layer: 5
   m_Name: Back button
   m_TagString: Untagged
@@ -9376,6 +9628,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1208814341}
         m_TargetAssemblyTypeName: Assets.Scripts.BackButton, Assembly-CSharp
         m_MethodName: CloseCurrentPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1208814342}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: ActivationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1208814342}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10044,6 +10320,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1250396091}
         m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
         m_MethodName: ActivationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250396091}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14194,6 +14482,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1874776171}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1874776169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14244,7 +14544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPanel: {fileID: 221020061}
+  activPanel:
+  - {fileID: 221020061}
+  deactivPanel:
+  - {fileID: 939685660}
 --- !u!114 &1874776172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14957,6 +15260,7 @@ GameObject:
   - component: {fileID: 2076212634}
   - component: {fileID: 2076212633}
   - component: {fileID: 2076212636}
+  - component: {fileID: 2076212637}
   m_Layer: 5
   m_Name: Back button
   m_TagString: Untagged
@@ -15031,7 +15335,31 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2076212636}
         m_TargetAssemblyTypeName: Assets.Scripts.BackButton, Assembly-CSharp
-        m_MethodName: CloseCurrentPanel
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2076212637}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: ActivationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2076212637}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.PanelActiveButton, Assembly-CSharp
+        m_MethodName: Deactivate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15092,6 +15420,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPanel: {fileID: 186973460}
+--- !u!114 &2076212637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076212631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04667ee4515253438d7335e7ce6cc9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activPanel:
+  - {fileID: 939685660}
+  - {fileID: 1878470371}
+  deactivPanel:
+  - {fileID: 186973460}
 --- !u!1 &2080522404
 GameObject:
   m_ObjectHideFlags: 0

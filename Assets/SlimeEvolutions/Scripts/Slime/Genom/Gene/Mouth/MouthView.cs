@@ -7,7 +7,7 @@ namespace SlimeEvolutions.Slimes.Gemom
         private void Start()
         {
             Mouth mouth = new();
-            mouth.SetSpite(this.gameObject, mouth.GetSprite(this.gameObject, mouth.GetCellSlimeId(this.gameObject)));
+            mouth.SetSprite(this.gameObject, mouth.GetSprite(this.gameObject, mouth.GetCellSlimeId(this.gameObject)));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace SlimeEvolutions.Slimes.Gemom
         private void Start()
         {
             Eyes eyes = new();
-            eyes.SetSpite(this.gameObject, eyes.GetSprite(this.gameObject, eyes.GetCellSlimeId(this.gameObject)));
+            eyes.SetSprite(this.gameObject, eyes.GetSprite(this.gameObject, eyes.GetCellSlimeId(this.gameObject)));
         }
     }
 }

@@ -24,7 +24,8 @@ namespace SlimeEvolutions.Architecture
                 {
                     InventorySlimes = new(),
                     LastDateTime = new(),
-                    LaboratoryData = new()
+                    LaboratoryData = new(),
+                    CrossingData = new()
                 };
                 Save(dataStructHolder);
                 return dataStructHolder;

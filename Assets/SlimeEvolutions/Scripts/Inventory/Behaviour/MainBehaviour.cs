@@ -6,6 +6,7 @@ namespace SlimeEvolutions.Inventory.Behaviour
     public class MainBehaviour : IInventoryBehaviour
     {
         private InventoryLogic inventoryLogic;
+        private bool isInitialized;
 
         public void Enter(InventoryLogic inventory)
         {
@@ -20,11 +21,18 @@ namespace SlimeEvolutions.Inventory.Behaviour
 
         public void OnEnable()
         {
+            Subscribe();
+            if (isInitialized)
+            {
+                inventoryLogic.ViewUpdate();
+                return;
+            }
             OneTimeSubscribe();
         }
 
         public void OnDisable()
         {
+            Unsubscribe();
         }
 
         private void Subscribe()
@@ -44,12 +52,14 @@ namespace SlimeEvolutions.Inventory.Behaviour
         {
             SlimesInventory.OnSlimeInteractorFacadeInitializedEvent += inventoryLogic.ViewUpdate;
             SlimesInventory.OnSlimeInteractorFacadeInitializedEvent += LocalUp;
+            isInitialized = false;
         }
 
         private void LocalUp()
         {
             SlimesInventory.OnSlimeInteractorFacadeInitializedEvent -= inventoryLogic.ViewUpdate;
             SlimesInventory.OnSlimeInteractorFacadeInitializedEvent -= LocalUp;
+            isInitialized = true;
         }
 
     }

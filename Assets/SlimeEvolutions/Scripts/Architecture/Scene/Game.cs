@@ -7,11 +7,13 @@ namespace SlimeEvolutions.Architecture.Scene
     public static class Game
     {
         public static SceneManagerBase SceneManager { get; private set; }
+        public static bool IsGameInitialized { get; private set; }
 
         public static Action OnGameInitializedEvent;
 
         public static void Run()
         {
+            IsGameInitialized = false;
             SceneManager = new NewSceneManager();
             Coroutines.StartRoutine(InitializeGame());
         }
@@ -21,6 +23,7 @@ namespace SlimeEvolutions.Architecture.Scene
             SceneManager.InitializeSceneMap();
             yield return SceneManager.LoadCurrentSceneAsync();
             OnGameInitializedEvent?.Invoke();
+            IsGameInitialized = true;
         }
 
         public static T GetInteractor<T>() where T : Interactor
