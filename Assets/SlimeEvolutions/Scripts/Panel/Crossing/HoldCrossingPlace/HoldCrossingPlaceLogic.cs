@@ -157,6 +157,10 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void TimerSubscribe()
         {
+            if (timer is null)
+            {
+                return;
+            }
             timer.OnTimerValueChangedEvent += TimerUpdate;
             timer.OnTimerValueChangedEvent += SliderUpdate;
             timer.OnTimerFinishedEvent += EnableButton;
@@ -165,6 +169,10 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void TimerUnsubscribe()
         {
+            if (timer is null)
+            {
+                return;
+            }
             timer.OnTimerValueChangedEvent -= TimerUpdate;
             timer.OnTimerValueChangedEvent -= SliderUpdate;
             timer.OnTimerFinishedEvent -= EnableButton;
@@ -174,19 +182,13 @@ namespace SlimeEvolutions.Panel.Crossing
         public void OnEnable()
         {
             UpdateView();
-            if (timer is not null)
-            {
-                TimerSubscribe();
-            }
+            TimerSubscribe();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         public void OnDisable()
         {
-            if (timer is not null)
-            {
-                TimerUnsubscribe();
-            }
+            TimerUnsubscribe();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
         }
