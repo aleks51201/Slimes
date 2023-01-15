@@ -64,20 +64,7 @@ namespace SlimeEvolutions.Panel.Crossing
             SetButtonStatus(lSlime, true);
             AddCell(rSlime.gameObject, crossingSpace.RSlime);
             SetButtonStatus(rSlime, true);
-            //FillingCellResultSlimeData();
             EnableButton();
-        }
-
-        private void FillingCellResultSlimeData()
-        {
-            /*            ButtonWithClickAndHold cSlime = holdCrossingPlaceView.AcceptButton;
-                        if (crossingSpace.EndTimeCrossing < DateTime.Now)
-                        {
-                            AddCell(cSlime.gameObject, crossingSpace.ResultSlime);
-                            SetButtonStatus(cSlime, true);
-                        holdCrossingPlaceView.Timer.text = "";
-                        }
-            */
         }
 
         private void EnableButton()
