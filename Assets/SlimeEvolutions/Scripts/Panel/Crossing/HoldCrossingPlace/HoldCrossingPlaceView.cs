@@ -7,7 +7,7 @@ namespace SlimeEvolutions.Panel.Crossing
     public class HoldCrossingPlaceView : MonoBehaviour
     {
         [SerializeField] private ButtonWithHold leftSlime, rightSlime;
-        [SerializeField] private ButtonWithClickAndHold centralSlime;
+        [SerializeField] private ButtonWithClick acceptButton;
         [SerializeField] private TextMeshProUGUI timer;
         [SerializeField] private GameObject prefab;
         [SerializeField] private int lvlForOpen;
@@ -17,7 +17,7 @@ namespace SlimeEvolutions.Panel.Crossing
         public int ID { get; set; }
         public ButtonWithHold LeftSlime => leftSlime;
         public ButtonWithHold RightSlime => rightSlime;
-        public ButtonWithClickAndHold CentralSlime => centralSlime;
+        public ButtonWithClick AcceptButton => acceptButton;
         public TextMeshProUGUI Timer => timer;
         public GameObject Prefab => prefab;
 

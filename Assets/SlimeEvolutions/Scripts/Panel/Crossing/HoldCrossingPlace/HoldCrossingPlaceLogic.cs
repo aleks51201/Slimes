@@ -37,7 +37,7 @@ namespace SlimeEvolutions.Panel.Crossing
             }
             holdCrossingPlaceView.LeftSlime.IsActive = false;
             holdCrossingPlaceView.RightSlime.IsActive = false;
-            holdCrossingPlaceView.CentralSlime.IsActive = false;
+            holdCrossingPlaceView.AcceptButton.IsActive = false;
         }
 
         private bool IsDataOk(CrossingSpaceData crossingSpaceData)
@@ -63,19 +63,19 @@ namespace SlimeEvolutions.Panel.Crossing
             SetButtonStatus(lSlime, true);
             AddCell(rSlime.gameObject, crossingSpace.RSlime);
             SetButtonStatus(rSlime, true);
-            FillingCellResultSlimeData();
+            //FillingCellResultSlimeData();
         }
 
         private void FillingCellResultSlimeData()
         {
-            ButtonWithClickAndHold cSlime = holdCrossingPlaceView.CentralSlime;
+/*            ButtonWithClickAndHold cSlime = holdCrossingPlaceView.AcceptButton;
             if (crossingSpace.EndTimeCrossing < DateTime.Now)
             {
                 AddCell(cSlime.gameObject, crossingSpace.ResultSlime);
                 SetButtonStatus(cSlime, true);
             holdCrossingPlaceView.Timer.text = "";
             }
-        }
+*/        }
 
         private void StartTimer()
         {
@@ -110,7 +110,7 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void Clean()
         {
-            var btns = new ButtonMain[] { holdCrossingPlaceView.LeftSlime, holdCrossingPlaceView.RightSlime, holdCrossingPlaceView.CentralSlime };
+            var btns = new ButtonMain[] { holdCrossingPlaceView.LeftSlime, holdCrossingPlaceView.RightSlime, holdCrossingPlaceView.AcceptButton };
             foreach (ButtonMain btn in btns)
             {
                 DeleteCellFromButton(btn);
@@ -133,7 +133,7 @@ namespace SlimeEvolutions.Panel.Crossing
             {
                 holdCrossingPlaceView.LeftSlime.GetComponentInChildren<CellView>().Slime,
                 holdCrossingPlaceView.RightSlime.GetComponentInChildren<CellView>().Slime,
-                holdCrossingPlaceView.CentralSlime.GetComponentInChildren<CellView>().Slime
+                holdCrossingPlaceView.AcceptButton.GetComponentInChildren<CellView>().Slime
             };
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
@@ -148,7 +148,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 timer.OnTimerValueChangedEvent += TimerUpdate;
                 timer.OnTimerFinishedEvent += FillingCellResultSlimeData;
             }
-            holdCrossingPlaceView.CentralSlime.OnButtonClickEvent += AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         public void OnDisable()
@@ -158,7 +158,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 timer.OnTimerValueChangedEvent -= TimerUpdate;
                 timer.OnTimerFinishedEvent -= FillingCellResultSlimeData;
             }
-            holdCrossingPlaceView.CentralSlime.OnButtonClickEvent -= AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
         }
     }
