@@ -5,6 +5,7 @@ using SlimeEvolutions.Buttons;
 using SlimeEvolutions.InventoryCell;
 using SlimeEvolutions.Timers;
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing
@@ -97,7 +98,7 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void TimerUpdate(float seconds)
         {
-            holdCrossingPlaceView.Timer.text = $"{(int)seconds}";
+            holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{(int)seconds}";
         }
 
         private void SliderUpdate(float seconds)
@@ -131,7 +132,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 DeleteCellFromButton(btn);
                 SetButtonStatus(btn, false);
             }
-            holdCrossingPlaceView.Timer.text = "";
+            holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
 
         private void SaveSlime(Slime[] slimes)

@@ -9,7 +9,7 @@ namespace SlimeEvolutions.Panel.Crossing
     {
         [SerializeField] private ButtonWithHold leftSlime, rightSlime;
         [SerializeField] private ButtonWithClick acceptButton;
-        [SerializeField] private TextMeshProUGUI timer;
+        [SerializeField] private GameObject timer;
         [SerializeField] private GameObject prefab;
         [SerializeField] private int lvlForOpen;
         [SerializeField] private Slider slider;
@@ -22,7 +22,7 @@ namespace SlimeEvolutions.Panel.Crossing
         public ButtonWithHold LeftSlime => leftSlime;
         public ButtonWithHold RightSlime => rightSlime;
         public ButtonWithClick AcceptButton => acceptButton;
-        public TextMeshProUGUI Timer => timer;
+        public GameObject Timer => timer;
         public GameObject Prefab => prefab;
         public Slider Slider => slider;
 
