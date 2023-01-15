@@ -31,6 +31,16 @@ namespace SlimeEvolutions.Panel.Crossing
             IfThereIsNotCorrectInformation();
         }
 
+        private void IfTimeHasNotExpired()
+        {
+            if (DateTime.Now < crossingSpace.EndTimeCrossing)
+            {
+                StartTimer();
+                EnableTimerView();
+                EnableSliderView();
+            }
+        }
+
         private void WasNotPickedUp()
         {
             if (DateTime.Now > crossingSpace.EndTimeCrossing)
@@ -41,19 +51,12 @@ namespace SlimeEvolutions.Panel.Crossing
             }
         }
 
-        private void IfTimeHasNotExpired()
-        {
-            if (DateTime.Now < crossingSpace.EndTimeCrossing)
-            {
-                StartTimer();
-            }
-        }
-
         private void IfThereIsCorrectInformation()
         {
             if (IsDataOk(crossingSpace))
             {
                 FillingCellData(crossingSpace);
+                EnableActiveLayer();
                 WasNotPickedUp();
                 IfTimeHasNotExpired();
                 return;
@@ -66,9 +69,10 @@ namespace SlimeEvolutions.Panel.Crossing
             {
                 DisableSliderView();
                 DisableTimerView();
+                DisableActiveLayer();
+                DisableButton();
                 holdCrossingPlaceView.LeftSlime.IsActive = false;
                 holdCrossingPlaceView.RightSlime.IsActive = false;
-                holdCrossingPlaceView.AcceptButton.IsActive = false;
             }
         }
 
@@ -99,19 +103,38 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void EnableButton()
         {
-            if (crossingSpace.EndTimeCrossing < DateTime.Now)
-            {
-                holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true);
-                holdCrossingPlaceView.AcceptButton.IsActive = true;
-            }
+            holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true);
+            holdCrossingPlaceView.AcceptButton.IsActive = true;
+        }
+
+        private void DisableButton()
+        {
+            holdCrossingPlaceView.AcceptButton.gameObject.SetActive(false);
+            holdCrossingPlaceView.AcceptButton.IsActive = false;
         }
 
         private void StartTimer()
         {
+            if (timer is not null)
+            {
+                if (timer.isActive)
+                {
+                    return;
+                }
+            }
             float seconds = (float)(crossingSpace.EndTimeCrossing - DateTime.Now).TotalSeconds;
             timer = new(TimerTypes.OneSecTickUnscaled, seconds);
             timer.Start();
             TimerSubscribe();
+        }
+
+        private void StopTimer()
+        {
+            if (timer is null)
+            {
+                return;
+            }
+            timer.Stop();
         }
 
         private void UpdateTimerView(float seconds)
@@ -165,6 +188,15 @@ namespace SlimeEvolutions.Panel.Crossing
             DisableSliderView();
         }
 
+        private void EnableActiveLayer()
+        {
+            holdCrossingPlaceView.ActionLayer.SetActive(true);
+        }
+
+        private void DisableActiveLayer()
+        {
+            holdCrossingPlaceView.ActionLayer.SetActive(false);
+        }
 
         private void SetButtonStatus(ButtonMain btn, bool status)
         {
@@ -213,6 +245,7 @@ namespace SlimeEvolutions.Panel.Crossing
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
             Clean();
+            UpdateView();
         }
 
         private void TimerSubscribe()
@@ -253,6 +286,7 @@ namespace SlimeEvolutions.Panel.Crossing
         public void OnDisable()
         {
             TimerUnsubscribe();
+            StopTimer();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
         }

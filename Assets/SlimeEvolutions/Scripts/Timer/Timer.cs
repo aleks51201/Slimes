@@ -8,6 +8,7 @@ namespace SlimeEvolutions.Timers
         public TimerTypes Type { get; }
         public float RemainingSecond { get; private set; }
         public bool isPaused { get; private set; }
+        public bool isActive { get; private set; }
 
 
         public event Action<float> OnTimerValueChangedEvent;
@@ -35,6 +36,7 @@ namespace SlimeEvolutions.Timers
         public void Start()
         {
             InvokeStopTimerEventIfRemainingSecondsIsZero();
+            isActive = true;
             isPaused = false;
             Subscribe();
             OnTimerValueChangedEvent?.Invoke(RemainingSecond);
@@ -66,6 +68,7 @@ namespace SlimeEvolutions.Timers
             RemainingSecond = 0;
             OnTimerValueChangedEvent?.Invoke(RemainingSecond);
             OnTimerFinishedEvent?.Invoke();
+            isActive = false;
         }
 
         private void InvokeStopTimerEventIfRemainingSecondsIsZero()
