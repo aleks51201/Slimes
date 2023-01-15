@@ -34,6 +34,12 @@ namespace SlimeEvolutions.Panel.Crossing
                 {
                     StartTimer();
                 }
+                if(DateTime.Now> crossingSpace.EndTimeCrossing)
+                {
+                    EnableButton();
+                    DisableSliderView();
+                    DisableTimerView();
+                }
                 return;
             }
             holdCrossingPlaceView.LeftSlime.IsActive = false;
@@ -64,7 +70,6 @@ namespace SlimeEvolutions.Panel.Crossing
             SetButtonStatus(lSlime, true);
             AddCell(rSlime.gameObject, crossingSpace.RSlime);
             SetButtonStatus(rSlime, true);
-            EnableButton();
         }
 
         private void EnableButton()
@@ -72,6 +77,7 @@ namespace SlimeEvolutions.Panel.Crossing
             if (crossingSpace.EndTimeCrossing < DateTime.Now)
             {
                 holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true);
+                holdCrossingPlaceView.AcceptButton.IsActive = true;
             }
         }
 
@@ -142,7 +148,6 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void AcceptNewSlime()
         {
-            Debug.Log("click");
             var slimes = new Slime[]
             {
                 crossingSpace.LSlime,
