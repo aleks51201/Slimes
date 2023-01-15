@@ -96,9 +96,14 @@ namespace SlimeEvolutions.Panel.Crossing
             TimerSubscribe();
         }
 
-        private void TimerUpdate(float seconds)
+        private void UpdateTimerView(float seconds)
         {
             holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{(int)seconds}";
+        }
+
+        private void DisableTimerView()
+        {
+            holdCrossingPlaceView.Timer.SetActive(false);
         }
 
         private void SliderUpdate(float seconds)
@@ -162,9 +167,10 @@ namespace SlimeEvolutions.Panel.Crossing
             {
                 return;
             }
-            timer.OnTimerValueChangedEvent += TimerUpdate;
+            timer.OnTimerValueChangedEvent += UpdateTimerView;
             timer.OnTimerValueChangedEvent += SliderUpdate;
             timer.OnTimerFinishedEvent += EnableButton;
+            timer.OnTimerFinishedEvent += DisableTimerView;
             timer.OnTimerFinishedEvent += TimerUnsubscribe;
         }
 
@@ -174,9 +180,10 @@ namespace SlimeEvolutions.Panel.Crossing
             {
                 return;
             }
-            timer.OnTimerValueChangedEvent -= TimerUpdate;
+            timer.OnTimerValueChangedEvent -= UpdateTimerView;
             timer.OnTimerValueChangedEvent -= SliderUpdate;
             timer.OnTimerFinishedEvent -= EnableButton;
+            timer.OnTimerFinishedEvent -= DisableTimerView;
             timer.OnTimerFinishedEvent -= TimerUnsubscribe;
         }
 
