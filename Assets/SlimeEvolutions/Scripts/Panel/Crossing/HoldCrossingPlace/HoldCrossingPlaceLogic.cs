@@ -142,6 +142,7 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void AcceptNewSlime()
         {
+            Debug.Log("click");
             var slimes = new Slime[]
             {
                 holdCrossingPlaceView.LeftSlime.GetComponentInChildren<CellView>().Slime,
