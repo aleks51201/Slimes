@@ -99,7 +99,8 @@ namespace SlimeEvolutions.Panel
 */
         public void UpdateTimerText(float seconds)
         {
-            laboratoryView.Text.text = $"{(int)seconds}";
+            var time = TimeSpan.FromSeconds(seconds);
+            laboratoryView.Text.text = $"{time:mm}:{time:ss}";
         }
 
         public void EndResearch()
