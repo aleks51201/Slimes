@@ -145,9 +145,9 @@ namespace SlimeEvolutions.Panel.Crossing
             Debug.Log("click");
             var slimes = new Slime[]
             {
-                holdCrossingPlaceView.LeftSlime.GetComponentInChildren<CellView>().Slime,
-                holdCrossingPlaceView.RightSlime.GetComponentInChildren<CellView>().Slime,
-                holdCrossingPlaceView.AcceptButton.GetComponentInChildren<CellView>().Slime
+                crossingSpace.LSlime,
+                crossingSpace.RSlime,
+                crossingSpace.ResultSlime
             };
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
