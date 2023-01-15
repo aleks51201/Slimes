@@ -139,7 +139,8 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void UpdateTimerView(float seconds)
         {
-            holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{(int)seconds}";
+            var time = TimeSpan.FromSeconds(seconds);
+            holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{time:mm}:{time:ss}";
         }
 
         private void EnableTimerView()
