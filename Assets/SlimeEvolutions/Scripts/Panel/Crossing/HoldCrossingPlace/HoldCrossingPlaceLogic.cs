@@ -27,26 +27,49 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             var interactor = Game.GetInteractor<CrossingSpaceInteractor>();
             crossingSpace = interactor.CrossingSpaces[holdCrossingPlaceView.ID];
+            IfThereIsCorrectInformation();
+            IfThereIsNotCorrectInformation();
+        }
+
+        private void WasNotPickedUp()
+        {
+            if (DateTime.Now > crossingSpace.EndTimeCrossing)
+            {
+                EnableButton();
+                DisableSliderView();
+                DisableTimerView();
+            }
+        }
+
+        private void IfTimeHasNotExpired()
+        {
+            if (DateTime.Now < crossingSpace.EndTimeCrossing)
+            {
+                StartTimer();
+            }
+        }
+
+        private void IfThereIsCorrectInformation()
+        {
             if (IsDataOk(crossingSpace))
             {
                 FillingCellData(crossingSpace);
-                if (DateTime.Now < crossingSpace.EndTimeCrossing)
-                {
-                    StartTimer();
-                }
-                if (DateTime.Now > crossingSpace.EndTimeCrossing)
-                {
-                    EnableButton();
-                    DisableSliderView();
-                    DisableTimerView();
-                }
+                WasNotPickedUp();
+                IfTimeHasNotExpired();
                 return;
             }
-            DisableSliderView();
-            DisableTimerView();
-            holdCrossingPlaceView.LeftSlime.IsActive = false;
-            holdCrossingPlaceView.RightSlime.IsActive = false;
-            holdCrossingPlaceView.AcceptButton.IsActive = false;
+        }
+
+        private void IfThereIsNotCorrectInformation()
+        {
+            if (!IsDataOk(crossingSpace))
+            {
+                DisableSliderView();
+                DisableTimerView();
+                holdCrossingPlaceView.LeftSlime.IsActive = false;
+                holdCrossingPlaceView.RightSlime.IsActive = false;
+                holdCrossingPlaceView.AcceptButton.IsActive = false;
+            }
         }
 
         private bool IsDataOk(CrossingSpaceData crossingSpaceData)
