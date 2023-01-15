@@ -112,6 +112,11 @@ namespace SlimeEvolutions.Panel.Crossing
             holdCrossingPlaceView.Slider.value = 1 - (seconds / totalSeconds);
         }
 
+        private void DisableSliderView()
+        {
+            holdCrossingPlaceView.Slider.gameObject.SetActive(false);
+        }
+
         private void SetButtonStatus(ButtonMain btn, bool status)
         {
             btn.IsActive = status;
@@ -171,6 +176,7 @@ namespace SlimeEvolutions.Panel.Crossing
             timer.OnTimerValueChangedEvent += SliderUpdate;
             timer.OnTimerFinishedEvent += EnableButton;
             timer.OnTimerFinishedEvent += DisableTimerView;
+            timer.OnTimerFinishedEvent += DisableSliderView;
             timer.OnTimerFinishedEvent += TimerUnsubscribe;
         }
 
@@ -184,6 +190,7 @@ namespace SlimeEvolutions.Panel.Crossing
             timer.OnTimerValueChangedEvent -= SliderUpdate;
             timer.OnTimerFinishedEvent -= EnableButton;
             timer.OnTimerFinishedEvent -= DisableTimerView;
+            timer.OnTimerFinishedEvent -= DisableSliderView;
             timer.OnTimerFinishedEvent -= TimerUnsubscribe;
         }
 
