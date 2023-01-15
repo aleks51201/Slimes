@@ -37,6 +37,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             {
                 return;
             }
+            TimerSubscribe();
             isSubscribe = true;
         }
 
@@ -46,28 +47,42 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             {
                 return;
             }
-            if(labLogic.Timer is not null)
-            {
-                labLogic.Timer.OnTimerFinishedEvent -= ChangeBehaviour; 
-                labLogic.Timer.OnTimerFinishedEvent -= labLogic.EndResearch;
-                labLogic.Timer.OnTimerValueChangedEvent -= labLogic.UpdateTimerText;
-            }
+            TimerUnsubcribe();
             isSubscribe = false;
         }
 
         private void TimerStart()
         {
             labLogic.StartTimer((float)labLogic.Seconds);
-            labLogic.Timer.OnTimerFinishedEvent += ChangeBehaviour;
-            labLogic.Timer.OnTimerFinishedEvent += labLogic.EndResearch;
-            labLogic.Timer.OnTimerValueChangedEvent += labLogic.UpdateTimerText;
+            TimerSubscribe();
         }
+
+        private void TimerSubscribe()
+        {
+            if (labLogic.Timer is not null)
+            {
+                labLogic.Timer.OnTimerFinishedEvent += ChangeBehaviour;
+                labLogic.Timer.OnTimerFinishedEvent += labLogic.EndResearch;
+                labLogic.Timer.OnTimerValueChangedEvent += labLogic.UpdateTimerText;
+            }
+        }
+
+        private void TimerUnsubcribe()
+        {
+            if (labLogic.Timer is not null)
+            {
+                labLogic.Timer.OnTimerFinishedEvent -= ChangeBehaviour;
+                labLogic.Timer.OnTimerFinishedEvent -= labLogic.EndResearch;
+                labLogic.Timer.OnTimerValueChangedEvent -= labLogic.UpdateTimerText;
+            }
+        }
+
 
         public void ChangeBehaviour()
         {
             labLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
         }
-        
+
         private void ResearchSpaceUpdate()
         {
             Slime researchingSlime = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime;
