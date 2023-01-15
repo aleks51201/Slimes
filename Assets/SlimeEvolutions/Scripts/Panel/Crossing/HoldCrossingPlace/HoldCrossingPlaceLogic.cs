@@ -64,6 +64,7 @@ namespace SlimeEvolutions.Panel.Crossing
             AddCell(rSlime.gameObject, crossingSpace.RSlime);
             SetButtonStatus(rSlime, true);
             //FillingCellResultSlimeData();
+            EnableButton();
         }
 
         private void FillingCellResultSlimeData()
@@ -76,6 +77,14 @@ namespace SlimeEvolutions.Panel.Crossing
             holdCrossingPlaceView.Timer.text = "";
             }
 */        }
+
+        private void EnableButton()
+        {
+            if(crossingSpace.EndTimeCrossing < DateTime.Now)
+            {
+                holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true) ;
+            }
+        }
 
         private void StartTimer()
         {
@@ -146,7 +155,7 @@ namespace SlimeEvolutions.Panel.Crossing
             if (timer is not null)
             {
                 timer.OnTimerValueChangedEvent += TimerUpdate;
-                timer.OnTimerFinishedEvent += FillingCellResultSlimeData;
+                timer.OnTimerFinishedEvent += EnableButton;
             }
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
@@ -156,7 +165,7 @@ namespace SlimeEvolutions.Panel.Crossing
             if (timer is not null)
             {
                 timer.OnTimerValueChangedEvent -= TimerUpdate;
-                timer.OnTimerFinishedEvent -= FillingCellResultSlimeData;
+                timer.OnTimerFinishedEvent -= EnableButton;
             }
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
