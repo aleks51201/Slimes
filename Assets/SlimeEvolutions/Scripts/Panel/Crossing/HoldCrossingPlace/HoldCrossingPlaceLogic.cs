@@ -34,7 +34,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 {
                     StartTimer();
                 }
-                if(DateTime.Now> crossingSpace.EndTimeCrossing)
+                if (DateTime.Now > crossingSpace.EndTimeCrossing)
                 {
                     EnableButton();
                     DisableSliderView();
@@ -42,6 +42,8 @@ namespace SlimeEvolutions.Panel.Crossing
                 }
                 return;
             }
+            DisableSliderView();
+            DisableTimerView();
             holdCrossingPlaceView.LeftSlime.IsActive = false;
             holdCrossingPlaceView.RightSlime.IsActive = false;
             holdCrossingPlaceView.AcceptButton.IsActive = false;
@@ -94,9 +96,24 @@ namespace SlimeEvolutions.Panel.Crossing
             holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{(int)seconds}";
         }
 
+        private void EnableTimerView()
+        {
+            holdCrossingPlaceView.Timer.SetActive(true);
+        }
+
         private void DisableTimerView()
         {
             holdCrossingPlaceView.Timer.SetActive(false);
+        }
+
+        private void TimerViewIsActive(bool isActive)
+        {
+            if (isActive)
+            {
+                EnableTimerView();
+                return;
+            }
+            DisableTimerView();
         }
 
         private void SliderUpdate(float seconds)
@@ -105,10 +122,26 @@ namespace SlimeEvolutions.Panel.Crossing
             holdCrossingPlaceView.Slider.value = 1 - (seconds / totalSeconds);
         }
 
+        private void EnableSliderView()
+        {
+            holdCrossingPlaceView.Slider.gameObject.SetActive(true);
+        }
+
         private void DisableSliderView()
         {
             holdCrossingPlaceView.Slider.gameObject.SetActive(false);
         }
+
+        private void SliderViewIsActive(bool isActive)
+        {
+            if (isActive)
+            {
+                EnableSliderView();
+                return;
+            }
+            DisableSliderView();
+        }
+
 
         private void SetButtonStatus(ButtonMain btn, bool status)
         {
