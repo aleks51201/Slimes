@@ -69,20 +69,21 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void FillingCellResultSlimeData()
         {
-/*            ButtonWithClickAndHold cSlime = holdCrossingPlaceView.AcceptButton;
-            if (crossingSpace.EndTimeCrossing < DateTime.Now)
-            {
-                AddCell(cSlime.gameObject, crossingSpace.ResultSlime);
-                SetButtonStatus(cSlime, true);
-            holdCrossingPlaceView.Timer.text = "";
-            }
-*/        }
+            /*            ButtonWithClickAndHold cSlime = holdCrossingPlaceView.AcceptButton;
+                        if (crossingSpace.EndTimeCrossing < DateTime.Now)
+                        {
+                            AddCell(cSlime.gameObject, crossingSpace.ResultSlime);
+                            SetButtonStatus(cSlime, true);
+                        holdCrossingPlaceView.Timer.text = "";
+                        }
+            */
+        }
 
         private void EnableButton()
         {
-            if(crossingSpace.EndTimeCrossing < DateTime.Now)
+            if (crossingSpace.EndTimeCrossing < DateTime.Now)
             {
-                holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true) ;
+                holdCrossingPlaceView.AcceptButton.gameObject.SetActive(true);
             }
         }
 
@@ -91,13 +92,18 @@ namespace SlimeEvolutions.Panel.Crossing
             float seconds = (float)(crossingSpace.EndTimeCrossing - DateTime.Now).TotalSeconds;
             timer = new(TimerTypes.OneSecTickUnscaled, seconds);
             timer.Start();
-            timer.OnTimerValueChangedEvent += TimerUpdate;
-            timer.OnTimerFinishedEvent += FillingCellResultSlimeData;
+            TimerSubscribe();
         }
 
         private void TimerUpdate(float seconds)
         {
             holdCrossingPlaceView.Timer.text = $"{(int)seconds}";
+        }
+
+        private void SliderUpdate(float seconds)
+        {
+            float totalSeconds = (float)(crossingSpace.EndTimeCrossing - crossingSpace.StartTimeCrossing).TotalSeconds;
+            holdCrossingPlaceView.Slider.value = 1 - (seconds / totalSeconds);
         }
 
         private void SetButtonStatus(ButtonMain btn, bool status)
@@ -149,13 +155,28 @@ namespace SlimeEvolutions.Panel.Crossing
             Clean();
         }
 
+        private void TimerSubscribe()
+        {
+            timer.OnTimerValueChangedEvent += TimerUpdate;
+            timer.OnTimerValueChangedEvent += SliderUpdate;
+            timer.OnTimerFinishedEvent += EnableButton;
+            timer.OnTimerFinishedEvent += TimerUnsubscribe;
+        }
+
+        private void TimerUnsubscribe()
+        {
+            timer.OnTimerValueChangedEvent -= TimerUpdate;
+            timer.OnTimerValueChangedEvent -= SliderUpdate;
+            timer.OnTimerFinishedEvent -= EnableButton;
+            timer.OnTimerFinishedEvent -= TimerUnsubscribe;
+        }
+
         public void OnEnable()
         {
             UpdateView();
             if (timer is not null)
             {
-                timer.OnTimerValueChangedEvent += TimerUpdate;
-                timer.OnTimerFinishedEvent += EnableButton;
+                TimerSubscribe();
             }
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
@@ -164,8 +185,7 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             if (timer is not null)
             {
-                timer.OnTimerValueChangedEvent -= TimerUpdate;
-                timer.OnTimerFinishedEvent -= EnableButton;
+                TimerUnsubscribe();
             }
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
