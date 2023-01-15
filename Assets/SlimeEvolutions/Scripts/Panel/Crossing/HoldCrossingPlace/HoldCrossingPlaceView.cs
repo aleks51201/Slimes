@@ -1,6 +1,7 @@
 ﻿using SlimeEvolutions.Buttons;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -11,8 +12,11 @@ namespace SlimeEvolutions.Panel.Crossing
         [SerializeField] private TextMeshProUGUI timer;
         [SerializeField] private GameObject prefab;
         [SerializeField] private int lvlForOpen;
+        [SerializeField] private Slider slider;
+
 
         private HoldCrossingPlaceLogic holdCrossingPlaceLogic;
+
 
         public int ID { get; set; }
         public ButtonWithHold LeftSlime => leftSlime;
@@ -20,6 +24,7 @@ namespace SlimeEvolutions.Panel.Crossing
         public ButtonWithClick AcceptButton => acceptButton;
         public TextMeshProUGUI Timer => timer;
         public GameObject Prefab => prefab;
+        public Slider Slider => slider;
 
 
         public GameObject Spawn(GameObject prefab, Vector2 position)
