@@ -2,12 +2,12 @@
 {
     public class IncorrectIformationBehaviour : IUpdateViewBehaviour
     {
-        private LaboratoryLogic labLogic;
+        private UpdateView updateView;
         private bool isSubscribe;
 
-        public void Enter(LaboratoryLogic laboratoryLogic)
+        public void Enter(UpdateView updateView)
         {
-            labLogic = laboratoryLogic;
+            this.updateView = updateView;
             Subscribe();
         }
 
