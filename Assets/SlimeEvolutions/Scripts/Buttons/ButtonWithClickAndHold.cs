@@ -23,13 +23,11 @@ namespace SlimeEvolutions.Buttons
                 n++;
             }
             OnButtonHoldEvent?.Invoke();
-            Debug.Log("Hold");
         }
 
         public void OnClick()
         {
             OnButtonClickEvent?.Invoke();
-            Debug.Log("Click");
         }
 
         private void OnMouseDown(PointerEventData eventData )
