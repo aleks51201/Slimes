@@ -1,12 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.SlimeEvolutions.Scripts.Panel.Crossing.UpdateView.UpdateViewBehaviour
+﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    class Class1
+    public class TimeAvailableBehaviour : IUpdateViewBehaviour
     {
+        private UpdateView updateView;
+        private bool isSubscribe;
+
+        public void Enter(UpdateView updateView)
+        {
+            this.updateView = updateView;
+            Subscribe();
+        }
+
+        public void Exit()
+        {
+            Unsubscribe();
+        }
+
+        public void OnEnable()
+        {
+            Subscribe();
+        }
+
+        public void OnDisable()
+        {
+            Unsubscribe();
+        }
+
+        private void Subscribe()
+        {
+            if (isSubscribe)
+            {
+                return;
+            }
+            isSubscribe = true;
+        }
+
+        private void Unsubscribe()
+        {
+            if (!isSubscribe)
+            {
+                return;
+            }
+            isSubscribe = false;
+        }
     }
 }

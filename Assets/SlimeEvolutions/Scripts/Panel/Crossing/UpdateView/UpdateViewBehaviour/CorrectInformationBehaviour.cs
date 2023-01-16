@@ -1,19 +1,14 @@
-﻿using SlimeEvolutions.Architecture.Interactors.Instances;
-using SlimeEvolutions.Architecture.Scene;
-
-namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
+﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class CorrectInformationBehaviour:IUpdateViewBehaviour 
+    public class CorrectInformationBehaviour : IUpdateViewBehaviour
     {
-        private LaboratoryLogic labLogic;
+        private UpdateView updateView;
         private bool isSubscribe;
 
-        public void Enter(LaboratoryLogic laboratoryLogic)
+        public void Enter(UpdateView updateView)
         {
-            labLogic = laboratoryLogic;
+            this.updateView = updateView;
             Subscribe();
-            ResearchSpaceUpdate();
-            TimerStart();
         }
 
         public void Exit()
@@ -37,7 +32,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerSubscribe();
             isSubscribe = true;
         }
 
@@ -47,46 +41,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerUnsubcribe();
             isSubscribe = false;
-        }
-
-        private void TimerStart()
-        {
-            labLogic.StartTimer((float)labLogic.Seconds);
-            TimerSubscribe();
-        }
-
-        private void TimerSubscribe()
-        {
-            if (labLogic.Timer is not null)
-            {
-                labLogic.Timer.OnTimerFinishedEvent += ChangeBehaviour;
-                labLogic.Timer.OnTimerFinishedEvent += labLogic.EndResearch;
-                labLogic.Timer.OnTimerValueChangedEvent += labLogic.UpdateTimerText;
-            }
-        }
-
-        private void TimerUnsubcribe()
-        {
-            if (labLogic.Timer is not null)
-            {
-                labLogic.Timer.OnTimerFinishedEvent -= ChangeBehaviour;
-                labLogic.Timer.OnTimerFinishedEvent -= labLogic.EndResearch;
-                labLogic.Timer.OnTimerValueChangedEvent -= labLogic.UpdateTimerText;
-            }
-        }
-
-
-        public void ChangeBehaviour()
-        {
-            labLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
-        }
-
-        private void ResearchSpaceUpdate()
-        {
-            Slime researchingSlime = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime;
-            labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, researchingSlime);
         }
 
     }
