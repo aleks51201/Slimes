@@ -18,6 +18,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
 
         public CrossingSpaceData CrossingSpaceData => crossingSpaceData;
+        public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
 
 
         public UpdateView()
