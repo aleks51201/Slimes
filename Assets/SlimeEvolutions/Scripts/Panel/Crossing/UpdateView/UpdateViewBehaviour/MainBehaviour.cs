@@ -9,6 +9,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private UpdateView updateView;
         private bool isSubscribe;
 
+
+
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
