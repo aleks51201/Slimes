@@ -7,11 +7,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
     {
         private Dictionary<Type, IUpdateViewBehaviour> behavioursMap;
         private IUpdateViewBehaviour currentBehaviour;
-        private LaboratoryLogic laboratoryLogic;
+        private UpdateView updateView;
 
-        public UpdateViewBehaviour(LaboratoryLogic laboratoryLogic)
+        public UpdateViewBehaviour(UpdateView updateView)
         {
-            this.laboratoryLogic = laboratoryLogic;
+            this.updateView = updateView;
             InitializeBehaviour();
         }
 
@@ -30,7 +30,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 currentBehaviour.Exit();
             }
             currentBehaviour = newBehaviour;
-            currentBehaviour.Enter(laboratoryLogic);
+            currentBehaviour.Enter(updateView);
         }
 
         private IUpdateViewBehaviour GetBehaviour<T>() where T : IUpdateViewBehaviour
