@@ -19,8 +19,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             behavioursMap = new();
             behavioursMap[typeof(MainBehaviour)] = new MainBehaviour();
-            behavioursMap[typeof(SecondBehaviour)] = new SecondBehaviour();
-            behavioursMap[typeof(ThirdBehaviour)] = new ThirdBehaviour();
+            behavioursMap[typeof(CorrectInformationBehaviour)] = new CorrectInformationBehaviour();
+            behavioursMap[typeof(IncorrectIformationBehaviour)] = new IncorrectIformationBehaviour();
         }
 
         private void SetBehaviour(IUpdateViewBehaviour newBehaviour)
@@ -59,12 +59,12 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void SetResearchBehaviour()
         {
-            SetBehaviour(GetBehaviour<SecondBehaviour>());
+            SetBehaviour(GetBehaviour<CorrectInformationBehaviour>());
         }
 
         public void SetAfterResearchBehaviour()
         {
-            SetBehaviour(GetBehaviour<ThirdBehaviour>());
+            SetBehaviour(GetBehaviour<IncorrectIformationBehaviour>());
         }
     }
 }
