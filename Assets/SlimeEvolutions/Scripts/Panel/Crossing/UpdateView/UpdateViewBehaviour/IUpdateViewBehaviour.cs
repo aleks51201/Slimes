@@ -2,7 +2,7 @@
 {
     public interface IUpdateViewBehaviour:IActivatable
     {
-        public void Enter();
+        public void Enter(UpdateView updateView);
         public void Exit();
     }
 }
