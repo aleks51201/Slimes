@@ -1,6 +1,7 @@
 ﻿
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
+using System;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -9,6 +10,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private UpdateView updateView;
         private bool isSubscribe;
 
+
+        public bool IsDataOk =>
+            updateView is not null || updateView.CrossingSpaceData.HasBeenSlimeTaken;
+        private bool IsTimeHasNotExpired =>
+            DateTime.Now < updateView.CrossingSpaceData.EndTimeCrossing; 
 
 
         public void Enter(UpdateView updateView)
@@ -48,6 +54,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 return;
             }
             isSubscribe = false;
+        }
+
+        private void ChangeBehaviour()
+        {
+
         }
     }
 }
