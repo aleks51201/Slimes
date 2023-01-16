@@ -1,6 +1,7 @@
 ﻿using SlimeEvolutions.Architecture.CrossData;
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
+using SlimeEvolutions.Panel.Crossing.Update.Behaviours;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
-    public class UpdateView
+    public class UpdateView: IActivatable
     {
-        private 
+        private UpdateViewBehaviour updateViewBehaviour;
         private CrossingSpaceData crossingSpaceData;
 
 
@@ -25,11 +26,22 @@ namespace SlimeEvolutions.Panel.Crossing
         public void Initialize(int id)
         {
             crossingSpaceData = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[id];
+            updateViewBehaviour.SetBehaviourByDefault();
         }
 
         private void Upadate()
         {
 
+        }
+
+        public void OnEnable()
+        {
+            updateViewBehaviour.OnEnable();
+        }
+
+        public void OnDisable()
+        {
+            updateViewBehaviour.OnDisable();
         }
     }
 }
