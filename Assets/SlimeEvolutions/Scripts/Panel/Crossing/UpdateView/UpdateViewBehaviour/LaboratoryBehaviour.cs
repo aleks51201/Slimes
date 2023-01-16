@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class LaboratoryBehaviour:IActivatable
+    public class UpdateViewBehaviour:IActivatable
     {
         private Dictionary<Type, IUpdateViewBehaviour> behavioursMap;
         private IUpdateViewBehaviour currentBehaviour;
         private LaboratoryLogic laboratoryLogic;
 
-        public LaboratoryBehaviour(LaboratoryLogic laboratoryLogic)
+        public UpdateViewBehaviour(LaboratoryLogic laboratoryLogic)
         {
             this.laboratoryLogic = laboratoryLogic;
             InitializeBehaviour();

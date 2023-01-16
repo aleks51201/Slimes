@@ -12,6 +12,7 @@ namespace SlimeEvolutions.Panel.Crossing
 {
     public class UpdateView
     {
+        private 
         private CrossingSpaceData crossingSpaceData;
 
 
