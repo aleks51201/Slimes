@@ -6,16 +6,12 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
     public class MainBehaviour : IUpdateViewBehaviour
     {
-        private LaboratoryLogic labLogic;
+        private UpdateView updateView;
         private bool isSubscribe;
 
-        private bool IsResearchState =>
-            !Game.GetInteractor<LaboratoryDataInteractor>().IsResearchEnd;
-        private bool IsAfterResearchState =>
-            !Game.GetInteractor<LaboratoryDataInteractor>().HasBeenSlimeTaken;
-
-        public void Enter(LaboratoryLogic laboratoryLogic)
+        public void Enter(UpdateView updateView)
         {
+            Subscribe();
         }
 
         public void Exit()
@@ -31,12 +27,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         public void OnDisable()
         {
             Unsubscribe();
-        }
-
-        private void ResearchSpaceUpdate(Slime slime)
-        {
-            if (!slime.IsExplored)
-                labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
         }
 
         private void Subscribe()
@@ -55,10 +45,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 return;
             }
             isSubscribe = false;
-        }
-
-        private void ChangeBehaviour()
-        {
         }
     }
 }
