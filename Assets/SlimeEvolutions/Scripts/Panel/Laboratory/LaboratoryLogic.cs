@@ -81,22 +81,6 @@ namespace SlimeEvolutions.Panel
             SlimesInventory.RemoveSlime(this, GetResearchableSlime());
         }
 
-/*        public delegate void AnyActionDelegate();
-        public void StartTimer(AnyActionDelegate anyAction)
-        {
-            Coroutines.StartRoutine(StartTimerRoutine(anyAction));
-        }
-
-        public IEnumerator StartTimerRoutine(AnyActionDelegate anyAction)
-        {
-            while (!LabInteract.IsResearchEnd)
-            {
-                yield return null;
-            }
-            anyAction();
-            EndResearch();
-        }
-*/
         public void UpdateTimerText(float seconds)
         {
             var time = TimeSpan.FromSeconds(seconds);
