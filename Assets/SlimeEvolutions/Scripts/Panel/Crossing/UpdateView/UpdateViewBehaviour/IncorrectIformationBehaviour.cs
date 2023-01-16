@@ -1,6 +1,6 @@
 ﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class ThirdBehaviour : IUpdateViewBehaviour
+    public class IncorrectIformationBehaviour : IUpdateViewBehaviour
     {
         private LaboratoryLogic labLogic;
         private bool isSubscribe;

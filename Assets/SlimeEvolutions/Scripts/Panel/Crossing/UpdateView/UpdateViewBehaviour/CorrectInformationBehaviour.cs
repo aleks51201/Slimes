@@ -3,7 +3,7 @@ using SlimeEvolutions.Architecture.Scene;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class SecondBehaviour:IUpdateViewBehaviour 
+    public class CorrectInformationBehaviour:IUpdateViewBehaviour 
     {
         private LaboratoryLogic labLogic;
         private bool isSubscribe;

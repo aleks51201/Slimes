@@ -13,7 +13,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private bool IsDataOk =>
             updateView is not null || updateView.CrossingSpaceData.HasBeenSlimeTaken;
-        private bool IsTimeHasNotExpired =>
+        private bool IsTimeAvailable =>
             DateTime.Now < updateView.CrossingSpaceData.EndTimeCrossing;
         private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
 
@@ -61,6 +61,13 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             if (IsDataOk)
             {
+                if (IsTimeAvailable)
+                {
+
+                    return;
+                }
+
+                return;
             }
 
         }
