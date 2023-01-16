@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace SlimeEvolutions.Panel.Crossing
+namespace SlimeEvolutions.Panel.Crossing.Update
 {
     public class UpdateView: IActivatable
     {
