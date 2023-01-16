@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace SlimeEvolutions.Panel.Crossing.Update
+namespace SlimeEvolutions.Panel.Crossing
 {
     public class UpdateView
     {
