@@ -47,8 +47,9 @@
         private void Initialize()
         {
             //StartTimer();
-            //EnableTimerView();
-            //EnableSliderView();
+            updateView.ButtonSetActive(true);
+            updateView.TimerSetActive(false);
+            updateView.SliderSetActive(false);
         }
 
         private void ChangeBehaviour()
