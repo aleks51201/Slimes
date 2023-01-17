@@ -1,7 +1,4 @@
-﻿
-using SlimeEvolutions.Architecture.Interactors.Instances;
-using SlimeEvolutions.Architecture.Scene;
-using System;
+﻿using System;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -22,6 +19,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             this.updateView = updateView;
             Subscribe();
+            ChangeBehaviour();
         }
 
         public void Exit()
@@ -61,15 +59,10 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             if (IsDataOk)
             {
-                if (IsTimeAvailable)
-                {
-
-                    return;
-                }
-
+                updateView.UpdateViewBehaviour.SetCorrectInformationBehaviour();
                 return;
             }
-
+            updateView.UpdateViewBehaviour.SetIncorrectInformationBehaviour();
         }
     }
 }
