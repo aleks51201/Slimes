@@ -9,6 +9,9 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private bool isSubscribe;
         private Timer timer;
 
+        private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
+
+
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
