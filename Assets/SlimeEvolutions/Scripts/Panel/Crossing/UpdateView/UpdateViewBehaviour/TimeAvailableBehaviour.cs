@@ -1,9 +1,13 @@
-﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
+﻿using SlimeEvolutions.Timers;
+using System;
+
+namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
     public class TimeAvailableBehaviour : IUpdateViewBehaviour
     {
         private UpdateView updateView;
         private bool isSubscribe;
+        private Timer timer;
 
         public void Enter(UpdateView updateView)
         {
@@ -46,7 +50,7 @@
 
         private void Initialize()
         {
-            //StartTimer();
+            StartTimer();
             updateView.ButtonSetActive(false);
             updateView.TimerSetActive(true);
             updateView.SliderSetActive(true);
@@ -55,6 +59,24 @@
         private void ChangeBehaviour()
         {
 
+
+        }
+
+        private void StartTimer()
+        {
+            float seconds =(float) (updateView.CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
+            timer = new Timer(TimerTypes.OneSecTick,seconds);
+            timer.Start();
+        }
+
+        public void TimerSubscribe()
+        {
+            timer.OnTimerFinishedEvent += ChangeBehaviour;
+        }
+
+        public void TimerUnsubscribe()
+        {
+            timer.OnTimerFinishedEvent -= ChangeBehaviour;
         }
     }
 }
