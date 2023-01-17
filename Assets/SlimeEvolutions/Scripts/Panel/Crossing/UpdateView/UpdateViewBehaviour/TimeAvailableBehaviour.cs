@@ -43,5 +43,12 @@
             }
             isSubscribe = false;
         }
+
+        private void Initialize()
+        {
+            //StartTimer();
+            //EnableTimerView();
+            //EnableSliderView();
+        }
     }
 }
