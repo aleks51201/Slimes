@@ -3,35 +3,34 @@ using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Buttons;
 using SlimeEvolutions.Panel.Crossing.Update.Behaviours;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SlimeEvolutions.Panel.Crossing.UpdateView;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SlimeEvolutions.Panel.Crossing.Update
 {
-    public class UpdateView: IActivatable
+    public class UpdateView : IActivatable
     {
         private UpdateViewBehaviour updateViewBehaviour;
         private CrossingSpaceData crossingSpaceData;
-        private ButtonWithClick button;
+        private ButtonWithClick takeButton;
+        private ButtonMain lButton, rButton;
         private Slider slider;
-        private GameObject timer, activeLayer;
+        private GameObject timer, activeLayer, prefab;
 
 
         public CrossingSpaceData CrossingSpaceData => crossingSpaceData;
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
 
 
-        public UpdateView(ButtonWithClick button, Slider slider, GameObject timer, GameObject activeLayer)
+        public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer)
         {
-            this.button = button;
+            this.takeButton = takeButton;
             this.slider = slider;
             this.timer = timer;
             this.activeLayer = activeLayer;
+            this.lButton = lButton;
+            this.rButton = rButton;
         }
 
 
@@ -58,12 +57,19 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public void ButtonSetActive(bool isActive)
         {
-            button.gameObject.SetActive(isActive);
+            takeButton.gameObject.SetActive(isActive);
         }
 
         public void ActiveLayerSetActive(bool isActive)
         {
             activeLayer.SetActive(isActive);
+        }
+
+        public void FillingCellData()
+        {
+            var fillCell = new FillingCell(prefab);
+            fillCell.AddCell(lButton, crossingSpaceData.LSlime);
+            fillCell.AddCell(rButton, crossingSpaceData.RSlime);
         }
 
         public void OnEnable()
