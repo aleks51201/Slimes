@@ -9,6 +9,7 @@
         {
             this.updateView = updateView;
             Subscribe();
+            Initialize();
         }
 
         public void Exit()
@@ -42,6 +43,14 @@
                 return;
             }
             isSubscribe = false;
+        }
+
+        private void Initialize()
+        {
+            updateView.ButtonSetActive(false);
+            updateView.TimerSetActive(false);
+            updateView.SliderSetActive(false);
+            updateView.ActiveLayerSetActive(false);
         }
     }
 }
