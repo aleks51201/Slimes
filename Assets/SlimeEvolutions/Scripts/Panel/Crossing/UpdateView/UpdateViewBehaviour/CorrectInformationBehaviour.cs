@@ -52,5 +52,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             isSubscribe = false;
         }
 
+        private void Initialize()
+        {
+            //FillingCellData(CrossingSpace);
+            //EnableActiveLayer();
+        }
+
     }
 }
