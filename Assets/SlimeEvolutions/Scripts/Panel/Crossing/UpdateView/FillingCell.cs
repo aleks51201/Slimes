@@ -3,7 +3,7 @@ using SlimeEvolutions.InventoryCell;
 using SlimeEvolutions.Spawn;
 using UnityEngine;
 
-namespace SlimeEvolutions.Panel.Crossing.UpdateView
+namespace SlimeEvolutions.Panel.Crossing.Update
 {
     public class FillingCell
     {
