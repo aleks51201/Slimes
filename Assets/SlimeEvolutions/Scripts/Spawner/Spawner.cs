@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SlimeEvolutions.Spawner
+namespace SlimeEvolutions.Spawn
 {
     public class Spawner : MonoBehaviour
     {

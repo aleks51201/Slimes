@@ -1,24 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SlimeEvolutions.Buttons;
+using SlimeEvolutions.InventoryCell;
+using SlimeEvolutions.Spawn;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.UpdateView
 {
     public class FillingCell
     {
-        private Slime lSlime;
-        private Slime rSlime;
-        private Slime centralSlime;
+        private GameObject prefab;
 
 
-        public FillingCell(Slime lSlime, Slime rSlime, Slime centralSlime)
+        public FillingCell(GameObject cellPrefab)
         {
-            this.lSlime = lSlime;
-            this.rSlime = rSlime;
-            this.centralSlime = centralSlime;
+            this.prefab = cellPrefab;
+        }
+
+
+        public void AddCell(Transform parentTransform, Slime slime)
+        {
+            GameObject go = Spawner.Instance.SpawnObject(prefab, parentTransform);
+            AddSlimeToCell(go, slime);
+        }
+
+        public void AddCell(ButtonMain parentButton, Slime slime)
+        {
+            AddCell(parentButton.transform, slime);
+            SetButtonClickable(parentButton, true);
+        }
+
+        private void SetButtonClickable(ButtonMain button, bool isClickable)
+        {
+            button.IsActive = true;
+        }
+
+        private void AddSlimeToCell(GameObject cell, Slime slime)
+        {
+            cell.GetComponent<CellView>().Slime = slime;
         }
     }
 }
