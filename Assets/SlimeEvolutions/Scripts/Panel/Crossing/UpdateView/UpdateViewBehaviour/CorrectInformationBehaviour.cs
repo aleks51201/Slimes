@@ -17,6 +17,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             this.updateView = updateView;
             Subscribe();
+            Initialize();
+            ChangeBehaviour();
         }
 
         public void Exit()
@@ -58,5 +60,14 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             //EnableActiveLayer();
         }
 
+        private void ChangeBehaviour()
+        {
+            if (IsTimeAvailable)
+            {
+                UpdateViewBehaviour.SetTimeAvailableBehaviour();
+                return;
+            }
+            UpdateViewBehaviour.SetTimeIsNotAvailableBehaviour();
+        }
     }
 }
