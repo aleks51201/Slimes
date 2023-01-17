@@ -57,7 +57,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private void Initialize()
         {
             //FillingCellData(CrossingSpace);
-            //EnableActiveLayer();
+            updateView.ActiveLayerSetActive(true);
         }
 
         private void ChangeBehaviour()
