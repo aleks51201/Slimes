@@ -30,7 +30,7 @@ namespace SlimeEvolutions.Panel.Crossing.UpdateView
 
         private void SetButtonClickable(ButtonMain button, bool isClickable)
         {
-            button.IsActive = true;
+            button.IsActive = isClickable;
         }
 
         private void AddSlimeToCell(GameObject cell, Slime slime)
