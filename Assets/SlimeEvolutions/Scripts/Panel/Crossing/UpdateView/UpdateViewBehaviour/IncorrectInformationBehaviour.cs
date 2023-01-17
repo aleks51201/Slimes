@@ -1,6 +1,6 @@
 ﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class IncorrectIformationBehaviour : IUpdateViewBehaviour
+    public class IncorrectInformationBehaviour : IUpdateViewBehaviour
     {
         private UpdateView updateView;
         private bool isSubscribe;
