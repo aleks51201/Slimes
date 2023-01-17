@@ -1,10 +1,18 @@
-﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
+﻿using System;
+
+namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
     public class CorrectInformationBehaviour : IUpdateViewBehaviour
     {
         private UpdateView updateView;
         private bool isSubscribe;
 
+
+        private bool IsTimeAvailable =>
+            DateTime.Now < updateView.CrossingSpaceData.EndTimeCrossing;
+        private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
+
+        
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
