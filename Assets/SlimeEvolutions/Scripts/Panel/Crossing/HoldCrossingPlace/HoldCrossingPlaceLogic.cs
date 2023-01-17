@@ -7,6 +7,7 @@ using SlimeEvolutions.Timers;
 using System;
 using TMPro;
 using UnityEngine;
+using SlimeEvolutions.Panel.Crossing.Update;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -23,12 +24,19 @@ namespace SlimeEvolutions.Panel.Crossing
         }
 
 
-        private void UpdateView()
+        private void UpdateV()
         {
-            var interactor = Game.GetInteractor<CrossingSpaceInteractor>();
-            crossingSpace = interactor.CrossingSpaces[holdCrossingPlaceView.ID];
-            IfThereIsCorrectInformation();
-            IfThereIsNotCorrectInformation();
+            var updateView = new UpdateView
+                (
+                holdCrossingPlaceView.Prefab,
+                holdCrossingPlaceView.AcceptButton,
+                holdCrossingPlaceView.LeftSlime,
+                holdCrossingPlaceView.RightSlime,
+                holdCrossingPlaceView.Slider,
+                holdCrossingPlaceView.Timer,
+                holdCrossingPlaceView.ActionLayer
+                );
+            updateView.Initialize(holdCrossingPlaceView.ID);
         }
 
         private void IfTimeHasNotExpired()
@@ -246,7 +254,7 @@ namespace SlimeEvolutions.Panel.Crossing
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
             Clean();
-            UpdateView();
+            UpdateV();
         }
 
         private void TimerSubscribe()
@@ -279,7 +287,7 @@ namespace SlimeEvolutions.Panel.Crossing
 
         public void OnEnable()
         {
-            UpdateView();
+            UpdateV();
             TimerSubscribe();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
