@@ -50,5 +50,10 @@
             //EnableTimerView();
             //EnableSliderView();
         }
+
+        private void ChangeBehaviour()
+        {
+
+        }
     }
 }
