@@ -17,7 +17,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
 
 
         public static Action StartedTimerEvent;
-        public static Action FinisheTimerEvent;
+        public static Action FinishedTimerEvent;
         
 
         public TimerLogic(TimerView timerView)
@@ -36,6 +36,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
             timer = new(TimerTypes.OneSecTick, seconds);
             UpdateTimerView(seconds);
             TimerSubscribe();
+            StartedTimerEvent?.Invoke();
         }
 
         private void UpdateTimerView(float seconds)
@@ -52,6 +53,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
             }
             timer.Stop();
             TimerUnsubscribe();
+            FinishedTimerEvent?.Invoke();
         }
 
         private void TimerSubscribe()
