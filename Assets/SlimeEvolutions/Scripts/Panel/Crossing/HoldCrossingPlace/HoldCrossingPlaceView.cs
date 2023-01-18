@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
-    public class HoldCrossingPlaceView : MonoBehaviour
+    public class HoldCrossingPlaceView : MonoBehaviour,IHavableID
     {
         [SerializeField] private ButtonWithHold leftSlime, rightSlime;
         [SerializeField] private ButtonWithClick acceptButton;
