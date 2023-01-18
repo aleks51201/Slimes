@@ -31,6 +31,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer)
         {
+            this.prefab = cellPrefab;
             this.takeButton = takeButton;
             this.slider = slider;
             this.timer = timer;
