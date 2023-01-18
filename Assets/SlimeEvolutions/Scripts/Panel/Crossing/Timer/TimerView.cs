@@ -11,9 +11,9 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
     public class TimerView: MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI timerText;
-        [SerializeField] private int id;
 
         private TimerLogic timerLogic;
+        private int id;
 
 
         public TextMeshProUGUI TimerText => timerText;
@@ -23,6 +23,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
         private void Awake()
         {
             timerLogic = new(this);
+            id = GetComponentInParent<HoldCrossingPlaceView>().ID;
         }
 
         private void OnEnable()
