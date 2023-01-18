@@ -61,8 +61,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private void ChangeBehaviour()
         {
-
-
+            UpdateViewBehaviour.SetMainBehaviour();
         }
 
         private void StartTimer()

@@ -3,7 +3,7 @@ using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Buttons;
 using SlimeEvolutions.Panel.Crossing.Update.Behaviours;
-using SlimeEvolutions.Panel.Crossing.UpdateView;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +21,12 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public CrossingSpaceData CrossingSpaceData => crossingSpaceData;
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
+
+
+        public Action StartedCorrectInformationBehaviourEvent;
+        public Action StartedIncorrectInformationBehaviourEvent;
+        public Action StartedTimeAvailableBehaviourEvent;
+        public Action StartedTimeNotAvailableBehaviourEvent;
 
 
         public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer)
