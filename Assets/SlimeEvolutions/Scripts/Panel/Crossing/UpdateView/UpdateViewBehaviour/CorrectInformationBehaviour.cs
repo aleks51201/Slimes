@@ -58,6 +58,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             updateView.FillingCellData();
             updateView.ActiveLayerSetActive(true);
+            updateView.InitializedCorrectInformationBehaviourEvent?.Invoke();
         }
 
         private void ChangeBehaviour()
