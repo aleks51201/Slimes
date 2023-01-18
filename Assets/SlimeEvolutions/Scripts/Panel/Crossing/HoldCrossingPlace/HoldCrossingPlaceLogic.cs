@@ -3,11 +3,10 @@ using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Buttons;
 using SlimeEvolutions.InventoryCell;
+using SlimeEvolutions.Panel.Crossing.Update;
 using SlimeEvolutions.Timers;
 using System;
 using TMPro;
-using UnityEngine;
-using SlimeEvolutions.Panel.Crossing.Update;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -53,7 +52,6 @@ namespace SlimeEvolutions.Panel.Crossing
             float seconds = (float)(crossingSpace.EndTimeCrossing - DateTime.Now).TotalSeconds;
             timer = new(TimerTypes.OneSecTickUnscaled, seconds);
             timer.Start();
-            TimerSubscribe();
         }
 
         private void StopTimer()
@@ -63,6 +61,18 @@ namespace SlimeEvolutions.Panel.Crossing
                 return;
             }
             timer.Stop();
+        }
+
+        private void UpdateTimerView(float seconds)
+        {
+            var time = TimeSpan.FromSeconds(seconds);
+            holdCrossingPlaceView.Timer.GetComponentInChildren<TextMeshProUGUI>().text = $"{time:mm}:{time:ss}";
+        }
+
+        private void SliderUpdate(float seconds)
+        {
+            float totalSeconds = (float)(crossingSpace.EndTimeCrossing - crossingSpace.StartTimeCrossing).TotalSeconds;
+            holdCrossingPlaceView.Slider.value = 1 - (seconds / totalSeconds);
         }
 
         private void DeleteCellFromButton(ButtonMain btn)
@@ -110,12 +120,26 @@ namespace SlimeEvolutions.Panel.Crossing
             UpdateInitialize();
         }
 
+        private void Subscribe()
+        {
+            updateView.InitializedTimeAvailableBehaviourEvent += StartTimer;
+            TimerSubscribe();
+        }
+
+        private void Unsubscribe()
+        {
+            updateView.InitializedTimeAvailableBehaviourEvent -= StartTimer;
+            TimerUnsubscribe();
+        }
+
         private void TimerSubscribe()
         {
             if (timer is null)
             {
                 return;
             }
+            timer.OnTimerValueChangedEvent += UpdateTimerView;
+            timer.OnTimerValueChangedEvent += SliderUpdate;
             timer.OnTimerFinishedEvent += TimerUnsubscribe;
         }
 
@@ -125,20 +149,22 @@ namespace SlimeEvolutions.Panel.Crossing
             {
                 return;
             }
+            timer.OnTimerValueChangedEvent -= UpdateTimerView;
+            timer.OnTimerValueChangedEvent -= SliderUpdate;
             timer.OnTimerFinishedEvent -= TimerUnsubscribe;
         }
 
         public void OnEnable()
         {
             updateView.OnEnable();
-            TimerSubscribe();
+            Subscribe();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         public void OnDisable()
         {
             updateView.OnDisable();
-            TimerUnsubscribe();
+            Unsubscribe();
             StopTimer();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             Clean();
