@@ -9,7 +9,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
 
         private bool IsDataOk =>
-            updateView is not null || updateView.CrossingSpaceData.HasBeenSlimeTaken;
+            updateView is not null && !updateView.CrossingSpaceData.HasBeenSlimeTaken;
         private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
 
 
