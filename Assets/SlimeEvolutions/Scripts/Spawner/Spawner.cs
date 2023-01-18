@@ -11,9 +11,9 @@ namespace SlimeEvolutions.Spawn
         {
             get
             {
-                if (s_instance)
+                if (s_instance is null)
                 {
-                    var go = new GameObject("[SPAWNER");
+                    var go = new GameObject("[SPAWNER]");
                     s_instance = go.AddComponent<Spawner>();
                     DontDestroyOnLoad(go);
                 }
