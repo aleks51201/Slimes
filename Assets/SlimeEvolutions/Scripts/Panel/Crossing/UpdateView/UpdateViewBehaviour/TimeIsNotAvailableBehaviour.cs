@@ -8,6 +8,7 @@
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
+            Initialize();
             Subscribe();
         }
 
@@ -50,6 +51,7 @@
             updateView.ButtonSetActive(true);
             updateView.TimerSetActive(false);
             updateView.SliderSetActive(false);
+            updateView.InitializedTimeNotAvailableBehaviourEvent?.Invoke();
         }
 
         private void ChangeBehaviour()

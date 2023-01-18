@@ -8,8 +8,8 @@
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
-            Subscribe();
             Initialize();
+            Subscribe();
         }
 
         public void Exit()
@@ -51,6 +51,7 @@
             updateView.TimerSetActive(false);
             updateView.SliderSetActive(false);
             updateView.ActiveLayerSetActive(false);
+            updateView.InitializedIncorrectInformationBehaviourEvent?.Invoke();
         }
     }
 }

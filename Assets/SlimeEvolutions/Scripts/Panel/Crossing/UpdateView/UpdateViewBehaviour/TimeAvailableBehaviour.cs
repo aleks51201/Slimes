@@ -15,6 +15,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
+            Initialize();
             Subscribe();
         }
 
@@ -57,6 +58,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             updateView.ButtonSetActive(false);
             updateView.TimerSetActive(true);
             updateView.SliderSetActive(true);
+            updateView.InitializedTimeAvailableBehaviourEvent?.Invoke();
         }
 
         private void ChangeBehaviour()
