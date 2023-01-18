@@ -1,4 +1,5 @@
-﻿using SlimeEvolutions.Timers;
+﻿using SlimeEvolutions.Panel.Crossing.CrossTimer;
+using SlimeEvolutions.Timers;
 using System;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
@@ -40,6 +41,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
+            TimerLogic.FinishedTimerEvent += ChangeBehaviour;
             isSubscribe = true;
         }
 
@@ -49,6 +51,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
+            TimerLogic.FinishedTimerEvent -= ChangeBehaviour;
             isSubscribe = false;
         }
 
