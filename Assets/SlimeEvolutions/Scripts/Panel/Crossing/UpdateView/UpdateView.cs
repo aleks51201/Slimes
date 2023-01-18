@@ -42,6 +42,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public void Initialize(int id)
         {
+            updateViewBehaviour = new(this);
             crossingSpaceData = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[id];
             updateViewBehaviour.SetBehaviourByDefault();
         }
