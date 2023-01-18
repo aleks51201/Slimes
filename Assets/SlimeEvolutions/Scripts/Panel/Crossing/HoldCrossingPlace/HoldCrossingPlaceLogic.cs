@@ -16,6 +16,7 @@ namespace SlimeEvolutions.Panel.Crossing
         private HoldCrossingPlaceView holdCrossingPlaceView;
         private Timer timer;
         private CrossingSpaceData crossingSpace;
+        private UpdateView updateView;
 
 
         public HoldCrossingPlaceLogic(HoldCrossingPlaceView holdCrossingPlaceView)
@@ -24,9 +25,9 @@ namespace SlimeEvolutions.Panel.Crossing
         }
 
 
-        private void UpdateV()
+        private void UpdateInitialize()
         {
-            var updateView = new UpdateView
+            updateView = new UpdateView
                 (
                 holdCrossingPlaceView.Prefab,
                 holdCrossingPlaceView.AcceptButton,
@@ -106,7 +107,7 @@ namespace SlimeEvolutions.Panel.Crossing
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
             Clean();
-            UpdateV();
+            UpdateInitialize();
         }
 
         private void TimerSubscribe()
@@ -129,13 +130,14 @@ namespace SlimeEvolutions.Panel.Crossing
 
         public void OnEnable()
         {
-            UpdateV();
+            updateView.OnEnable();
             TimerSubscribe();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         public void OnDisable()
         {
+            updateView.OnDisable();
             TimerUnsubscribe();
             StopTimer();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
