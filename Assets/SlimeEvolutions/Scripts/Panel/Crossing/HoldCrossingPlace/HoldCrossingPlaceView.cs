@@ -47,6 +47,7 @@ namespace SlimeEvolutions.Panel.Crossing
         private void Awake()
         {
             holdCrossingPlaceLogic = new(this);
+            holdCrossingPlaceLogic.Awake();
         }
 
         private void OnEnable()

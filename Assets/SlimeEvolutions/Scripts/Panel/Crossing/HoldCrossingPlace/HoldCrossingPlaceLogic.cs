@@ -154,6 +154,11 @@ namespace SlimeEvolutions.Panel.Crossing
             timer.OnTimerFinishedEvent -= TimerUnsubscribe;
         }
 
+        public void Awake()
+        {
+            UpdateInitialize();
+        }
+
         public void OnEnable()
         {
             updateView.OnEnable();
