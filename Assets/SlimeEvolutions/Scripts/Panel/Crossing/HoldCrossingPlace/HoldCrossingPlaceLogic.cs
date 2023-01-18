@@ -172,7 +172,7 @@ namespace SlimeEvolutions.Panel.Crossing
             Unsubscribe();
             StopTimer();
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
-            Clean();
+            //Clean();
         }
     }
 }

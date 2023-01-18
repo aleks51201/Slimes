@@ -12,14 +12,16 @@ namespace SlimeEvolutions.Panel.Crossing.Update
     public class UpdateView : IActivatable
     {
         private UpdateViewBehaviour updateViewBehaviour;
-        private CrossingSpaceData crossingSpaceData;
+        //private CrossingSpaceData crossingSpaceData;
         private ButtonWithClick takeButton;
         private ButtonMain lButton, rButton;
         private Slider slider;
         private GameObject timer, activeLayer, prefab;
+        private CrossingSpaceInteractor crossInteractor;
+        private int id;
 
 
-        public CrossingSpaceData CrossingSpaceData => crossingSpaceData;
+        public CrossingSpaceData CrossingSpaceData => crossInteractor.CrossingSpaces[id];
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
 
 
@@ -44,7 +46,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public void Initialize(int id)
         {
             updateViewBehaviour = new(this);
-            crossingSpaceData = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[id];
+            crossInteractor= Game.GetInteractor<CrossingSpaceInteractor>();
+            this.id = id;
             updateViewBehaviour.SetBehaviourByDefault();
         }
 
@@ -76,12 +79,13 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public void FillingCellData()
         {
             var fillCell = new FillingCell(prefab);
-            fillCell.AddCell(lButton, crossingSpaceData.LSlime);
-            fillCell.AddCell(rButton, crossingSpaceData.RSlime);
+            fillCell.AddCell(lButton, CrossingSpaceData.LSlime);
+            fillCell.AddCell(rButton, CrossingSpaceData.RSlime);
         }
 
         public void OnEnable()
         {
+            updateViewBehaviour.SetBehaviourByDefault();
             updateViewBehaviour.OnEnable();
         }
 
