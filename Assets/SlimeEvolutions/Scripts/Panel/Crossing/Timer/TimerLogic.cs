@@ -34,6 +34,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
             }
             float seconds = (float)(CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
             timer = new(TimerTypes.OneSecTick, seconds);
+            timer.Start();
             UpdateTimerView(seconds);
             TimerSubscribe();
             StartedTimerEvent?.Invoke();
@@ -42,7 +43,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
         private void UpdateTimerView(float seconds)
         {
             var time = TimeSpan.FromSeconds(seconds);
-            timerView.TimerText.text = $"{time.Minutes}:{time.Seconds}";
+            timerView.TimerText.text = $"{time:mm}:{time:ss}";
         }
 
         private void StopTimer()
@@ -56,14 +57,21 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
             FinishedTimerEvent?.Invoke();
         }
 
+        private void OnTimerFinished()
+        {
+            FinishedTimerEvent?.Invoke();
+        }
+
         private void TimerSubscribe()
         {
             timer.OnTimerValueChangedEvent += UpdateTimerView;
+            timer.OnTimerFinishedEvent += OnTimerFinished;
         }
 
         private void TimerUnsubscribe()
         {
-            timer.OnTimerValueChangedEvent += UpdateTimerView;
+            timer.OnTimerValueChangedEvent -= UpdateTimerView;
+            timer.OnTimerFinishedEvent -= OnTimerFinished;
         }
 
         public void OnEnable()
