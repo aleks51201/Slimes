@@ -23,10 +23,10 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
 
 
-        public Action StartedCorrectInformationBehaviourEvent;
-        public Action StartedIncorrectInformationBehaviourEvent;
-        public Action StartedTimeAvailableBehaviourEvent;
-        public Action StartedTimeNotAvailableBehaviourEvent;
+        public Action InitializedCorrectInformationBehaviourEvent;
+        public Action InitializedIncorrectInformationBehaviourEvent;
+        public Action InitializedTimeAvailableBehaviourEvent;
+        public Action InitializedTimeNotAvailableBehaviourEvent;
 
 
         public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer)
