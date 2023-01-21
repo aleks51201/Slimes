@@ -18,7 +18,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
 
         public static Action StartedTimerEvent;
         public static Action FinishedTimerEvent;
-        
+
 
         public TimerLogic(TimerView timerView)
         {

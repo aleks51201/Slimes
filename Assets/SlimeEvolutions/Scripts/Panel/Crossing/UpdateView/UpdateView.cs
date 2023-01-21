@@ -51,11 +51,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update
             updateViewBehaviour.SetBehaviourByDefault();
         }
 
-        private void Upadate()
-        {
-
-        }
-
         public void TimerSetActive(bool isActive)
         {
             timer.SetActive(isActive);
