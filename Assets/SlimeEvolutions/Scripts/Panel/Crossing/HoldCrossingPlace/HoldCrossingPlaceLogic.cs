@@ -4,7 +4,6 @@ using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Buttons;
 using SlimeEvolutions.InventoryCell;
 using SlimeEvolutions.Panel.Crossing.Update;
-using SlimeEvolutions.Timers;
 using TMPro;
 
 namespace SlimeEvolutions.Panel.Crossing
