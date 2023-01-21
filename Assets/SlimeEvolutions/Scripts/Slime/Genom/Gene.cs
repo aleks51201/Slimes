@@ -62,4 +62,16 @@ public abstract class Gene
     {
         cellGameObject.GetComponent<Image>().sprite = sprite;
     }
+
+    public string GetName()
+    {
+        foreach(var i in genomResources.GenomeSprites)
+        {
+            if(i.Id == id)
+            {
+                return i.name;
+            }
+        }
+        throw new ArgumentOutOfRangeException(" Missing slime's part");
+    }
 }
