@@ -63,11 +63,11 @@ public abstract class Gene
         cellGameObject.GetComponent<Image>().sprite = sprite;
     }
 
-    public string GetName()
+    public string GetName(int id)
     {
-        foreach(var i in genomResources.GenomeSprites)
+        foreach (var i in genomResources.GenomeSprites)
         {
-            if(i.Id == id)
+            if (i.Id == id)
             {
                 return i.name;
             }
