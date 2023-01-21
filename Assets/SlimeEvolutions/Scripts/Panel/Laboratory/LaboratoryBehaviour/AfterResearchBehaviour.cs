@@ -12,6 +12,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             labLogic = laboratoryLogic;
             ResearchSpaceUpdate();
+            UpdateTextOnButton();
             Subscribe();
         }
 
@@ -74,6 +75,9 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, researchingSlime);
         }
 
-
+        private void UpdateTextOnButton()
+        {
+            labLogic.UpdateTextOnButton(labLogic.LaboratoryView.AfterResearch);
+        }
     }
 }
