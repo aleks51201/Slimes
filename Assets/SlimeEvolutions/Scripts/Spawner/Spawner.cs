@@ -26,5 +26,10 @@ namespace SlimeEvolutions.Spawn
         {
             return Instantiate(prefab, parentTransform);
         }
+
+        public void DestroyObject(GameObject go)
+        {
+            Destroy(go);
+        }
     }
 }
