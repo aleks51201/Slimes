@@ -5,6 +5,8 @@ namespace SlimeEvolutions.Panel
 {
     public class InfoPanelView:MonoBehaviour
     {
+        [SerializeField] private GameObject cellPrefab;
+
         private InfoPanelLogic infopanelLogic;
         private Slime slime;
 
