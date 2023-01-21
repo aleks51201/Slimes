@@ -16,8 +16,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
-            Subscribe();
             Initialize();
+            Subscribe();
             ChangeBehaviour();
         }
 

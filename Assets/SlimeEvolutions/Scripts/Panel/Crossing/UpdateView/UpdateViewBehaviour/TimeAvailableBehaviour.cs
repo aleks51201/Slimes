@@ -1,4 +1,5 @@
 ﻿using SlimeEvolutions.Panel.Crossing.CrossTimer;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -39,6 +40,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 return;
             }
             TimerLogic.FinishedTimerEvent += ChangeBehaviour;
+            Debug.Log("subscribe");
             isSubscribe = true;
         }
 
@@ -62,7 +64,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private void ChangeBehaviour()
         {
-            UpdateViewBehaviour.SetMainBehaviour();
+            UpdateViewBehaviour.SetTimeIsNotAvailableBehaviour();
         }
     }
 }
