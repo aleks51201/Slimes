@@ -5,7 +5,7 @@ namespace SlimeEvolutions.Panel.Info
 {
     public class InfoPanelManger : MonoBehaviour
     {
-        private InfoPanelView infoPanel;
+        [SerializeField] private InfoPanelView infoPanel;
 
 
         private void SetActiveInfoPanel(Slime slime)
@@ -16,7 +16,6 @@ namespace SlimeEvolutions.Panel.Info
 
         private void Awake()
         {
-            infoPanel = GetComponentInChildren<InfoPanelView>();
         }
 
         private void OnEnable()
