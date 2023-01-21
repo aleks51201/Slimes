@@ -83,6 +83,13 @@ namespace SlimeEvolutions.Panel.Crossing.Update
             fillCell.AddCell(rButton, CrossingSpaceData.RSlime);
         }
 
+        public void CleanCell()
+        {
+            var clean = new CleanCell();
+            clean.Clean(lButton.gameObject);
+            clean.Clean(rButton.gameObject);
+        }
+
         public void OnEnable()
         {
             updateViewBehaviour.SetBehaviourByDefault();
