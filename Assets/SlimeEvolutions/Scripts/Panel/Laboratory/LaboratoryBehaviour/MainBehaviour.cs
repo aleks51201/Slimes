@@ -20,6 +20,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             labLogic = laboratoryLogic;
             Subscribe();
             ResearchSpaceClear();
+            UpdateTextOnButton();
             ChangeBehaviour();
         }
 
@@ -104,5 +105,9 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             labLogic.ResearchPlaceView.ClearSpace();
         }
 
+        private void UpdateTextOnButton()
+        {
+            labLogic.UpdateTextOnButton(labLogic.LaboratoryView.BeforeResearch);
+        }
     }
 }
