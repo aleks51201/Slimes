@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+﻿using SlimeEvolutions.Panel.Crossing.TakeButton;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Info
 {
     public class InfoPanelManger : MonoBehaviour
     {
         private InfoPanelView infoPanel;
-
-
 
 
         private void SetActiveInfoPanel(Slime slime)
@@ -22,12 +21,12 @@ namespace SlimeEvolutions.Panel.Info
 
         private void OnEnable()
         {
-
+            TakeButtonView.ButtonClickedEvent += SetActiveInfoPanel;
         }
 
         private void OnDisable()
         {
-
+            TakeButtonView.ButtonClickedEvent -= SetActiveInfoPanel;
         }
     }
 }
