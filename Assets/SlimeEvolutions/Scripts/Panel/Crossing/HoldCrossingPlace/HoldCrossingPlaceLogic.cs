@@ -12,7 +12,6 @@ namespace SlimeEvolutions.Panel.Crossing
     public class HoldCrossingPlaceLogic : IActivatable
     {
         private HoldCrossingPlaceView holdCrossingPlaceView;
-        private Timer timer;
         private CrossingSpaceData crossingSpace;
         private UpdateView updateView;
 
