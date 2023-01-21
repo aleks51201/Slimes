@@ -9,6 +9,12 @@ namespace SlimeEvolutions.Panel
 {
     public class InfoPanelView:MonoBehaviour
     {
-        private InfopanelLogic infopanelLogic;
+        private InfoPanelLogic infopanelLogic;
+
+
+        private void Awake()
+        {
+            infopanelLogic = new(this);
+        }
     }
 }
