@@ -1,12 +1,10 @@
 ﻿using Assets.Scripts;
-using SlimeEvolutions.Architecture;
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Laboratory;
 using SlimeEvolutions.Panel.Laboratory.Behaviours;
 using SlimeEvolutions.Timers;
 using System;
-using System.Collections;
 
 namespace SlimeEvolutions.Panel
 {
@@ -17,13 +15,13 @@ namespace SlimeEvolutions.Panel
         private LaboratoryBehaviour labBehaviour;
         private Timer timer;
 
+
         public LaboratoryBehaviour LaboratoryBehaviour => labBehaviour;
         public ResearchPlaceView ResearchPlaceView => laboratoryView.ResearchPlace;
         public BackButton BackButton => laboratoryView.BackButton;
         public double ResearchTimeInMinutes => laboratoryView.ResearchTimeInMinutes;
         public Timer Timer => timer;
-        public float Seconds => laboratoryView.ResearchTimeInMinutes*60;
-
+        public float Seconds => laboratoryView.ResearchTimeInMinutes * 60;
         private LaboratoryDataInteractor LabInteract
         {
             get
@@ -40,12 +38,14 @@ namespace SlimeEvolutions.Panel
         public static Action StartResearchSlimeEvent;
         public static Action EndResearchSlimeEvent;
 
+
         public LaboratoryLogic(LaboratoryView laboratoryView)
         {
             this.laboratoryView = laboratoryView;
             labBehaviour = new(this);
             labBehaviour.SetBehaviourByDefault();
         }
+
 
         private Slime GetResearchableSlime()
         {
@@ -66,7 +66,7 @@ namespace SlimeEvolutions.Panel
 
         public void StartTimer(float seconds)
         {
-            timer = new(TimerTypes.OneSecTick,seconds);
+            timer = new(TimerTypes.OneSecTick, seconds);
             timer.Start();
         }
 

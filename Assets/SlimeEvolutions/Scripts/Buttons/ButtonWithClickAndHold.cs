@@ -8,6 +8,7 @@ namespace SlimeEvolutions.Buttons
     public class ButtonWithClickAndHold : ButtonMain
     {
         private Coroutine currentRoutine;
+        private bool isHeld;
 
 
         public static Action OnButtonClickStaticEvent;
@@ -27,6 +28,7 @@ namespace SlimeEvolutions.Buttons
             }
             OnButtonHoldEvent?.Invoke();
             OnButtonHoldStaticEvent?.Invoke();
+            isHeld = true;
         }
 
         public void OnClick()
@@ -42,11 +44,12 @@ namespace SlimeEvolutions.Buttons
                 return;
             }
             currentRoutine = StartCoroutine(Hold());
+            isHeld = false;
         }
 
         private void OnMouseUp(PointerEventData eventData)
         {
-            if (!IsActive || eventData.button != PointerEventData.InputButton.Left )
+            if (!IsActive || eventData.button != PointerEventData.InputButton.Left || isHeld )
             {
                 return;
             }
