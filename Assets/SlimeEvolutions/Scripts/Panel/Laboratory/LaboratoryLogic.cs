@@ -87,6 +87,11 @@ namespace SlimeEvolutions.Panel
             laboratoryView.Text.text = $"{time:mm}:{time:ss}";
         }
 
+        public void UpdateTextOnButton(string str)
+        {
+            laboratoryView.Text.text = $"{str}";
+        }
+
         public void EndResearch()
         {
             SetTrueSlimeResearch(LabInteract.ResearchableSlime);
