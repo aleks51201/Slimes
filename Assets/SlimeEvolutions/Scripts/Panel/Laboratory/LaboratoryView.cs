@@ -14,6 +14,7 @@ namespace SlimeEvolutions.Panel
 
         [Header("Words on the button")]
         [SerializeField] private string beforeResearch;
+        [SerializeField] private string afterResearch;
 
 
         public ResearchPlaceView ResearchPlace => researchPlaceView;
