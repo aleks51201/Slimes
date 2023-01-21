@@ -18,9 +18,11 @@ namespace SlimeEvolutions.Panel
 
 
         public ResearchPlaceView ResearchPlace => researchPlaceView;
-        public float ResearchTimeInMinutes => researchTimeInMinutes;
         public BackButton BackButton => backbutton;
         public TextMeshProUGUI Text => text;
+        public float ResearchTimeInMinutes => researchTimeInMinutes;
+        public string BeforeResearch => beforeResearch;
+        public string AfterResearch => afterResearch;
 
 
         private LaboratoryLogic laboratoryLogic;

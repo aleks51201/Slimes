@@ -17,11 +17,10 @@ namespace SlimeEvolutions.Panel
 
 
         public LaboratoryBehaviour LaboratoryBehaviour => labBehaviour;
+        public LaboratoryView LaboratoryView => laboratoryView;
         public ResearchPlaceView ResearchPlaceView => laboratoryView.ResearchPlace;
         public BackButton BackButton => laboratoryView.BackButton;
-        public double ResearchTimeInMinutes => laboratoryView.ResearchTimeInMinutes;
         public Timer Timer => timer;
-        public float Seconds => laboratoryView.ResearchTimeInMinutes * 60;
         private LaboratoryDataInteractor LabInteract
         {
             get
@@ -33,6 +32,8 @@ namespace SlimeEvolutions.Panel
                 return labInteract;
             }
         }
+        public float Seconds => laboratoryView.ResearchTimeInMinutes * 60;
+        public double ResearchTimeInMinutes => laboratoryView.ResearchTimeInMinutes;
 
 
         public static Action StartResearchSlimeEvent;
