@@ -38,7 +38,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             {
                 return;
             }
-            InfoPanelInvoker.ButtonHeldEvent += CrossingSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent += CrossingSpaceUpdate;
             //InventoryButtonLogic.OnInventoryButtonClickEvent += CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent += crossLogic.SaveData;
             ResearchButtonView.OnButtonClickEvent += AddCrossoverToList;
@@ -52,7 +52,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             {
                 return;
             }
-            InfoPanelInvoker.ButtonHeldEvent += CrossingSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent -= CrossingSpaceUpdate;
             //InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent -= crossLogic.SaveData;
             ResearchButtonView.OnButtonClickEvent -= AddCrossoverToList;

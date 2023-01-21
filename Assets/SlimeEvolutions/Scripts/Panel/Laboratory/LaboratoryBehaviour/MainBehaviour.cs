@@ -52,7 +52,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent += StartResearch;
-            InfoPanelInvoker.ButtonHeldEvent += ResearchSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent += ResearchSpaceUpdate;
             //InventoryButtonLogic.OnInventoryButtonClickEvent += ResearchSpaceUpdate;
             isSubscribe = true;
         }
@@ -64,7 +64,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent -= StartResearch;
-            InfoPanelInvoker.ButtonHeldEvent -= ResearchSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent -= ResearchSpaceUpdate;
             //InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
             isSubscribe = false;
         }
