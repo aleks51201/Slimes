@@ -17,6 +17,11 @@ namespace SlimeEvolutions.Panel
         }
 
 
+        private void UpdateView()
+        {
+
+        }
+
         public void OnEnable()
         {
         }
