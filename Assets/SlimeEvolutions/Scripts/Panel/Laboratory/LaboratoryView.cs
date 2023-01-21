@@ -12,6 +12,9 @@ namespace SlimeEvolutions.Panel
         [SerializeField] private BackButton backbutton;
         [SerializeField] private TextMeshProUGUI text;
 
+        [Header("Words on the button")]
+        [SerializeField] private string beforeResearch;
+
 
         public ResearchPlaceView ResearchPlace => researchPlaceView;
         public float ResearchTimeInMinutes => researchTimeInMinutes;

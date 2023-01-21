@@ -37,7 +37,6 @@ namespace SlimeEvolutions.Panel.Laboratory
 
         public void ResearchSpaceUpdate(object sender, Slime slime)
         {
-            Debug.Log($"{sender} ResearchSpaceUpdate");
             ClearSpace();
             this.slime = slime;
             CreateCell(Instantiate(buttonPrefab, this.transform), slime);
