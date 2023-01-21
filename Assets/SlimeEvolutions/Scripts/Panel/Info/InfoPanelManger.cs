@@ -1,4 +1,5 @@
-﻿using SlimeEvolutions.Panel.Crossing.TakeButton;
+﻿using SlimeEvolutions.Inventory.InventoryButton;
+using SlimeEvolutions.Panel.Crossing.TakeButton;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Info
@@ -21,11 +22,13 @@ namespace SlimeEvolutions.Panel.Info
         private void OnEnable()
         {
             TakeButtonView.ButtonClickedEvent += SetActiveInfoPanel;
+            InfoPanelInvoker.ButtonHeldEvent += SetActiveInfoPanel;
         }
 
         private void OnDisable()
         {
             TakeButtonView.ButtonClickedEvent -= SetActiveInfoPanel;
+            InfoPanelInvoker.ButtonHeldEvent -= SetActiveInfoPanel;
         }
     }
 }
