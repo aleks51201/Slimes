@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501976133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbc20d49a2dab944925de500ad09253, type: 3}
   m_Name: 
@@ -7425,7 +7425,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767621585}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbc20d49a2dab944925de500ad09253, type: 3}
   m_Name: 
@@ -8985,7 +8985,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954118548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbc20d49a2dab944925de500ad09253, type: 3}
   m_Name: 
@@ -12576,6 +12576,7 @@ GameObject:
   - component: {fileID: 1304144621}
   - component: {fileID: 1304144623}
   - component: {fileID: 1304144622}
+  - component: {fileID: 1304144624}
   m_Layer: 5
   m_Name: SlimePlace
   m_TagString: Untagged
@@ -12641,6 +12642,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304144620}
   m_CullTransparentMesh: 1
+--- !u!114 &1304144624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304144620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cfdf1542bf2d14da807758117b5492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellPrefab: {fileID: 7545647280027123272, guid: 07855cd45ad60f4469f0f5a033212717, type: 3}
 --- !u!1 &1310899367
 GameObject:
   m_ObjectHideFlags: 0
@@ -18348,7 +18362,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039909230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbc20d49a2dab944925de500ad09253, type: 3}
   m_Name: 
@@ -18497,7 +18511,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067584462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbc20d49a2dab944925de500ad09253, type: 3}
   m_Name: 

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   genes: 1
-  isDominant: 0
   spr: {fileID: 21300000, guid: 88209ba1d8ec3fe44a71d55034ffc5cc, type: 3}
+  name: 4
