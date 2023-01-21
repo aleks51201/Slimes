@@ -15,7 +15,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
 
         private Slime GetSlime()
         {
-            return GetComponent<CellView>().Slime;
+            return GetComponentInChildren<CellView>().Slime;
         }
 
         private void OnHold()
