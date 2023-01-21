@@ -2,7 +2,6 @@
 using SlimeEvolutions.Architecture.CrossData;
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
-using SlimeEvolutions.Timers;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -30,7 +29,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossSlider
         {
             var estimateTime = 0f;
             var slider = sliderView.GetComponent<Slider>();
-            var sec =(float) (CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
+            var sec = (float)(CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
 
             while (estimateTime < sec)
             {
