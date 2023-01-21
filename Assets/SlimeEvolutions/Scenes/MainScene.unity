@@ -8842,6 +8842,8 @@ MonoBehaviour:
   researchTimeInMinutes: 1
   backbutton: {fileID: 1208814341}
   text: {fileID: 1800572592}
+  beforeResearch: 66541651
+  afterResearch: 55
 --- !u!1 &954118548
 GameObject:
   m_ObjectHideFlags: 0
@@ -16680,7 +16682,7 @@ GameObject:
   - component: {fileID: 1789442095}
   - component: {fileID: 1789442096}
   m_Layer: 5
-  m_Name: Info panel manager
+  m_Name: InfoPanelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
