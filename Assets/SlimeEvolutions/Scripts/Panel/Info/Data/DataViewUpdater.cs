@@ -19,6 +19,7 @@ namespace SlimeEvolutions.Panel.Info.Data
         private void Awake()
         {
             text = GetComponent<TextMeshProUGUI>();
+            slime = GetComponentInParent<InfoPanelView>().Slime;
             slime = new();
         }
 
