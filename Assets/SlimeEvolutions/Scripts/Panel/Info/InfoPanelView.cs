@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SlimeEvolutions.InventoryCell;
+using System;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel
 {
     public class InfoPanelView:MonoBehaviour
     {
-        [SerializeField] private GameObject cellPrefab;
+        [SerializeField] private CellView cellPrefab;
 
         private InfoPanelLogic infopanelLogic;
         private Slime slime;
