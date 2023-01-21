@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SlimeEvolutions.Panel
 {
-    public class InfoPanelLogic
+    public class InfoPanelLogic:IActivatable
     {
         private InfoPanelView infoPanel;
 
@@ -17,6 +17,12 @@ namespace SlimeEvolutions.Panel
         }
 
 
+        public void OnEnable()
+        {
+        }
 
+        public void OnDisable()
+        {
+        }
     }
 }
