@@ -10,6 +10,9 @@ namespace SlimeEvolutions.Buttons
         private Coroutine currentRoutine;
 
 
+        public static Action OnButtonClickStaticEvent;
+        public static Action OnButtonHoldStaticEvent;
+
         public Action OnButtonClickEvent;
         public Action OnButtonHoldEvent;
 
