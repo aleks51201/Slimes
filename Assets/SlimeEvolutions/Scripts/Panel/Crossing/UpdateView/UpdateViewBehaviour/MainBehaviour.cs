@@ -16,6 +16,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         public void Enter(UpdateView updateView)
         {
             this.updateView = updateView;
+            CleanCell();
             Subscribe();
             ChangeBehaviour();
         }
@@ -61,6 +62,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 return;
             }
             UpdateViewBehaviour.SetIncorrectInformationBehaviour();
+        }
+
+        private void CleanCell()
+        {
+            updateView.CleanCell();
         }
     }
 }
