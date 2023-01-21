@@ -9,6 +9,11 @@ namespace SlimeEvolutions.Panel.Info
 
 
 
+        private void SetActiveInfoPanel(Slime slime)
+        {
+            infoPanel.Slime = slime;
+            infoPanel.gameObject.SetActive(true);
+        }
 
         private void Awake()
         {
