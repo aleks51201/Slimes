@@ -1,4 +1,4 @@
-﻿using SlimeEvolutions.Inventory;
+﻿using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.Panel.Laboratory;
 using System;
 
@@ -38,7 +38,8 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             {
                 return;
             }
-            InventoryButtonLogic.OnInventoryButtonClickEvent += CrossingSpaceUpdate;
+            InfoPanelInvoker.ButtonHeldEvent += CrossingSpaceUpdate;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent += CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent += crossLogic.SaveData;
             ResearchButtonView.OnButtonClickEvent += AddCrossoverToList;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += crossLogic.ClearSpace;
@@ -51,7 +52,8 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             {
                 return;
             }
-            InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate;
+            InfoPanelInvoker.ButtonHeldEvent += CrossingSpaceUpdate;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent -= CrossingSpaceUpdate;
             ResearchButtonView.OnButtonClickEvent -= crossLogic.SaveData;
             ResearchButtonView.OnButtonClickEvent -= AddCrossoverToList;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= crossLogic.ClearSpace;

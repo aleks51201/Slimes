@@ -1,7 +1,7 @@
 ﻿
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
-using SlimeEvolutions.Inventory;
+using SlimeEvolutions.Inventory.InventoryButton;
 
 namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 {
@@ -41,7 +41,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         private void ResearchSpaceUpdate(Slime slime)
         {
-            if(!slime.IsExplored)
+            if (!slime.IsExplored)
                 labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
         }
 
@@ -52,7 +52,8 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent += StartResearch;
-            InventoryButtonLogic.OnInventoryButtonClickEvent += ResearchSpaceUpdate;
+            InfoPanelInvoker.ButtonHeldEvent += ResearchSpaceUpdate;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent += ResearchSpaceUpdate;
             isSubscribe = true;
         }
 
@@ -63,7 +64,8 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent -= StartResearch;
-            InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
+            InfoPanelInvoker.ButtonHeldEvent -= ResearchSpaceUpdate;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
             isSubscribe = false;
         }
 

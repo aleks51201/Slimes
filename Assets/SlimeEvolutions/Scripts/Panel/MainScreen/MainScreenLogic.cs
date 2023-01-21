@@ -1,11 +1,5 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
-using SlimeEvolutions.Inventory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SlimeEvolutions.Panel
 {
@@ -19,10 +13,10 @@ namespace SlimeEvolutions.Panel
             this.mainScreenView = mainScreenView;
         }
 
-        
-        private void Action(Slime slime)
-        {
-        }
+
+        /*        private void Action(Slime slime)
+                {
+                }*/
 
         private void SetCountCrossingSlots()
         {
@@ -38,12 +32,12 @@ namespace SlimeEvolutions.Panel
 
         public void OnEnable()
         {
-            InventoryButtonLogic.OnInventoryButtonClickEvent +=Action;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent +=Action;
         }
 
         public void OnDisable()
         {
-            InventoryButtonLogic.OnInventoryButtonClickEvent -=Action;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent -=Action;
         }
     }
 }

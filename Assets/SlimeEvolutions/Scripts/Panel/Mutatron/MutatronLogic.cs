@@ -1,5 +1,5 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
-using SlimeEvolutions.Inventory;
+using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.Panel.Mutatron;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,8 @@ namespace SlimeEvolutions.Panel
         {
             this.mutatron = mutatron;
             slimeArray = new();
-            InventoryButtonLogic.OnInventoryButtonClickEvent += OnInventoryButtonClick;
+            InfoPanelInvoker.ButtonHeldEvent += OnInventoryButtonClick;
+            //InventoryButtonLogic.OnInventoryButtonClickEvent += OnInventoryButtonClick;
             RecycleButtonLogic.OnRecycleButtonClickEvent += OnRecycleButtonClick;
         }
 
@@ -56,7 +57,7 @@ namespace SlimeEvolutions.Panel
             }
         }
 
-        private void RemoveSlimesFromArray(List<Slime> excludeSlimeArrayFromStorage, List<Slime> storageSlimeArray )
+        private void RemoveSlimesFromArray(List<Slime> excludeSlimeArrayFromStorage, List<Slime> storageSlimeArray)
         {
             foreach (Slime slime in excludeSlimeArrayFromStorage)
             {
