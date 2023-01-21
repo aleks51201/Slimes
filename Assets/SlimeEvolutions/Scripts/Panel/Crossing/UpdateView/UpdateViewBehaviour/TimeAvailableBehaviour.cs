@@ -1,6 +1,4 @@
 ﻿using SlimeEvolutions.Panel.Crossing.CrossTimer;
-using SlimeEvolutions.Timers;
-using System;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -8,7 +6,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
     {
         private UpdateView updateView;
         private bool isSubscribe;
-        private Timer timer;
 
         private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
 
@@ -57,7 +54,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private void Initialize()
         {
-            StartTimer();
             updateView.ButtonSetActive(false);
             updateView.TimerSetActive(true);
             updateView.SliderSetActive(true);
@@ -67,23 +63,6 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private void ChangeBehaviour()
         {
             UpdateViewBehaviour.SetMainBehaviour();
-        }
-
-        private void StartTimer()
-        {
-            float seconds =(float) (updateView.CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
-            timer = new Timer(TimerTypes.OneSecTick,seconds);
-            timer.Start();
-        }
-
-        public void TimerSubscribe()
-        {
-            timer.OnTimerFinishedEvent += ChangeBehaviour;
-        }
-
-        public void TimerUnsubscribe()
-        {
-            timer.OnTimerFinishedEvent -= ChangeBehaviour;
         }
     }
 }
