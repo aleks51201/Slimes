@@ -12,6 +12,9 @@ namespace SlimeEvolutions.Panel.Crossing
         private UpdateView updateView;
 
 
+        private CrossingSpaceData CrossingSpace => Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID];
+
+
         public HoldCrossingPlaceLogic(HoldCrossingPlaceView holdCrossingPlaceView)
         {
             this.holdCrossingPlaceView = holdCrossingPlaceView;
@@ -45,9 +48,9 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             var slimes = new Slime[]
             {
-                crossingSpace.LSlime,
-                crossingSpace.RSlime,
-                crossingSpace.ResultSlime
+                CrossingSpace.LSlime,
+                CrossingSpace.RSlime,
+                CrossingSpace.ResultSlime
             };
             SaveSlime(slimes);
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);

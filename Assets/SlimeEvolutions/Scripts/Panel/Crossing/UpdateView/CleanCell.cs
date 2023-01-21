@@ -12,8 +12,15 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public void Clean(GameObject go)
         {
-            var spw = new Spawner();
-            spw.DestroyObject(go.GetComponentInChildren<CellView>().gameObject);
+            try
+            {
+                go = go.GetComponentInChildren<CellView>().gameObject;
+                Spawner.Instance.DestroyObject(go);
+            }
+            catch
+            {
+
+            }
         }
     }
 }
