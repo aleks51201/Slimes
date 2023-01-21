@@ -81,6 +81,11 @@ namespace SlimeEvolutions.Panel.Crossing
             UpdateInitialize();
         }
 
+        private void OpenPanelInfo()
+        {
+
+        }
+
         private void Subscribe()
         {
             holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
