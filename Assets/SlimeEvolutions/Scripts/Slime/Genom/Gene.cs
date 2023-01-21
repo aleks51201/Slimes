@@ -69,7 +69,7 @@ public abstract class Gene
         {
             if (i.Id == id)
             {
-                return i.name;
+                return i.Name;
             }
         }
         throw new ArgumentOutOfRangeException(" Missing slime's part");

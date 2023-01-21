@@ -88,12 +88,12 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void Subscribe()
         {
-            //holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         private void Unsubscribe()
         {
-            //holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
         }
 
         public void Awake()

@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Info.Data
@@ -20,12 +22,30 @@ namespace SlimeEvolutions.Panel.Info.Data
         {
             text = GetComponent<TextMeshProUGUI>();
             slime = GetComponentInParent<InfoPanelView>().Slime;
-            slime = new();
         }
 
         private void OnEnable()
         {
-            UpdateView(slime.Genome.GetGene<Gene>().GetName(slime.Genome.GetGene<Gene>().Id));
+            if (!slime.IsExplored)
+            {
+                UpdateView("?");
+                return;
+            }
+            switch (gene)
+            {
+                case Genome.Genes.Eyes:
+                    UpdateView(slime.Genome.GetGene<Eyes>().GetName(slime.Genome.Eyes.Id));
+                    break;
+                case Genome.Genes.Mouth:
+                    UpdateView(slime.Genome.GetGene<Mouth>().GetName(slime.Genome.Mouth.Id));
+                    break;
+                case Genome.Genes.SlimeForm:
+                    UpdateView(slime.Genome.GetGene<SlimeForm>().GetName(slime.Genome.Form.Id));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("this type does not exist");
+            }
+                
         }
 
         private void OnDisable()
