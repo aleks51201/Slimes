@@ -18,14 +18,19 @@ namespace SlimeEvolutions.Panel.Info.Data
             this.text.text = text ;
         }
 
+        private void UpdateInfo()
+        {
+            slime = GetComponentInParent<InfoPanelView>().Slime;
+        }
+
         private void Awake()
         {
             text = GetComponent<TextMeshProUGUI>();
-            slime = GetComponentInParent<InfoPanelView>().Slime;
         }
 
         private void OnEnable()
         {
+            UpdateInfo();
             if (!slime.IsExplored)
             {
                 UpdateView("?");
