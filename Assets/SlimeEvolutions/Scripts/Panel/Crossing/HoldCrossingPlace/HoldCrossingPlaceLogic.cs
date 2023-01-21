@@ -5,7 +5,6 @@ using SlimeEvolutions.Buttons;
 using SlimeEvolutions.InventoryCell;
 using SlimeEvolutions.Panel.Crossing.Update;
 using SlimeEvolutions.Timers;
-using System;
 using TMPro;
 
 namespace SlimeEvolutions.Panel.Crossing
@@ -86,28 +85,12 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void Subscribe()
         {
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         private void Unsubscribe()
         {
-        }
-
-        private void TimerSubscribe()
-        {
-            if (timer is null)
-            {
-                return;
-            }
-            timer.OnTimerFinishedEvent += TimerUnsubscribe;
-        }
-
-        private void TimerUnsubscribe()
-        {
-            if (timer is null)
-            {
-                return;
-            }
-            timer.OnTimerFinishedEvent -= TimerUnsubscribe;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
         }
 
         public void Awake()
@@ -119,14 +102,12 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             updateView.OnEnable();
             Subscribe();
-            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         public void OnDisable()
         {
             updateView.OnDisable();
             Unsubscribe();
-            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
             //Clean();
         }
     }
