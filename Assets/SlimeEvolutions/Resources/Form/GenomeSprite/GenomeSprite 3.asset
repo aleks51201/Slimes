@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   genes: 1
   spr: {fileID: 21300000, guid: 8e063099bbd6d554d81586f59ae41ff4, type: 3}
-  name: 3
+  name: Hedgehog

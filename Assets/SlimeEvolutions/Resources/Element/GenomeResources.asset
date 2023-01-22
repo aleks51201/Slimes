@@ -7,12 +7,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fd67c6c35b5604ea86842ac32782a1, type: 3}
-  m_Name: GenomeSprite 3
+  m_Script: {fileID: 11500000, guid: 70c18b30b5dc2264089350762efc9ec3, type: 3}
+  m_Name: GenomeResources
   m_EditorClassIdentifier: 
-  id: 3
-  genes: 3
-  spr: {fileID: 21300000, guid: 593ba285246b7d9488acd6ea4e179663, type: 3}
-  name: Vampire
+  typeArray: 0
+  genomeSprites:
+  - {fileID: 11400000, guid: aaa21c580445a594395c2c5ad7044dc8, type: 2}

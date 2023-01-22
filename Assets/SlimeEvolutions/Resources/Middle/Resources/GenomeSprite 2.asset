@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29fd67c6c35b5604ea86842ac32782a1, type: 3}
-  m_Name: GenomeSprite 3
+  m_Name: GenomeSprite 2
   m_EditorClassIdentifier: 
   id: 3
-  genes: 3
-  spr: {fileID: 21300000, guid: 593ba285246b7d9488acd6ea4e179663, type: 3}
-  name: Vampire
+  genes: 8
+  spr: {fileID: 21300000, guid: 8c81f7f54c9cc074fb2fab776715fd33, type: 3}
+  name: Chevron
