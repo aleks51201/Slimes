@@ -38,9 +38,19 @@ public class Genome
         }
         set { }
     }
+    public Bottom Bottom 
+    {
+        get
+        {
+            return GetGene<Bottom>();
+        }
+        set { }
+    }
+
 
     private Dictionary<Type, Gene> genesMap;
     private int[] genesId;
+
 
     public Genome()
     {
@@ -73,6 +83,7 @@ public class Genome
         CreateNewGene<SlimeForm>(genesMap);
         CreateNewGene<Eyes>(genesMap);
         CreateNewGene<Mouth>(genesMap);
+        CreateNewGene<Bottom>(genesMap);
     }
 
     private void CreateNewGene<T>(Dictionary<Type, Gene> genesMap) where T : Gene, new()
