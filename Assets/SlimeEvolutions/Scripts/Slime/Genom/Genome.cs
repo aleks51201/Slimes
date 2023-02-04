@@ -46,6 +46,22 @@ public class Genome
         }
         set { }
     }
+    public Element Element  
+    {
+        get
+        {
+            return GetGene<Element>();
+        }
+        set { }
+    }
+    public Middle Middle 
+    {
+        get
+        {
+            return GetGene<Middle>();
+        }
+        set { }
+    }
 
 
     private Dictionary<Type, Gene> genesMap;
@@ -84,6 +100,8 @@ public class Genome
         CreateNewGene<Eyes>(genesMap);
         CreateNewGene<Mouth>(genesMap);
         CreateNewGene<Bottom>(genesMap);
+        CreateNewGene<Element>(genesMap);
+        CreateNewGene<Middle>(genesMap);
     }
 
     private void CreateNewGene<T>(Dictionary<Type, Gene> genesMap) where T : Gene, new()
