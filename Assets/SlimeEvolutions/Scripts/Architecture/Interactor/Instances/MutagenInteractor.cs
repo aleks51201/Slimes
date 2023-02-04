@@ -12,7 +12,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
         public int Mutagen => mutagenRepository.Mutagen;
 
 
-        public Action<int> DataUpdated;
+        public Action<int> DataUpdatedEvent;
 
 
         public override void OnCreate()
@@ -28,7 +28,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
             }
             mutagenRepository.Mutagen += mut;
             mutagenRepository.Save();
-            DataUpdated?.Invoke(Mutagen);
+            DataUpdatedEvent?.Invoke(Mutagen);
         }
 
         public void SpendMutagen(int mut)
@@ -43,7 +43,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
             }
             mutagenRepository.Mutagen -= mut;
             mutagenRepository.Save();
-            DataUpdated?.Invoke(Mutagen);
+            DataUpdatedEvent?.Invoke(Mutagen);
         }
 
         public bool EnoughMutagen(int mut)
