@@ -12,7 +12,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
         public int Experience => experienceRepository.Experience;
 
 
-        public Action<int> DataUpdated;
+        public Action<int> DataUpdatedEvent;
 
 
         public override void OnCreate()
@@ -28,7 +28,7 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
             }
             experienceRepository.Experience += exp;
             experienceRepository.Save();
-            DataUpdated?.Invoke(Experience);
+            DataUpdatedEvent?.Invoke(Experience);
         }
     }
 }
