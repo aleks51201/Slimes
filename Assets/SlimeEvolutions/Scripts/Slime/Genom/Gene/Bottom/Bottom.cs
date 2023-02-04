@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Bottom: Gene
 {
     public Bottom()
     {
-        genomResources = Resources.Load<GenomeResources>("Eyes/GenomeResources");
+        genomResources = Resources.Load<GenomeResources>("Bottom/GenomeResources");
     }
 
     public int GetCellSlimeId(GameObject cellGameObject)
