@@ -10,6 +10,9 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         private MutagenLogic mutagenLogic;
 
 
+        public TextMeshProUGUI Text => text;
+
+
         private void Awake()
         {
             mutagenLogic = new(this);
