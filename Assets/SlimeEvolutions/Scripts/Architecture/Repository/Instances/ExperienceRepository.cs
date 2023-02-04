@@ -4,7 +4,9 @@
     {
         private Storage storage;
 
+
         public int Experience { get; set; }
+
 
         public override void Initialize()
         {
