@@ -6,6 +6,7 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
     public class ExperienceLogic:IActivatable
     {
         private ExperienceView experienceView;
+        private bool isInit;
 
 
         private ExperienceInteractor ExpInteractor
@@ -22,6 +23,15 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
             experienceView = expView;
         }
 
+
+        private void Init()
+        {
+            isInit = true;
+            Game.OnGameInitializedEvent -= Init;
+            Subscribe();
+            UpdateMutagenText();
+        }
+
         private void UpdateMutagenText()
         {
             experienceView.Text.text = $"{ExpInteractor.Experience}";
@@ -32,16 +42,34 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
             experienceView.Text.text = $"{exp}";
         }
 
-        public void OnEnable()
+        private void Subscribe()
         {
             ExpInteractor.DataUpdatedEvent += UpdateMutagenText;
-            Game.OnGameInitializedEvent += UpdateMutagenText;
+
+        }
+
+        private void Unsubscribe()
+        {
+            ExpInteractor.DataUpdatedEvent -= UpdateMutagenText;
+        }
+        public void OnEnable()
+        {
+            if (isInit)
+            {
+                Subscribe();
+            }
+            else
+            {
+                Game.OnGameInitializedEvent += Init;
+            }
         }
 
         public void OnDisable()
         {
-            ExpInteractor.DataUpdatedEvent += UpdateMutagenText;
-            Game.OnGameInitializedEvent -= UpdateMutagenText;
+            if (isInit)
+            {
+                Unsubscribe();
+            }
         }
     }
 }

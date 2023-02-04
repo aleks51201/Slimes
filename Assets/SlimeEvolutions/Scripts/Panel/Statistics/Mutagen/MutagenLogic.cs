@@ -29,6 +29,7 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
             isInit = true;
             Game.OnGameInitializedEvent -= Init;
             Subscribe();
+            UpdateMutagenText();
         }
 
         private void UpdateMutagenText()
@@ -46,7 +47,7 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
             MutInteractor.DataUpdatedEvent += UpdateMutagenText;
         }
 
-        private void Unsubcribe()
+        private void Unsubscribe()
         {
             MutInteractor.DataUpdatedEvent -= UpdateMutagenText;
         }
@@ -67,7 +68,7 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         {
             if (isInit)
             {
-                Unsubcribe();
+                Unsubscribe();
             }
         }
     }
