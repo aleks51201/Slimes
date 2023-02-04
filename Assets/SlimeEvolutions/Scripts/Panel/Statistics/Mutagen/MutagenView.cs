@@ -17,5 +17,15 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         {
             mutagenLogic = new(this);
         }
+
+        private void OnEnable()
+        {
+            mutagenLogic.OnEnable();
+        }
+
+        private void OnDisable()
+        {
+            mutagenLogic.OnDisable();
+        }
     }
 }
