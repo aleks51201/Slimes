@@ -42,15 +42,15 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
             int lvl = GetLvl();
             if(lvl == 0)
             {
-                experienceView.Text.text = $"{lvl} ({exp % 50}/{50})";
+                experienceView.Text.text = $"{lvl} ({exp % experienceView.LvlMultiplier}/{experienceView.LvlMultiplier})";
                 return;
             }
-            experienceView.Text.text = $"{lvl} ({exp - GetProgressionExp(lvl)}/{50 * lvl})";
+            experienceView.Text.text = $"{lvl} ({exp - GetProgressionExp(lvl)}/{experienceView.LvlMultiplier * lvl})";
         }
 
         private int GetLvl()
         {
-            return ExpInteractor.Experience / 50;
+            return ExpInteractor.Experience / experienceView.LvlMultiplier;
         }
 
         private int GetProgressionExp(int lvl)
@@ -58,7 +58,7 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
             int result = 0;
             for(int x =1; x <= lvl;x++)
             {
-                result += x * 50;
+                result += x * experienceView.LvlMultiplier;
             }
             return result;
         }
