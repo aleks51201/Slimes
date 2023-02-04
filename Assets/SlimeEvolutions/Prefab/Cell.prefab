@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f98b6e9e838d204884b9f91eee68985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isExplored: 0
+  cellView: {fileID: 474558815653371262}
 --- !u!222 &4227325709081150462
 CanvasRenderer:
   m_ObjectHideFlags: 0

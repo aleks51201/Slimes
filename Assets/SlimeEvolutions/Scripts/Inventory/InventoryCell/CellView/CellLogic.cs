@@ -20,7 +20,7 @@ namespace SlimeEvolutions.InventoryCell
         private void Init()
         {
             SetLvlCell();
-            SetExploreCellStatus();
+            //SetExploreCellStatus();
         }
 
         private void SetLvlCell()
@@ -29,9 +29,10 @@ namespace SlimeEvolutions.InventoryCell
             gameObject.GetComponentInChildren<CellLvlView>().lvl = lvl;
         }
 
-        private void SetExploreCellStatus()
-        {
-            gameObject.GetComponentInChildren<CellExploredStatusView>().isExplored = isExplored;
-        }
+        /*        private void SetExploreCellStatus()
+                {
+                    gameObject.GetComponentInChildren<CellExploredStatusView>().isExplored = isExplored;
+                }
+        */
     }
 }
