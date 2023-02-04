@@ -36,12 +36,12 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         public void OnEnable()
         {
             UpdateMutagenText();
-            MutInteractor.DataUpdated += UpdateMutagenText;
+            MutInteractor.DataUpdatedEvent += UpdateMutagenText;
         }
 
         public void OnDisable()
         {
-            MutInteractor.DataUpdated += UpdateMutagenText;
+            MutInteractor.DataUpdatedEvent += UpdateMutagenText;
         }
     }
 }
