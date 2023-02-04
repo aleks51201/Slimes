@@ -28,19 +28,5 @@ namespace SlimeEvolutions.Buttons
         {
             onPointerUpEvent?.Invoke(eventData);
         }
-
-/*        private void Awake()
-        {
-            if (!TryGetComponent(out BoxCollider2D component))
-            {
-                var col = gameObject.AddComponent<BoxCollider2D>();
-                col.isTrigger = true;
-            }
-        }
-*/
-        private void oiasdj()
-        {
-            UnityEngine.UI.Button button;
-        }
     }
 }
