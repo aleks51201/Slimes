@@ -70,6 +70,14 @@ public class Genome
         }
         set { }
     }
+    public Top Top 
+    {
+        get
+        {
+            return GetGene<Top>();
+        }
+        set { }
+    }
 
 
     private Dictionary<Type, Gene> genesMap;
@@ -111,6 +119,7 @@ public class Genome
         CreateNewGene<Element>(genesMap);
         CreateNewGene<Middle>(genesMap);
         CreateNewGene<Peculiarity>(genesMap);
+        CreateNewGene<Top>(genesMap);
     }
 
     private void CreateNewGene<T>(Dictionary<Type, Gene> genesMap) where T : Gene, new()
