@@ -3,7 +3,7 @@ using SlimeEvolutions.Architecture.Scene;
 
 namespace SlimeEvolutions.Panel.Statistics.Experience
 {
-    public class ExperienceLogic:IActivatable
+    public class ExperienceLogic : IActivatable
     {
         private ExperienceView experienceView;
         private bool isInit;
@@ -34,12 +34,18 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         private void UpdateMutagenText()
         {
-            experienceView.Text.text = $"{ExpInteractor.Experience}";
+            UpdateMutagenText(ExpInteractor.Experience);
         }
 
         private void UpdateMutagenText(int exp)
         {
-            experienceView.Text.text = $"{exp}";
+            int lvl = GetLvl();
+            experienceView.Text.text = $"{lvl} ({exp % 50}/{lvl * 50})";
+        }
+
+        private int GetLvl()
+        {
+            return ExpInteractor.Experience / 50;
         }
 
         private void Subscribe()
