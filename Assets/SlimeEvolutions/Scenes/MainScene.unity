@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 370010989}
+  lvlMultiplier: 50
 --- !u!224 &49029743 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7160343963843967846, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
@@ -19529,7 +19530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000027656555
+      value: 6.0000277
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
