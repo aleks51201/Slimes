@@ -3,9 +3,10 @@ using SlimeEvolutions.Architecture.Scene;
 
 namespace SlimeEvolutions.Panel.Statistics.Mutagen
 {
-    public class MutagenLogic:IActivatable
+    public class MutagenLogic : IActivatable
     {
-        public MutagenView mutagenView;
+        private MutagenView mutagenView;
+        private bool isInit;
 
 
         private MutagenInteractor MutInteractor
@@ -23,6 +24,13 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         }
 
 
+        private void Init()
+        {
+            isInit = true;
+            Game.OnGameInitializedEvent -= Init;
+            Subscribe();
+        }
+
         private void UpdateMutagenText()
         {
             mutagenView.Text.text = $"{MutInteractor.Mutagen}";
@@ -33,16 +41,34 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
             mutagenView.Text.text = $"{mut}";
         }
 
-        public void OnEnable()
+        private void Subscribe()
         {
             MutInteractor.DataUpdatedEvent += UpdateMutagenText;
-            Game.OnGameInitializedEvent += UpdateMutagenText;
+        }
+
+        private void Unsubcribe()
+        {
+            MutInteractor.DataUpdatedEvent -= UpdateMutagenText;
+        }
+
+        public void OnEnable()
+        {
+            if (isInit)
+            {
+                Subscribe();
+            }
+            else
+            {
+                Game.OnGameInitializedEvent += Init;
+            }
         }
 
         public void OnDisable()
         {
-            MutInteractor.DataUpdatedEvent -= UpdateMutagenText;
-            Game.OnGameInitializedEvent -= UpdateMutagenText;
+            if (isInit)
+            {
+                Unsubcribe();
+            }
         }
     }
 }
