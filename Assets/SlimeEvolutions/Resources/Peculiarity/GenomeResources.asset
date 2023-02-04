@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c18b30b5dc2264089350762efc9ec3, type: 3}
   m_Name: GenomeResources
   m_EditorClassIdentifier: 
-  typeArray: 0
+  typeArray: 6
   genomeSprites:
   - {fileID: 11400000, guid: 7b266060dd3303140ad7f72a8d96bbd1, type: 2}
