@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using SlimeEvolutions.SO;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
