@@ -40,12 +40,27 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
         private void UpdateMutagenText(int exp)
         {
             int lvl = GetLvl();
-            experienceView.Text.text = $"{lvl} ({exp % 50}/{lvl * 50})";
+            if(lvl == 0)
+            {
+                experienceView.Text.text = $"{lvl} ({exp % 50}/{50})";
+                return;
+            }
+            experienceView.Text.text = $"{lvl} ({exp - GetProgressionExp(lvl)}/{50 * lvl})";
         }
 
         private int GetLvl()
         {
             return ExpInteractor.Experience / 50;
+        }
+
+        private int GetProgressionExp(int lvl)
+        {
+            int result = 0;
+            for(int x =1; x <= lvl;x++)
+            {
+                result += x * 50;
+            }
+            return result;
         }
 
         private void Subscribe()
