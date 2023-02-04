@@ -3,7 +3,7 @@ using SlimeEvolutions.Architecture.Scene;
 
 namespace SlimeEvolutions.Panel.Statistics.Mutagen
 {
-    public class MutagenLogic
+    public class MutagenLogic:IActivatable
     {
         public MutagenView mutagenView;
 
@@ -26,6 +26,14 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
         private void UpdateMutagenText()
         {
             mutagenView.Text.text = $"{MutInteractor.Mutagen}";
+        }
+
+        public void OnEnable()
+        {
+        }
+
+        public void OnDisable()
+        {
         }
     }
 }
