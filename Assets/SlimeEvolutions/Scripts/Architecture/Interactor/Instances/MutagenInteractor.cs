@@ -1,10 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Repositories.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SlimeEvolutions.Architecture.Interactors.Instances
 {
@@ -12,25 +8,32 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
     {
         private MutagenRepository mutagenRepository;
 
-        public int Mutagen=> mutagenRepository.Mutagen;
+
+        public int Mutagen => mutagenRepository.Mutagen;
+
+
+        public Action<int> DataUpdated;
+
 
         public override void OnCreate()
         {
-            mutagenRepository= Game.GetRepository<MutagenRepository>();
+            mutagenRepository = Game.GetRepository<MutagenRepository>();
         }
 
         public void AddMutagen(int mut)
         {
-            if (mut< 0)
+            if (mut < 0)
             {
                 throw new ArgumentOutOfRangeException("mutagen can't be negative");
             }
             mutagenRepository.Mutagen += mut;
+            mutagenRepository.Save();
+            DataUpdated?.Invoke(Mutagen);
         }
 
         public void SpendMutagen(int mut)
         {
-            if (mut< 0)
+            if (mut < 0)
             {
                 throw new ArgumentOutOfRangeException("mutagen can't be negative");
             }
@@ -39,6 +42,8 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
                 throw new ArgumentOutOfRangeException("mutagen is not enough");
             }
             mutagenRepository.Mutagen -= mut;
+            mutagenRepository.Save();
+            DataUpdated?.Invoke(Mutagen);
         }
 
         public bool EnoughMutagen(int mut)
