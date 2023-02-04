@@ -17,5 +17,15 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
         {
             experienceLogic = new(this);
         }
+
+        private void OnEnable()
+        {
+            experienceLogic.OnEnable();
+        }
+
+        private void OnDisable()
+        {
+            experienceLogic.OnDisable();
+        }
     }
 }
