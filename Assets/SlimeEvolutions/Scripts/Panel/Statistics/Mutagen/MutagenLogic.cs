@@ -28,12 +28,20 @@ namespace SlimeEvolutions.Panel.Statistics.Mutagen
             mutagenView.Text.text = $"{MutInteractor.Mutagen}";
         }
 
+        private void UpdateMutagenText(int mut)
+        {
+            mutagenView.Text.text = $"{mut}";
+        }
+
         public void OnEnable()
         {
+            UpdateMutagenText();
+            MutInteractor.DataUpdated += UpdateMutagenText;
         }
 
         public void OnDisable()
         {
+            MutInteractor.DataUpdated += UpdateMutagenText;
         }
     }
 }
