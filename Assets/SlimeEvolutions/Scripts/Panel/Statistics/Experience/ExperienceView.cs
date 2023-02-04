@@ -6,6 +6,8 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
     public class ExperienceView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI text;
+        [Header("Balance")]
+        [SerializeField] private int lvlMultiplier;
 
         private ExperienceLogic experienceLogic;
 
