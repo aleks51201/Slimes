@@ -27,8 +27,8 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
                 throw new ArgumentOutOfRangeException("exp can't be negative");
             }
             experienceRepository.Experience += exp;
-            DataUpdated?.Invoke(exp);
             experienceRepository.Save();
+            DataUpdated?.Invoke(Experience);
         }
     }
 }
