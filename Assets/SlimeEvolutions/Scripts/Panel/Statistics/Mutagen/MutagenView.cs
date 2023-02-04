@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace SlimeEvolutions.Panel.Statistics
+namespace SlimeEvolutions.Panel.Statistics.Mutagen
 {
     public class MutagenView : MonoBehaviour
     {
