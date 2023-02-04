@@ -3,10 +3,10 @@
 [CreateAssetMenu(fileName = "GenomeSprite", menuName = "Slime/Genome/Sprite")]
 public class GenomeSprite : ScriptableObject
 {
-    [SerializeField] private int id;
-    [SerializeField] private Genome.Genes genes;
-    [SerializeField] private Sprite spr;
-    [SerializeField] private string name;
+    public int id;
+    public Genome.Genes genes;
+    public Sprite spr;
+    public string name;
 
     public int Id => id;
     public Genome.Genes Genes => genes;
