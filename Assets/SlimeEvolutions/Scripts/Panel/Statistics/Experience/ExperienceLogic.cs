@@ -34,13 +34,14 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         public void OnEnable()
         {
-            UpdateMutagenText();
             ExpInteractor.DataUpdatedEvent += UpdateMutagenText;
+            Game.OnGameInitializedEvent += UpdateMutagenText;
         }
 
         public void OnDisable()
         {
             ExpInteractor.DataUpdatedEvent += UpdateMutagenText;
+            Game.OnGameInitializedEvent -= UpdateMutagenText;
         }
     }
 }
