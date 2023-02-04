@@ -8,7 +8,12 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
     {
         private ExperienceRepository experienceRepository;
 
+
         public int Experience => experienceRepository.Experience;
+
+
+        public Action<int> DataUpdated;
+
 
         public override void OnCreate()
         {
@@ -22,6 +27,8 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
                 throw new ArgumentOutOfRangeException("exp can't be negative");
             }
             experienceRepository.Experience += exp;
+            DataUpdated?.Invoke(exp);
+            experienceRepository.Save();
         }
     }
 }
