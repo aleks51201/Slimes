@@ -92,7 +92,8 @@ namespace SlimeEvolutions.Panel.Crossing
             var interact = Game.GetInteractor<CrossingSpaceInteractor>();
             if (interact.AreThereAnySlotsAvailable())
             {
-                var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddSeconds(15));
+                int sec = ((LSlime.Lvl * RSlime.Lvl) / 2) * 10;
+                var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddSeconds(sec));
                 DeleteSlimeFromInventory(LSlime);
                 DeleteSlimeFromInventory(RSlime);
                 interact.SetCrossingSpaceData(interact.GetEmptySlotId(), i);
