@@ -13,7 +13,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         public static Action<Slime> ButtonClickedEvent;
 
 
-        private Slime GetSlime()
+        public Slime GetSlime()
         {
             return GetComponentInChildren<CellView>().Slime;
         }

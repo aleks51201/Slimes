@@ -14,6 +14,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private PanelTypeIsActive panelIaActive;
         private bool isMarked;
         private Image img;
+        private Slime slime;
 
 
         private Image Img
@@ -25,6 +26,17 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                     img = GetComponent<Image>();
                 }
                 return img;
+            }
+        }
+        private Slime Slime
+        {
+            get
+            {
+                if (slime is null)
+                {
+                    slime = GetComponent<SlimeGetter>().GetSlime();
+                }
+                return slime;
             }
         }
 
@@ -71,11 +83,14 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             }
         }
 
-        private void OnResearchBtnClicked()
+        private void OnResearchBtnClicked(Slime slime)
         {
-            if(panelIaActive == PanelTypeIsActive.Main)
+            if (panelIaActive == PanelTypeIsActive.Main)
             {
-                ClearColour();
+                if (slime.Id == Slime.Id)
+                {
+                    ClearColour();
+                }
             }
         }
 
@@ -93,7 +108,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private void OnEnable()
         {
             button.OnButtonClickEvent += OnButonClicked;
-            ResearchPlaceButtonView.OnButtonClickEvent += OnResearchBtnClicked;
+            ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent += OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent += OnMainEntered;
         }
@@ -101,7 +116,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private void OnDisable()
         {
             button.OnButtonClickEvent -= OnButonClicked;
-            ResearchPlaceButtonView.OnButtonClickEvent -= OnResearchBtnClicked;
+            ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent -= OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent -= OnMainEntered;
         }
