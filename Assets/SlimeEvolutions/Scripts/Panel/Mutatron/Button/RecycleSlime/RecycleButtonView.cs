@@ -23,6 +23,7 @@ namespace SlimeEvolutions.Panel.Mutatron
         {
             recycleButtonLogic = new(this);
         }
+
         private void OnEnable()
         {
             recycleButtonLogic.OnEnable();
