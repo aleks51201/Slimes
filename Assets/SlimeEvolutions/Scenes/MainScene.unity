@@ -6214,6 +6214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutagenMultiplierWhenBuying: 15
   experienceView: {fileID: 46514031}
+  text: rdctfyvgbhnjm
 --- !u!1 &657185960
 GameObject:
   m_ObjectHideFlags: 0
@@ -19535,7 +19536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000027656555
+      value: 6.0000277
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
