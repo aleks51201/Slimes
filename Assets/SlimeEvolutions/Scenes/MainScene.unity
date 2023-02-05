@@ -7094,7 +7094,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 760816706}
         m_TargetAssemblyTypeName: Assets.Scripts.BackButton, Assembly-CSharp
-        m_MethodName: CloseCurrentPanel
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11451,7 +11451,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1208814341}
         m_TargetAssemblyTypeName: Assets.Scripts.BackButton, Assembly-CSharp
-        m_MethodName: CloseCurrentPanel
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19537,7 +19537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000027656555
+      value: 6.0000277
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
