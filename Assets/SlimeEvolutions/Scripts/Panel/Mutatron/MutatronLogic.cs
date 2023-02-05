@@ -1,4 +1,5 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
+using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.Panel.Mutatron;
 using SlimeEvolutions.Stuff;
@@ -87,6 +88,7 @@ namespace SlimeEvolutions.Panel
 
         private void OnRecycleButtonClick()
         {
+            Game.GetInteractor<MutagenInteractor>().AddMutagen(CalcMutagen());
             RemoveSlimesFromSavedData();
             OnRemoveSlimeFromSavedDataEvent?.Invoke();
         }
