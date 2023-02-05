@@ -14,14 +14,23 @@ namespace SlimeEvolutions.Panel.Mutatron
         public string AfterRecycle => afterRecycle;
 
 
-        private void Start()
-        {
-            recycleButtonLogic = new(this);
-        }
-
         public void OnClick()
         {
             recycleButtonLogic.OnClick();
+        }
+
+        private void Awake()
+        {
+            recycleButtonLogic = new(this);
+        }
+        private void OnEnable()
+        {
+            recycleButtonLogic.OnEnable();
+        }
+
+        private void OnDisable()
+        {
+            recycleButtonLogic.OnDisable();
         }
     }
 }
