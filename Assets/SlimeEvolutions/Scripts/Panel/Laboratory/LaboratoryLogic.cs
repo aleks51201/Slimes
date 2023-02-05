@@ -97,11 +97,11 @@ namespace SlimeEvolutions.Panel
         public void SaveExpAfterResearch()
         {
             var exp = (15 + laboratoryView.Lvl * 0.3) - ((laboratoryView.Lvl - LabInteract.ResearchableSlime.Lvl) * 0.3);
-            if(exp < 0)
+            if (exp < 0)
             {
                 exp = 0;
             }
-            Game.GetInteractor<ExperienceInteractor>().AddExperience((int) exp);
+            Game.GetInteractor<ExperienceInteractor>().AddExperience((int)exp);
         }
 
         public void EndResearch()
