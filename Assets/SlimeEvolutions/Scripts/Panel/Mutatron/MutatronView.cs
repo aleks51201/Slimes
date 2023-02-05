@@ -9,6 +9,9 @@ namespace SlimeEvolutions.Panel
         private MutatronLogic mutatronLogic;
 
 
+        public int MutagenMultiplierOnSale => mutagenMultiplierOnSale;
+
+
         private void Start()
         {
             mutatronLogic = new(this);
