@@ -44,6 +44,18 @@ namespace SlimeEvolutions.Panel.Crossing
             }
         }
 
+        private void SaveExpForCross()
+        {
+            Slime rSlime = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID].RSlime;
+            Slime lSlime = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID].LSlime;
+            var exp = 25 + ((rSlime.Lvl + lSlime.Lvl) / 2) * 0.8 - ((rSlime.Lvl - lSlime.Lvl) * 1.7);
+            if (exp < 0)
+            {
+                exp = 0;
+            }
+            Game.GetInteractor<ExperienceInteractor>().AddExperience((int)exp);
+        }
+
         private void AcceptNewSlime()
         {
             var slimes = new Slime[]
@@ -53,6 +65,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 CrossingSpace.ResultSlime
             };
             SaveSlime(slimes);
+
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
             UpdateInitialize();
         }
