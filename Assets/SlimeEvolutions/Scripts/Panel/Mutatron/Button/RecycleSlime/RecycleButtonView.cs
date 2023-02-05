@@ -10,6 +10,10 @@ namespace SlimeEvolutions.Panel.Mutatron
         private RecycleButtonLogic recycleButtonLogic;
 
 
+        public string BeforeRecycle => beforeRecycle;
+        public string AfterRecycle => afterRecycle;
+
+
         private void Start()
         {
             recycleButtonLogic = new(this);
