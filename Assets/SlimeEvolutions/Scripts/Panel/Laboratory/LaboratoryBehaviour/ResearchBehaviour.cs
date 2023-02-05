@@ -23,6 +23,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         public void OnEnable()
         {
+            UpdateTimerText();
             Subscribe();
         }
 
@@ -54,7 +55,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         private void TimerStart()
         {
             labLogic.StartTimer((float)labLogic.Seconds);
-            labLogic.UpdateTimerText((float)labLogic.Seconds);
+            UpdateTimerText();
             TimerSubscribe();
         }
 
@@ -88,6 +89,11 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             Slime researchingSlime = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime;
             labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, researchingSlime);
+        }
+
+        private void UpdateTimerText()
+        {
+            labLogic.UpdateTimerText((float)labLogic.Seconds);
         }
 
     }
