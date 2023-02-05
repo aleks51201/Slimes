@@ -29,6 +29,11 @@ namespace SlimeEvolutions.Panel.Mutatron
             Game.GetInteractor<DailyTimeInteractor>().SetTime(DateTime.Now);
         }
 
+        private bool CheckMutagenAmount(int mut)
+        {
+            return Game.GetInteractor<MutagenInteractor>().EnoughMutagen(mut);
+        }
+
         public void OnClick()
         {
             if (true)// сделать проверку на наличие бесплатной крутки или на достаточно ли монет для крутки
