@@ -14,6 +14,7 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         public TextMeshProUGUI Text => text;
         public int LvlMultiplier => lvlMultiplier;
+        public int Lvl => experienceLogic.Lvl;
 
 
         private void Awake()
