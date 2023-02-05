@@ -24,12 +24,12 @@ namespace SlimeEvolutions.Panel.Mutatron
 
         private void OnAddSlimeToArray(int mutagen)
         {
-            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = $"Переработать выбранные +{mutagen}";
+            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = $"{recycleButtonView.BeforeRecycle} +{mutagen}";
         }
 
         private void StringByDefault()
         {
-            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = "Переработать выбранные";
+            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = $"{recycleButtonView.AfterRecycle}";
         }
     }
 }
