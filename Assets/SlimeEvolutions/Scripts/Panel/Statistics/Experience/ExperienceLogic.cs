@@ -10,6 +10,14 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
         private bool isInit;
 
 
+        public int Lvl
+        {
+            get
+            {
+                return ProgressionCalculator.CalcTotalLvlForExp(ExpInteractor.Experience, experienceView.LvlMultiplier);
+            }
+        }
+
         private ExperienceInteractor ExpInteractor
         {
             get
@@ -40,18 +48,13 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         private void UpdateMutagenText(int exp)
         {
-            int lvl = GetLvl();
+            int lvl = Lvl;
             if(lvl == 0)
             {
                 experienceView.Text.text = $"{lvl} ({exp % experienceView.LvlMultiplier}/{experienceView.LvlMultiplier})";
                 return;
             }
             experienceView.Text.text = $"{lvl} ({exp - GetProgressionExp(lvl)}/{experienceView.LvlMultiplier * lvl})";
-        }
-
-        private int GetLvl()
-        {
-            return ProgressionCalculator.CalcTotalLvlForExp(ExpInteractor.Experience, experienceView.LvlMultiplier);
         }
 
         private int GetProgressionExp(int lvl)
