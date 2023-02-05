@@ -62,6 +62,7 @@ namespace SlimeEvolutions.Panel
         {
             RemoveSlimeFromInventoryData();
             SaveResearchableSlime();
+            SetTrueSlimeResearch(LabInteract.ResearchableSlime);
             StartResearchSlimeEvent?.Invoke();
         }
 
@@ -95,7 +96,6 @@ namespace SlimeEvolutions.Panel
 
         public void EndResearch()
         {
-            SetTrueSlimeResearch(LabInteract.ResearchableSlime);
             EndResearchSlimeEvent?.Invoke();
         }
 
