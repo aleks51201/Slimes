@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
+using SlimeEvolutions.Stuff;
 
 namespace SlimeEvolutions.Panel.Statistics.Experience
 {
@@ -55,12 +56,7 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         private int GetProgressionExp(int lvl)
         {
-            int result = 0;
-            for(int x =1; x <= lvl;x++)
-            {
-                result += x * experienceView.LvlMultiplier;
-            }
-            return result;
+            return ProgressionCalculator.CalcProgress(1, lvl, experienceView.LvlMultiplier);
         }
 
         private void Subscribe()
