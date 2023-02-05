@@ -1,4 +1,7 @@
-﻿using SlimeEvolutions.InventoryCell;
+﻿using SlimeEvolutions.Architecture.Interactors.Instances;
+using SlimeEvolutions.Architecture.Scene;
+using SlimeEvolutions.InventoryCell;
+using SlimeEvolutions.Stuff;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,14 +26,40 @@ public abstract class Gene
     }
     public bool IsDominant { get; set; }
 
+    private int randomPart(int[] values, int[] weights)
+    {
+        int totalWeight = 0;
+        foreach (int weight in weights)
+        {
+            totalWeight += weight;
+        }
+        var rnd = new System.Random();
+        int rndNum = rnd.Next(totalWeight);
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (rndNum < weights[i])
+            {
+                return values[i];
+            }
+            rndNum -= weights[i];
+        }
+        throw new Exception("no num");
+    }
+
     public void RandomGenerate()
     {
         List<int> idCollections = new();
+        List<int> weightCollections = new();
         foreach (GenomeSprite genomeSprite in genomResources.GenomeSprites)
         {
-            idCollections.Add(genomeSprite.Id);
+            if (genomeSprite.LvlForDrop <= ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50))
+            {
+                idCollections.Add(genomeSprite.Id);
+                weightCollections.Add(genomeSprite.Weight);
+            }
         }
-        id = idCollections[RandomNumber(idCollections.Count)];
+        id = randomPart(idCollections.ToArray(), weightCollections.ToArray());
+        //id = idCollections[RandomNumber(idCollections.Count)];
         IsDominant = RandomNumber(2) == 1;
     }
 
