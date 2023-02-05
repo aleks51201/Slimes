@@ -1,6 +1,7 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.Panel.Mutatron;
+using SlimeEvolutions.Stuff;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,7 +71,7 @@ namespace SlimeEvolutions.Panel
             int mutagen = 0;
             foreach (Slime slime in slimeArray)
             {
-                mutagen += slime.Lvl * 10;
+                mutagen += slime.Lvl * 5;
             }
             return mutagen;
         }
