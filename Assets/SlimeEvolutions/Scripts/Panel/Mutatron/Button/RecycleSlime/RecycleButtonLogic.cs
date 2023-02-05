@@ -4,7 +4,7 @@ using TMPro;
 
 namespace SlimeEvolutions.Panel.Mutatron
 {
-    public class RecycleButtonLogic
+    public class RecycleButtonLogic : IActivatable
     {
         private RecycleButtonView recycleButtonView;
 
@@ -35,6 +35,15 @@ namespace SlimeEvolutions.Panel.Mutatron
         private void StringByDefault()
         {
             recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = $"{recycleButtonView.AfterRecycle}";
+        }
+
+        public void OnEnable()
+        {
+            StringByDefault();
+        }
+
+        public void OnDisable()
+        {
         }
     }
 }
