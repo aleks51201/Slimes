@@ -2,12 +2,17 @@
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Panel;
 using SlimeEvolutions.Panel.Mutatron;
+using System;
 
 namespace SlimeEvolutions.Inventory.Behaviour
 {
     public class MutatronBehaviour : IInventoryBehaviour
     {
         private InventoryLogic inventoryLogic;
+
+
+        public static Action MutatronBehaviourEnteredEvent;
+
 
         public void Enter(InventoryLogic inventory)
         {
