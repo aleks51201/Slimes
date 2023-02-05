@@ -18,7 +18,7 @@ namespace SlimeEvolutions.Panel.Mutatron
         public string Text => text;
 
 
-        private void Start()
+        private void Awake()
         {
             randomSlimeButtonLogic = new(this);
         }
@@ -26,6 +26,16 @@ namespace SlimeEvolutions.Panel.Mutatron
         public void OnClick()
         {
             randomSlimeButtonLogic.OnClick();
+        }
+
+        private void OnEnable()
+        {
+            randomSlimeButtonLogic.OnEnable();
+        }
+
+        private void OnDisable()
+        {
+            randomSlimeButtonLogic.OnDisable();
         }
     }
 }
