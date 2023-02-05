@@ -63,6 +63,7 @@ namespace SlimeEvolutions.Panel
             RemoveSlimeFromInventoryData();
             SaveResearchableSlime();
             SetTrueSlimeResearch(LabInteract.ResearchableSlime);
+            DiscardMutagen();
             StartResearchSlimeEvent?.Invoke();
         }
 
@@ -70,6 +71,11 @@ namespace SlimeEvolutions.Panel
         {
             timer = new(TimerTypes.OneSecTick, seconds);
             timer.Start();
+        }
+
+        private void DiscardMutagen()
+        {
+            Game.GetInteractor<MutagenInteractor>().SpendMutagen(CalcMutagenCost());
         }
 
         private void SaveResearchableSlime()
