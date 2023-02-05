@@ -4,17 +4,35 @@ using UnityEngine;
 [CustomEditor(typeof(GenomeSprite))]
 public class GenomeSpriteEditor : Editor
 {
+    private GenomeSprite  genomeSprite;
     public override void OnInspectorGUI()
     {
-        var genomeSprite = target as GenomeSprite;
-        GUILayout.Label("IMAGE");
-        GUILayout.BeginHorizontal();
-        genomeSprite.spr = EditorGUILayout.ObjectField(genomeSprite.spr, typeof(Sprite), false, GUILayout.Width(250), GUILayout.Height(250)) as Sprite;
+        genomeSprite = target as GenomeSprite;
+        ShowImgBlock();
+        ShowBalanceBlock();
+    }
+
+    private void ShowVerticalImgInfo()
+    {
         GUILayout.BeginVertical();
         genomeSprite.genes =(Genome.Genes) EditorGUILayout.EnumPopup("Type of part", genomeSprite.genes);
         genomeSprite.id = EditorGUILayout.IntField(label: "Id", genomeSprite.id);
         genomeSprite.name = EditorGUILayout.TextField("Name of part", genomeSprite.name);
         GUILayout.EndVertical();
+    }
+    private void ShowImgBlock()
+    {
+        GUILayout.Label("IMAGE");
+        GUILayout.BeginHorizontal();
+        genomeSprite.spr = EditorGUILayout.ObjectField(genomeSprite.spr, typeof(Sprite), false, GUILayout.Width(250), GUILayout.Height(250)) as Sprite;
+        ShowVerticalImgInfo();
         GUILayout.EndHorizontal();
+    }
+
+    private void ShowBalanceBlock()
+    {
+        GUILayout.Label("BAlANCE");
+        genomeSprite.lvlForDrop = EditorGUILayout.IntField("lvl for drop", genomeSprite.lvlForDrop);
+        genomeSprite.weight= EditorGUILayout.IntField("Weight of part", genomeSprite.weight);
     }
 }
