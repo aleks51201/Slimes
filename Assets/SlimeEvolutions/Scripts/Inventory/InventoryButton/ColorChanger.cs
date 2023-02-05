@@ -40,6 +40,11 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             panelIaActive = PanelTypeIsActive.Mutatron;
         }
 
+        private void OnMainEntered()
+        {
+            panelIaActive = PanelTypeIsActive.Main;
+        }
+
         private void ChangeBGColour()
         {
             if (panelIaActive == PanelTypeIsActive.Mutatron)
@@ -64,13 +69,14 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         {
             button.OnButtonClickEvent += ChangeBGColour;
             MutatronBehaviour.MutatronBehaviourEnteredEvent += OnMutatronEntered;
+            MainBehaviour.MainBehaviourEnteredEvent += OnMainEntered;
         }
 
         private void OnDisable()
         {
             button.OnButtonClickEvent -= ChangeBGColour;
             MutatronBehaviour.MutatronBehaviourEnteredEvent -= OnMutatronEntered;
-
+            MainBehaviour.MainBehaviourEnteredEvent -= OnMainEntered;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SlimeEvolutions.Inventory.Behaviour
         private bool isInitialized;
 
 
-        private Action MainBehaviourEnteredEvent;
+        public static Action MainBehaviourEnteredEvent;
 
 
         public void Enter(InventoryLogic inventory)
