@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Panel.MainScreen;
+using System;
 
 namespace SlimeEvolutions.Inventory.Behaviour
 {
@@ -8,10 +9,15 @@ namespace SlimeEvolutions.Inventory.Behaviour
         private InventoryLogic inventoryLogic;
         private bool isInitialized;
 
+
+        private Action MainBehaviourEnteredEvent;
+
+
         public void Enter(InventoryLogic inventory)
         {
             inventoryLogic = inventory;
             Subscribe();
+            MainBehaviourEnteredEvent?.Invoke();
         }
 
         public void Exit()
