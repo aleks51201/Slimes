@@ -12,7 +12,7 @@ namespace SlimeEvolutions.Panel.Mutatron
 
         private void Start()
         {
-            recycleButtonLogic = new(this.gameObject);
+            recycleButtonLogic = new(this);
         }
 
         public void OnClick()

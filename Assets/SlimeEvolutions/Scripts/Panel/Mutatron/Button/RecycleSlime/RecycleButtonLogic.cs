@@ -6,13 +6,13 @@ namespace SlimeEvolutions.Panel.Mutatron
 {
     public class RecycleButtonLogic
     {
-        private GameObject gameObject;
+        private RecycleButtonView recycleButtonView;
 
         public static Action OnRecycleButtonClickEvent;
 
-        public RecycleButtonLogic(GameObject gameObject)
+        public RecycleButtonLogic(RecycleButtonView gameObject)
         {
-            this.gameObject = gameObject;
+            this.recycleButtonView = gameObject;
             MutatronLogic.OnAddSlimeToArrayEvent += OnAddSlimeToArray;
         }
 
@@ -24,12 +24,12 @@ namespace SlimeEvolutions.Panel.Mutatron
 
         private void OnAddSlimeToArray(int mutagen)
         {
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = $"Переработать выбранные +{mutagen}";
+            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = $"Переработать выбранные +{mutagen}";
         }
 
         private void StringByDefault()
         {
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Переработать выбранные";
+            recycleButtonView.GetComponentInChildren<TextMeshProUGUI>().text = "Переработать выбранные";
         }
     }
 }
