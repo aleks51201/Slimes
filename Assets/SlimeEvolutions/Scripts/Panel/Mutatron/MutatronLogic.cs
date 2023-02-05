@@ -10,13 +10,13 @@ namespace SlimeEvolutions.Panel
 {
     public class MutatronLogic
     {
-        private GameObject mutatron;
+        private MutatronView mutatron;
         private List<Slime> slimeArray;
 
         public static Action<int> OnAddSlimeToArrayEvent;
         public static Action OnRemoveSlimeFromSavedDataEvent;
 
-        public MutatronLogic(GameObject mutatron)
+        public MutatronLogic(MutatronView mutatron)
         {
             this.mutatron = mutatron;
             slimeArray = new();
@@ -78,7 +78,7 @@ namespace SlimeEvolutions.Panel
 
         private void OnInventoryButtonClick(Slime slime)
         {
-            if (!mutatron.activeSelf)
+            if (!mutatron.gameObject.activeSelf)
             {
                 return;
             }
