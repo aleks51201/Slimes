@@ -54,7 +54,8 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         private void TimerStart()
         {
-            labLogic.StartTimer((float)labLogic.Seconds);
+            int lvl = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime.Lvl;
+            labLogic.StartTimer(lvl * 30);
             UpdateTimerText();
             TimerSubscribe();
         }
