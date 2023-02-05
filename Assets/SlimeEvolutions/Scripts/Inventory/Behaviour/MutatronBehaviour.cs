@@ -18,6 +18,7 @@ namespace SlimeEvolutions.Inventory.Behaviour
         {
             inventoryLogic = inventory;
             Subscribe();
+            MutatronBehaviourEnteredEvent?.Invoke();
         }
 
         public void Exit()
