@@ -51,12 +51,12 @@ namespace SlimeEvolutions.Panel.Statistics.Experience
 
         private int GetLvl()
         {
-            return ExpInteractor.Experience / experienceView.LvlMultiplier;
+            return ProgressionCalculator.CalcTotalLvlForExp(ExpInteractor.Experience, experienceView.LvlMultiplier);
         }
 
         private int GetProgressionExp(int lvl)
         {
-            return ProgressionCalculator.CalcProgress(1, lvl, experienceView.LvlMultiplier);
+            return ProgressionCalculator.CalcTotalExpForLvl(1, lvl, experienceView.LvlMultiplier);
         }
 
         private void Subscribe()
