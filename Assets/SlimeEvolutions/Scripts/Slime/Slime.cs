@@ -1,4 +1,7 @@
 ﻿using SlimeEvolutions;
+using SlimeEvolutions.Architecture.Interactors.Instances;
+using SlimeEvolutions.Architecture.Scene;
+using SlimeEvolutions.Stuff;
 using System;
 
 public class Slime
@@ -48,7 +51,7 @@ public class Slime
     public void RandomSlime()
     {
         id = new SlimeID().GetUniqueId();
-        lvl = RandomNumber(1, 100);
+        lvl =  ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50);
         IsExplored = false;
         genome.RandomGenome();
     }
