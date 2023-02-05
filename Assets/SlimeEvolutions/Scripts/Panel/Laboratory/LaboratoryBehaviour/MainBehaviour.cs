@@ -33,6 +33,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             Subscribe();
             ResearchSpaceClear();
+            UpdateTextOnButton();
         }
 
         public void OnDisable()
