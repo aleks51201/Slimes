@@ -94,6 +94,11 @@ namespace SlimeEvolutions.Panel
             laboratoryView.Text.text = $"{str}";
         }
 
+        public int CalcMutagenCost()
+        {
+            return laboratoryView.Lvl * 3;
+        }
+
         public void SaveExpAfterResearch()
         {
             var exp = (15 + laboratoryView.Lvl * 0.3) - ((laboratoryView.Lvl - LabInteract.ResearchableSlime.Lvl) * 0.3);
