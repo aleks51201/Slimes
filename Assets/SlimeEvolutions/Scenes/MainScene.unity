@@ -2059,6 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadf66344beb1be42b87197f860dfc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mutagenMultiplierOnSale: 5
 --- !u!1 &221590558
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,6 +5381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa70ba86e9e6a46a34d14fc3457cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beforeRecycle: saldkfjlasjfd
+  afterRecycle: a;osdkjfsadlf;jl;sdajfl;ajsdfl;j
 --- !u!1 &528542824
 GameObject:
   m_ObjectHideFlags: 0
@@ -16201,7 +16204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.75476, y: -362.5}
+  m_AnchoredPosition: {x: 121.75488, y: -362.5}
   m_SizeDelta: {x: 243.50952, y: 705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728786017
