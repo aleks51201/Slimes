@@ -7,7 +7,7 @@ namespace SlimeEvolutions.Inventory.Behaviour
 {
     public class MutatronBehaviour : IInventoryBehaviour
     {
-        InventoryLogic inventoryLogic;
+        private InventoryLogic inventoryLogic;
 
         public void Enter(InventoryLogic inventory)
         {
