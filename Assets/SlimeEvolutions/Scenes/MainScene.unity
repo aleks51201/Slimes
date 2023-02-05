@@ -8874,9 +8874,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchPlaceView: {fileID: 1807395748}
-  researchTimeInMinutes: 1
   backbutton: {fileID: 1208814341}
   text: {fileID: 1800572592}
+  experienceView: {fileID: 46514031}
+  researchTimeInMinutes: 1
   beforeResearch: 66541651
   afterResearch: 55
 --- !u!1 &954118548
@@ -19536,7 +19537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.0000277
+      value: 0.000027656555
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
