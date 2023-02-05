@@ -2,15 +2,17 @@
 using SlimeEvolutions.Panel.Laboratory;
 using UnityEngine;
 using TMPro;
+using SlimeEvolutions.Panel.Statistics.Experience;
 
 namespace SlimeEvolutions.Panel
 {
     public class LaboratoryView : MonoBehaviour
     {
         [SerializeField] private ResearchPlaceView researchPlaceView;
-        [SerializeField] [Min(0)] private float researchTimeInMinutes;
         [SerializeField] private BackButton backbutton;
         [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private ExperienceView experienceView;
+        [SerializeField] [Min(0)] private float researchTimeInMinutes;
 
         [Header("Words on the button")]
         [SerializeField] private string beforeResearch;
