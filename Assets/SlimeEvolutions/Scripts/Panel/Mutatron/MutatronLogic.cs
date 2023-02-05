@@ -71,7 +71,7 @@ namespace SlimeEvolutions.Panel
             int mutagen = 0;
             foreach (Slime slime in slimeArray)
             {
-                mutagen += slime.Lvl * 5;
+                mutagen += slime.Lvl * mutatron.MutagenMultiplierOnSale;
             }
             return mutagen;
         }
