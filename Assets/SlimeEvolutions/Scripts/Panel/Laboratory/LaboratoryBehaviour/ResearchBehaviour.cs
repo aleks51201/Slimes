@@ -54,6 +54,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         private void TimerStart()
         {
             labLogic.StartTimer((float)labLogic.Seconds);
+            labLogic.UpdateTimerText((float)labLogic.Seconds);
             TimerSubscribe();
         }
 
