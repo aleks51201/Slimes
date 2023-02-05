@@ -25,6 +25,7 @@ namespace SlimeEvolutions.Panel
         public float ResearchTimeInMinutes => researchTimeInMinutes;
         public string BeforeResearch => beforeResearch;
         public string AfterResearch => afterResearch;
+        public int Lvl => experienceView.Lvl;
 
 
         private LaboratoryLogic laboratoryLogic;
