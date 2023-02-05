@@ -11,7 +11,7 @@ namespace SlimeEvolutions.Panel
 
         private void Start()
         {
-            mutatronLogic = new(this.gameObject);
+            mutatronLogic = new(this);
         }
     }
 }
