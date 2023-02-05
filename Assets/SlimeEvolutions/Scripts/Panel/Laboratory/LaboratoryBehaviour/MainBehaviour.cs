@@ -40,12 +40,6 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             Unsubscribe();
         }
 
-        private void ResearchSpaceUpdate(Slime slime)
-        {
-            if (!slime.IsExplored)
-                labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
-        }
-
         private void Subscribe()
         {
             if (isSubscribe)
@@ -68,6 +62,12 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             SlimeGetter.ButtonClickedEvent -= ResearchSpaceUpdate;
             //InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
             isSubscribe = false;
+        }
+
+        private void ResearchSpaceUpdate(Slime slime)
+        {
+            if (!slime.IsExplored)
+                labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
         }
 
         private void ChangeBehaviour()
