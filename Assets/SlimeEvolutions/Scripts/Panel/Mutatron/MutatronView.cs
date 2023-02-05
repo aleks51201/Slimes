@@ -4,7 +4,10 @@ namespace SlimeEvolutions.Panel
 {
     public class MutatronView : MonoBehaviour
     {
-        MutatronLogic mutatronLogic;
+        [SerializeField] private int mutagenMultiplierOnSale;
+
+        private MutatronLogic mutatronLogic;
+
 
         private void Start()
         {
