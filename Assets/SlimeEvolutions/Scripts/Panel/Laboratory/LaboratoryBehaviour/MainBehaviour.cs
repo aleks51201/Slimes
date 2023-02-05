@@ -47,7 +47,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent += StartResearch;
-            SlimeGetter.ButtonClickedEvent += ResearchSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent += OnButtonClicked;
             //InventoryButtonLogic.OnInventoryButtonClickEvent += ResearchSpaceUpdate;
             isSubscribe = true;
         }
@@ -59,15 +59,30 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
                 return;
             }
             ResearchButtonView.OnButtonClickEvent -= StartResearch;
-            SlimeGetter.ButtonClickedEvent -= ResearchSpaceUpdate;
+            SlimeGetter.ButtonClickedEvent -= OnButtonClicked;
             //InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
             isSubscribe = false;
+        }
+
+        private void OnButtonClicked(Slime slime)
+        {
+            if (slime.IsExplored)
+            {
+                return;
+            }
+            ResearchSpaceUpdate(slime);
+            TextUpdate();
         }
 
         private void ResearchSpaceUpdate(Slime slime)
         {
             if (!slime.IsExplored)
                 labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, slime);
+        }
+
+        private void TextUpdate()
+        {
+            labLogic.UpdateTextOnButton($"{labLogic.CalcMutagenCost()}");
         }
 
         private void ChangeBehaviour()
