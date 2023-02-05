@@ -13,11 +13,12 @@ namespace SlimeEvolutions.Panel.Mutatron
 
 
         public int MutagenMultiplier => mutagenMultiplierWhenBuying;
+        public int Lvl => experienceView.Lvl;
 
 
         private void Start()
         {
-            randomSlimeButtonLogic = new();
+            randomSlimeButtonLogic = new(this);
         }
 
         public void OnClick()
