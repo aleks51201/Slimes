@@ -60,7 +60,7 @@ namespace SlimeEvolutions.Panel.Mutatron
 
         private void UpdateText()
         {
-            randomSlimeButtonView.GetComponentInChildren<TextMeshProUGUI>().text = randomSlimeButtonView.Text + $"{CalcSlimeCost()}";
+            randomSlimeButtonView.GetComponentInChildren<TextMeshProUGUI>().text = randomSlimeButtonView.Text + $"\n {CalcSlimeCost()}";
         }
         
         public void OnEnable()
