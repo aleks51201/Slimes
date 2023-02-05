@@ -2,11 +2,11 @@
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Stuff;
 using System;
-
+using TMPro;
 
 namespace SlimeEvolutions.Panel.Mutatron
 {
-    public class RandomSlimeButtonLogic
+    public class RandomSlimeButtonLogic:IActivatable
     {
         private RandomSlimeButtonView randomSlimeButtonView;
 
@@ -56,6 +56,20 @@ namespace SlimeEvolutions.Panel.Mutatron
             {
                 SaveRandomSlime();
             }
+        }
+
+        private void UpdateText()
+        {
+            randomSlimeButtonView.GetComponentInChildren<TextMeshProUGUI>().text = randomSlimeButtonView.Text + $"{CalcSlimeCost()}";
+        }
+        
+        public void OnEnable()
+        {
+            UpdateText();
+        }
+
+        public void OnDisable()
+        {
         }
     }
 }
