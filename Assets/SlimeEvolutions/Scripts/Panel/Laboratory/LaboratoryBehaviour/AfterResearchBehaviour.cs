@@ -55,6 +55,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             LaboratoryDataInteractor labInteract = Game.GetInteractor<LaboratoryDataInteractor>();
             SlimesInventory.AddSlime(this, labInteract.ResearchableSlime);
+            labLogic.SaveExpAfterResearch();
             labInteract.SetStatusTake(true);
             ClearResearchSpace();
             SetMainBehaviour();
