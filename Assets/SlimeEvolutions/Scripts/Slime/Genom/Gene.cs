@@ -43,7 +43,7 @@ public abstract class Gene
             }
             rndNum -= weights[i];
         }
-        throw new Exception("no num");
+        return 0;
     }
 
     public void RandomGenerate()
