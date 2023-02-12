@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 8
   spr: {fileID: 21300000, guid: 8a1d6b340a4517d48aff9b44393faf5d, type: 3}
   name: English
+  lvlForDrop: 0
+  weight: 1

@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 7
   spr: {fileID: 21300000, guid: 620b861413befba4c8862e316a8eef2a, type: 3}
   name: Kitty
+  lvlForDrop: 10
+  weight: 1

@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 7
   spr: {fileID: 21300000, guid: 7084bf21b46cfcd47af534e8057231ab, type: 3}
   name: Kitsune
+  lvlForDrop: 10
+  weight: 1

@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 0
   genes: 6
   spr: {fileID: 21300000, guid: 4bae90fa972a0d74db6771962b4b5f21, type: 3}
-  name: '-'
+  name: None
+  lvlForDrop: 0
+  weight: 1

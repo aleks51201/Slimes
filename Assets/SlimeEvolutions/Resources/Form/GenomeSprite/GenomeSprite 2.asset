@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 1
   spr: {fileID: 21300000, guid: 302704ee4255e434399d5a6307aa9de0, type: 3}
   name: Heptagon
+  lvlForDrop: 0
+  weight: 1

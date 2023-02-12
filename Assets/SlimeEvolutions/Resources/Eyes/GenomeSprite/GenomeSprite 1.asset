@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 4
   spr: {fileID: 21300000, guid: 18bcad468d3804342b91d4e0409a4bf1, type: 3}
   name: Squint
+  lvlForDrop: 0
+  weight: 1
