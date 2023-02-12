@@ -45,12 +45,13 @@ namespace SlimeEvolutions.Panel.Crossing
 
         public void Awake()
         {
-/*            if (!Game.IsGameInitialized)
-            {
-                Game.OnGameInitializedEvent += SetCrossingSpaceInteractorCountSlot;
-                Game.OnGameInitializedEvent += CreateCrossingSpaceDateList;
-            }
-*/            AssignId();
+            /*            if (!Game.IsGameInitialized)
+                        {
+                            Game.OnGameInitializedEvent += SetCrossingSpaceInteractorCountSlot;
+                            Game.OnGameInitializedEvent += CreateCrossingSpaceDateList;
+                        }
+            */
+            AssignId();
         }
 
         public void OnEnable()

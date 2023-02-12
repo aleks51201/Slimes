@@ -18,7 +18,7 @@
             int[] genesId1 = slime1.Genome.GetGenesId();
             int[] genesId2 = slime2.Genome.GetGenesId();
             Slime slimeResult = new();
-            slimeResult.RandomSlimeWithoutGenome();
+            slimeResult.RandomSlimeWithoutGenome(slime1.Lvl, slime2.Lvl);
             int[] genesId = new int[genom1.Length];
             for (int i = 0; i < genom1.Length; i++)
             {

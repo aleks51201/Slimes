@@ -51,7 +51,7 @@ public class Slime
     public void RandomSlime()
     {
         id = new SlimeID().GetUniqueId();
-        lvl =  ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50);
+        lvl = ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50);
         IsExplored = false;
         genome.RandomGenome();
     }
@@ -60,6 +60,14 @@ public class Slime
     {
         id = new SlimeID().GetUniqueId();
         lvl = RandomNumber(1, 100);
+        IsExplored = false;
+    }
+    public void RandomSlimeWithoutGenome(int lvlFirstParent, int lvlSecondParent)
+    {
+        id = new SlimeID().GetUniqueId();
+        int minlvl = Math.Min(lvlFirstParent, lvlSecondParent);
+        int maxlvl = minlvl + 5;
+        lvl = RandomNumber(minlvl, maxlvl + 1);
         IsExplored = false;
     }
 
