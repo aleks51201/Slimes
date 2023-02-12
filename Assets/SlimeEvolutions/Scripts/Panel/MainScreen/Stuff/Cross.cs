@@ -20,19 +20,35 @@
             Slime slimeResult = new();
             slimeResult.RandomSlimeWithoutGenome(slime1.Lvl, slime2.Lvl);
             int[] genesId = new int[genom1.Length];
+            System.Random rnd = new();
             for (int i = 0; i < genom1.Length; i++)
             {
                 if (genom1[i] && !genom2[i])
                 {
-                    genesId[i] = genesId1[i];
+                    int x = rnd.Next(0, 100);
+                    if (x > 25)
+                    {
+                        genesId[i] = genesId1[i];
+                    }
+                    else
+                    {
+                        genesId[i] = genesId2[i];
+                    }
                 }
                 else if (!genom1[i] && genom2[i])
                 {
-                    genesId[i] = genesId2[i];
+                    int x = rnd.Next(0, 100);
+                    if (x > 25)
+                    {
+                        genesId[i] = genesId2[i];
+                    }
+                    else
+                    {
+                        genesId[i] = genesId1[i];
+                    }
                 }
                 else
                 {
-                    System.Random rnd = new();
                     int x = rnd.Next(2);
                     if (x == 0)
                     {
