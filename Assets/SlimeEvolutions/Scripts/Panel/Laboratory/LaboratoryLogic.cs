@@ -61,8 +61,8 @@ namespace SlimeEvolutions.Panel
         public void StartResearch()
         {
             RemoveSlimeFromInventoryData();
-            SaveResearchableSlime();
             SetTrueSlimeResearch(LabInteract.ResearchableSlime);
+            SaveResearchableSlime();
             DiscardMutagen();
             StartResearchSlimeEvent?.Invoke();
         }
