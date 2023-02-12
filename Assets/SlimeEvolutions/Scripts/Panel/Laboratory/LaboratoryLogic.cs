@@ -80,8 +80,7 @@ namespace SlimeEvolutions.Panel
 
         private void SaveResearchableSlime()
         {
-            LabInteract.SetResearchableSlime(this, GetResearchableSlime(), DateTime.Now.AddMinutes(ResearchTimeInMinutes));
-            labInteract.SetStatusTake(false);
+            LabInteract.SetResearchableSlime(this, GetResearchableSlime(), DateTime.Now.AddSeconds(GetResearchableSlime().Lvl*30));
         }
 
         private void RemoveSlimeFromInventoryData()
