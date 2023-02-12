@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
+using System;
 
 namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 {
@@ -54,9 +55,9 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         private void TimerStart()
         {
-            int lvl = Game.GetInteractor<LaboratoryDataInteractor>().ResearchableSlime.Lvl;
-            labLogic.StartTimer(lvl * 30);
-            UpdateTimerText();
+            float seconds= (float)(Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch - DateTime.Now).TotalSeconds;
+            labLogic.StartTimer(seconds);
+            UpdateTimerText(seconds);
             TimerSubscribe();
         }
 
@@ -92,9 +93,15 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             labLogic.ResearchPlaceView.ResearchSpaceUpdate(this, researchingSlime);
         }
 
+        private void UpdateTimerText(float seconds)
+        {
+            labLogic.UpdateTimerText(seconds);
+        }
+
         private void UpdateTimerText()
         {
-            labLogic.UpdateTimerText((float)labLogic.Seconds);
+            float seconds = (float)(Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch - DateTime.Now).TotalSeconds;
+            UpdateTimerText(seconds);
         }
 
     }
