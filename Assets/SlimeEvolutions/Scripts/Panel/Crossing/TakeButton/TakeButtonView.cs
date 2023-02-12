@@ -21,7 +21,7 @@ namespace SlimeEvolutions.Panel.Crossing.TakeButton
 
         private void OnClick()
         {
-            Slime slime =crossingSpaceData .ResultSlime;
+            Slime slime = crossingSpaceData.ResultSlime;
             ButtonClickedEvent?.Invoke(slime);
         }
 
