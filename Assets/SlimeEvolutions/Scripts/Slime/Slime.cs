@@ -67,6 +67,10 @@ public class Slime
         id = new SlimeID().GetUniqueId();
         int minlvl = Math.Min(lvlFirstParent, lvlSecondParent);
         int maxlvl = minlvl + 5;
+        if(maxlvl > ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50))
+        {
+            maxlvl = ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50);
+        }
         lvl = RandomNumber(minlvl, maxlvl + 1);
         IsExplored = false;
     }
