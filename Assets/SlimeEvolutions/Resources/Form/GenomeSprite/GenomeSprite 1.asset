@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 1
   spr: {fileID: 21300000, guid: 5629ba2641a28274589405230a1ad979, type: 3}
   name: Oval
+  lvlForDrop: 0
+  weight: 1

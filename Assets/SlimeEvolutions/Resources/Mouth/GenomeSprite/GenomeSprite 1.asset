@@ -16,5 +16,5 @@ MonoBehaviour:
   genes: 3
   spr: {fileID: 21300000, guid: 561c2f6679793794190555e0eeb00b4d, type: 3}
   name: Smug
-  lvlForDrop: 10
-  weight: 0
+  lvlForDrop: 0
+  weight: 1

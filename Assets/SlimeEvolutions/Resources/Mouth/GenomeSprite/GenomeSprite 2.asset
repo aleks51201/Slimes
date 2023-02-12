@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 3
   spr: {fileID: 21300000, guid: 78185d2590abf864d8afe3b501c2eca6, type: 3}
   name: Surprised
+  lvlForDrop: 0
+  weight: 1

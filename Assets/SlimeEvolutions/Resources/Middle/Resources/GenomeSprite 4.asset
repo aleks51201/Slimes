@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 8
   spr: {fileID: 21300000, guid: 8e8b7479a9200374c955e612a573b4fb, type: 3}
   name: Bike wheel
+  lvlForDrop: 0
+  weight: 1

@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 8
   spr: {fileID: 21300000, guid: 1dd13f25194a1844caf21912c54dc51d, type: 3}
   name: Imperial
+  lvlForDrop: 0
+  weight: 1

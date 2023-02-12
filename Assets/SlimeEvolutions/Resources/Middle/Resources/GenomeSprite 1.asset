@@ -16,3 +16,5 @@ MonoBehaviour:
   genes: 8
   spr: {fileID: 21300000, guid: a389c40455d5fbb488cf84411175be57, type: 3}
   name: Delicate
+  lvlForDrop: 0
+  weight: 1
