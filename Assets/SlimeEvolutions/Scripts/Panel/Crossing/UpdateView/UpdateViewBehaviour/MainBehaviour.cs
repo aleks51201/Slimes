@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -18,6 +19,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             this.updateView = updateView;
             CleanCell();
             Subscribe();
+            Debug.Log("MainBehaviour enter");
             ChangeBehaviour();
         }
 

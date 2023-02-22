@@ -31,10 +31,16 @@ namespace SlimeEvolutions.Panel.Crossing.CrossSlider
             var slider = sliderView.GetComponent<Slider>();
             var sec = (float)(CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
 
+            var totalSecondsToEnd = CrossingSpaceData.EndTimeCrossing;
+            var totalSecondsToStart = CrossingSpaceData.StartTimeCrossing;
+            var totalSeconds = (float)(totalSecondsToEnd - totalSecondsToStart).TotalSeconds;
+            var totalSecondsDateTimeNow = (float)totalSeconds - (CrossingSpaceData.EndTimeCrossing - DateTime.Now).TotalSeconds;
+            var startValue = (float)(totalSecondsDateTimeNow / totalSeconds);
+
             while (estimateTime < sec)
             {
                 estimateTime += Time.deltaTime;
-                slider.value = Mathf.Lerp(0, value, estimateTime / sec);
+                slider.value = Mathf.Lerp(startValue, value, estimateTime / sec);
                 yield return null;
             }
         }

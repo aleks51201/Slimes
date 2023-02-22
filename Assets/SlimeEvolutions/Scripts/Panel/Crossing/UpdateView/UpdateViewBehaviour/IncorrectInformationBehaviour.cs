@@ -1,4 +1,6 @@
-﻿namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
+﻿using UnityEngine;
+
+namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
     public class IncorrectInformationBehaviour : IUpdateViewBehaviour
     {
@@ -10,6 +12,7 @@
             this.updateView = updateView;
             Initialize();
             Subscribe();
+            Debug.Log("IncorrectInformationBehaviour enter");
         }
 
         public void Exit()

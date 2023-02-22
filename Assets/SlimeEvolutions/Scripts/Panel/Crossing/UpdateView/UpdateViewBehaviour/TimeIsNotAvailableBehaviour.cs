@@ -1,4 +1,5 @@
 ﻿using SlimeEvolutions.Panel.Crossing.TakeButton;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -12,6 +13,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             this.updateView = updateView;
             Initialize();
             Subscribe();
+            Debug.Log("TimeIsNotAvailableBehaviour enter");
         }
 
         public void Exit()
