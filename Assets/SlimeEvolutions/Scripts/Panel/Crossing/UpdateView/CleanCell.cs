@@ -14,8 +14,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         {
             try
             {
-                go = go.GetComponentInChildren<CellView>().gameObject;
-                Spawner.Instance.DestroyObject(go);
+                GameObject goCell = go.GetComponentInChildren<CellView>().gameObject;
+                Spawner.Instance.DestroyObject(goCell);
             }
             catch
             {

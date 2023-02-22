@@ -16,6 +16,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             this.updateView = updateView;
             Initialize();
             Subscribe();
+            Debug.Log("TimeAvailableBehaviour enter");
         }
 
         public void Exit()
