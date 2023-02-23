@@ -23,6 +23,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void Exit()
         {
+            ChangeBehaviour();
             Unsubscribe();
         }
 
