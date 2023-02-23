@@ -1,4 +1,5 @@
 ﻿using SlimeEvolutions.Panel.Crossing.TakeButton;
+using System;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
@@ -7,6 +8,10 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
     {
         private UpdateView updateView;
         private bool isSubscribe;
+
+
+        public static Action ChangeBehaviourEvent;
+
 
         public void Enter(UpdateView updateView)
         {
@@ -65,6 +70,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private void ChangeBehaviour()
         {
+            ChangeBehaviourEvent?.Invoke();
             updateView.UpdateViewBehaviour.SetBehaviourByDefault();
         }
     }

@@ -2,6 +2,7 @@
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Crossing.Update;
+using SlimeEvolutions.Panel.Crossing.Update.Behaviours;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -72,12 +73,14 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void Subscribe()
         {
-            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
+            TimeIsNotAvailableBehaviour.ChangeBehaviourEvent += AcceptNewSlime;
+            // holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
         }
 
         private void Unsubscribe()
         {
-            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
+            TimeIsNotAvailableBehaviour.ChangeBehaviourEvent -= AcceptNewSlime;
+            //holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
         }
 
         public void Awake()
