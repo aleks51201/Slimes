@@ -1,6 +1,8 @@
 ﻿using SlimeEvolutions.Buttons;
 using SlimeEvolutions.Inventory.Behaviour;
 using SlimeEvolutions.Panel.Laboratory;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +17,15 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private bool isMarked;
         private Image img;
         private Slime slime;
+        private Dictionary<Type, PanelTypeIsActive> keyValuePairs = new Dictionary<Type, PanelTypeIsActive>()
+        {
+            [typeof(MainBehaviour)] = PanelTypeIsActive.Main,
+            [typeof(MutatronBehaviour)] = PanelTypeIsActive.Mutatron,
+            [typeof(LaboratoryBehaviour)] = PanelTypeIsActive.Laboratory
+        };
+
+
+        public Type CurrentBehaviour { get; set; }
 
 
         private Image Img
@@ -44,7 +55,8 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private enum PanelTypeIsActive
         {
             Mutatron,
-            Main
+            Main,
+            Laboratory
         }
 
 
@@ -60,6 +72,12 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             ClearColour();
         }
 
+        private void OnLaboratoryEntered()
+        {
+            panelIaActive = PanelTypeIsActive.Laboratory;
+            ClearColour();
+        }
+
         private void OnButonClicked()
         {
             if (panelIaActive == PanelTypeIsActive.Mutatron)
@@ -72,7 +90,16 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                 Img.color = color;
                 isMarked = true;
             }
-            else
+            else if (panelIaActive == PanelTypeIsActive.Main)
+            {
+                if (isMarked)
+                {
+                    return;
+                }
+                Img.color = color;
+                isMarked = true;
+            }
+            else if (panelIaActive == PanelTypeIsActive.Laboratory)
             {
                 if (isMarked)
                 {
@@ -85,12 +112,9 @@ namespace SlimeEvolutions.Inventory.InventoryButton
 
         private void OnResearchBtnClicked(Slime slime)
         {
-            if (panelIaActive == PanelTypeIsActive.Main)
+            if (slime.Id == Slime.Id)
             {
-                if (slime.Id == Slime.Id)
-                {
-                    ClearColour();
-                }
+                ClearColour();
             }
         }
 
@@ -102,7 +126,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
 
         private void Start()
         {
-            panelIaActive = PanelTypeIsActive.Main;
+            panelIaActive = keyValuePairs[CurrentBehaviour];
         }
 
         private void OnEnable()
@@ -111,6 +135,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent += OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent += OnMainEntered;
+            LaboratoryBehaviour.LaboratoryBehaviourEnteredEvent += OnLaboratoryEntered;
         }
 
         private void OnDisable()
@@ -119,6 +144,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent -= OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent -= OnMainEntered;
+            LaboratoryBehaviour.LaboratoryBehaviourEnteredEvent -= OnLaboratoryEntered;
         }
     }
 }
