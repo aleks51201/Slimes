@@ -1,4 +1,5 @@
-﻿using SlimeEvolutions.Architecture.Interactors.Instances;
+﻿using Assets.Scripts;
+using SlimeEvolutions.Architecture.Interactors.Instances;
 using System;
 
 namespace SlimeEvolutions.Inventory.Behaviour
@@ -35,11 +36,13 @@ namespace SlimeEvolutions.Inventory.Behaviour
         private void Subscribe()
         {
             SlimeInteractor.OnDataChangedEvent += inventoryLogic.ViewUpdate;
+            BackButton.OnButtonClickEvent += inventoryLogic.InventoryBehaviour.SetBehaviourByDefault;
         }
 
         private void Unsubscribe()
         {
             SlimeInteractor.OnDataChangedEvent -= inventoryLogic.ViewUpdate;
+            BackButton.OnButtonClickEvent -= inventoryLogic.InventoryBehaviour.SetBehaviourByDefault;
         }
     }
 }

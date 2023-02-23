@@ -98,8 +98,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                     ClearColour();
                     return;
                 }
-                Img.color = color;
-                isMarked = true;
+                ApplyColour();
             }
             else if (panelIaActive == PanelTypeIsActive.Main)
             {
@@ -107,8 +106,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                 {
                     return;
                 }
-                Img.color = color;
-                isMarked = true;
+                ApplyColour();
             }
             else if (panelIaActive == PanelTypeIsActive.Laboratory)
             {
@@ -116,9 +114,14 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                 {
                     return;
                 }
-                Img.color = color;
-                isMarked = true;
+                ApplyColour();
             }
+        }
+
+        private void ApplyColour()
+        {
+            Img.color = color;
+            isMarked = true;
         }
 
         private void OnResearchBtnClicked(Slime slime)
