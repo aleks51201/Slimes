@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Inventory.Behaviour;
+using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.InventoryCell;
 using SlimeEvolutions.Panel.MainScreen;
 using System;
@@ -18,6 +19,7 @@ public class InventoryLogic
     public void CreateCell(GameObject newCell, Slime slime)
     {
         newCell.GetComponentInChildren<CellView>().Slime = slime;
+        newCell.GetComponent<ColorChanger>().CurrentBehaviour = InventoryBehaviour.InventoryBehaviourType;
     }
 
     public Slime[] LoadSavedInventory()

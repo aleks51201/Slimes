@@ -1,15 +1,21 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
+using System;
 
 namespace SlimeEvolutions.Inventory.Behaviour
 {
     public class LaboratoryBehaviour : IInventoryBehaviour
     {
-        InventoryLogic inventoryLogic;
+        private InventoryLogic inventoryLogic;
+
+
+        public static Action LaboratoryBehaviourEnteredEvent;
+
 
         public void Enter(InventoryLogic inventory)
         {
             inventoryLogic = inventory;
             Subscribe();
+            LaboratoryBehaviourEnteredEvent?.Invoke();
         }
 
         public void Exit()

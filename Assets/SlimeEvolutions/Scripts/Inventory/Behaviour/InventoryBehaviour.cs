@@ -9,8 +9,12 @@ namespace SlimeEvolutions.Inventory.Behaviour
         private Dictionary<Type, IInventoryBehaviour> behavioursMap;
         private IInventoryBehaviour currentBehaviour;
         private InventoryLogic inventoryLogic;
+        private Type currentTypeBehaviour;
 
+
+        public Type InventoryBehaviourType => currentTypeBehaviour;
         public IInventoryBehaviour CurrentBehaviour => currentBehaviour;
+
 
         public InventoryBehaviour(InventoryLogic inventory)
         {
@@ -25,13 +29,14 @@ namespace SlimeEvolutions.Inventory.Behaviour
             behavioursMap[typeof(LaboratoryBehaviour)] = new LaboratoryBehaviour();
         }
 
-        private void SetBehaviour(IInventoryBehaviour newBehavior)
+        private void SetBehaviour(IInventoryBehaviour newBehavior, Type type)
         {
             if (currentBehaviour != null)
             {
                 currentBehaviour.Exit();
             }
             currentBehaviour = newBehavior;
+            currentTypeBehaviour = type;
             currentBehaviour.Enter(inventoryLogic);
         }
 
@@ -47,17 +52,17 @@ namespace SlimeEvolutions.Inventory.Behaviour
 
         public void SetBehaviourMain()
         {
-            SetBehaviour(GetBehaviour<MainBehaviour>());
+            SetBehaviour(GetBehaviour<MainBehaviour>(), typeof(MainBehaviour));
         }
 
         public void SetBehaviourMutatron()
         {
-            SetBehaviour(GetBehaviour<MutatronBehaviour>());
+            SetBehaviour(GetBehaviour<MutatronBehaviour>(), typeof(MutatronBehaviour));
         }
 
         public void SetBehaviourLaboratory()
         {
-            SetBehaviour(GetBehaviour<LaboratoryBehaviour>());
+            SetBehaviour(GetBehaviour<LaboratoryBehaviour>(), typeof(LaboratoryBehaviour));
         }
     }
 }
