@@ -21,7 +21,7 @@ namespace SlimeEvolutions.Panel
         {
             this.mutatron = mutatron;
             slimeArray = new();
-            SlimeGetter.ButtonClickedEvent += OnInventoryButtonClick;
+            SlimeGetter.ButtonClickedStaticEvent += OnInventoryButtonClick;
             //InventoryButtonLogic.OnInventoryButtonClickEvent += OnInventoryButtonClick;
             RecycleButtonLogic.OnRecycleButtonClickEvent += OnRecycleButtonClick;
         }
