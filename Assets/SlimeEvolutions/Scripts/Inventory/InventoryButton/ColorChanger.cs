@@ -78,6 +78,17 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             ClearColour();
         }
 
+        private void OnInventoryButtonClicked(Slime slime)
+        {
+            if (panelIaActive == PanelTypeIsActive.Laboratory)
+            {
+                if (isMarked && slime.Id != Slime.Id && !slime.IsExplored)
+                {
+                    ClearColour();
+                }
+            }
+        }
+
         private void OnButonClicked()
         {
             if (panelIaActive == PanelTypeIsActive.Mutatron)
@@ -132,6 +143,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private void OnEnable()
         {
             button.OnButtonClickEvent += OnButonClicked;
+            SlimeGetter.ButtonClickedStaticEvent += OnInventoryButtonClicked;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent += OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent += OnMainEntered;
@@ -141,6 +153,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         private void OnDisable()
         {
             button.OnButtonClickEvent -= OnButonClicked;
+            SlimeGetter.ButtonClickedStaticEvent -= OnInventoryButtonClicked;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent -= OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent -= OnMainEntered;

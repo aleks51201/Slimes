@@ -10,7 +10,9 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         [SerializeField] private ButtonWithClickAndHold button;
 
 
-        public static Action<Slime> ButtonClickedEvent;
+        public static Action<Slime> ButtonClickedStaticEvent;
+
+        public Action<Slime> ButtonClickedEvent;
 
 
         public Slime GetSlime()
@@ -20,7 +22,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
 
         private void OnHold()
         {
-            ButtonClickedEvent?.Invoke(GetSlime());
+            ButtonClickedStaticEvent?.Invoke(GetSlime());
         }
 
         private void OnEnable()
