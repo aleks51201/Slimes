@@ -26,6 +26,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void OnEnable()
         {
+            ChangeBehaviour();
             Subscribe();
         }
 
@@ -65,7 +66,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private void ChangeBehaviour()
         {
-            UpdateViewBehaviour.SetTimeIsNotAvailableBehaviour();
+            UpdateViewBehaviour.SetBehaviourByDefault();
         }
     }
 }
