@@ -101,7 +101,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
             }
             else if (panelIaActive == PanelTypeIsActive.Laboratory)
             {
-                if (isMarked)
+                if (isMarked || Slime.IsExplored)
                 {
                     return;
                 }
