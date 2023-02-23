@@ -67,7 +67,7 @@ namespace SlimeEvolutions.Panel.Crossing
             SaveSlime(slimes);
             SaveExpForCross();
             Game.GetInteractor<CrossingSpaceInteractor>().SetStatusTaken(holdCrossingPlaceView.ID);
-            UpdateInitialize();
+            //UpdateInitialize();
         }
 
         private void Subscribe()
