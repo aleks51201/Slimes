@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
@@ -22,8 +23,10 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void OnEnable()
         {
+            ChangeBehaviour();
             Subscribe();
         }
+
 
         public void OnDisable()
         {
@@ -55,6 +58,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             updateView.SliderSetActive(false);
             updateView.ActiveLayerSetActive(false);
             updateView.InitializedIncorrectInformationBehaviourEvent?.Invoke();
+        }
+
+        private void ChangeBehaviour()
+        {
+            updateView.UpdateViewBehaviour.SetBehaviourByDefault();
         }
     }
 }

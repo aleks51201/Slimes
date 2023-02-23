@@ -30,7 +30,10 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void OnEnable()
         {
+            CleanCell();
             Subscribe();
+            Debug.Log("MainBehaviour enable");
+            ChangeBehaviour();
         }
 
         public void OnDisable()

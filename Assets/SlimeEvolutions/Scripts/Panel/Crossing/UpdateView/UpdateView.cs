@@ -87,7 +87,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
 
         public void OnEnable()
         {
-            updateViewBehaviour.SetBehaviourByDefault();
+            //updateViewBehaviour.SetBehaviourByDefault();
             updateViewBehaviour.OnEnable();
         }
 
