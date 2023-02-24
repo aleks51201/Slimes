@@ -47,6 +47,21 @@ namespace SlimeEvolutions.Panel.Info.Data
                 case Genome.Genes.SlimeForm:
                     UpdateView(slime.Genome.GetGene<SlimeForm>().GetName(slime.Genome.Form.Id));
                     break;
+                case Genome.Genes.Top:
+                    UpdateView(slime.Genome.GetGene<Top>().GetName(slime.Genome.Top.Id));
+                    break;
+                case Genome.Genes.Middle:
+                    UpdateView(slime.Genome.GetGene<Middle>().GetName(slime.Genome.Middle.Id));
+                    break;
+                case Genome.Genes.Bottom:
+                    UpdateView(slime.Genome.GetGene<Bottom>().GetName(slime.Genome.Bottom.Id));
+                    break;
+                case Genome.Genes.Element:
+                    UpdateView(slime.Genome.GetGene<Element>().GetName(slime.Genome.Element.Id));
+                    break;
+                case Genome.Genes.Peculiarity:
+                    UpdateView(slime.Genome.GetGene<Peculiarity>().GetName(slime.Genome.Peculiarity.Id));
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("this type does not exist");
             }
