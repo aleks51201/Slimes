@@ -2,7 +2,6 @@
 using SlimeEvolutions.Inventory.Behaviour;
 using SlimeEvolutions.Inventory.InventoryButton;
 using SlimeEvolutions.InventoryCell;
-using SlimeEvolutions.Panel.MainScreen;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,15 +10,27 @@ public class InventoryLogic
 {
     private InventoryBehaviour inventoryBehaviour;
     private GenomeResources[] genomResources;
+    private InventoryView inventoryView;
+
 
     public InventoryBehaviour InventoryBehaviour => inventoryBehaviour;
 
+
     public Action ViewUpdateEvent;
+
+
+    public InventoryLogic(InventoryView inventoryView)
+    {
+        this.inventoryView = inventoryView;
+    }
+
 
     public void CreateCell(GameObject newCell, Slime slime)
     {
         newCell.GetComponentInChildren<CellView>().Slime = slime;
         newCell.GetComponent<ColorChanger>().CurrentBehaviour = InventoryBehaviour.InventoryBehaviourType;
+        newCell.GetComponent<ColorChanger>().LeftObjectOnMainCross = inventoryView.CrossPlaceView.LeftCrossSlimePositionView;
+        newCell.GetComponent<ColorChanger>().RightObjectOnMainCross = inventoryView.CrossPlaceView.RightCrossSlimePositionView;
     }
 
     public Slime[] LoadSavedInventory()
