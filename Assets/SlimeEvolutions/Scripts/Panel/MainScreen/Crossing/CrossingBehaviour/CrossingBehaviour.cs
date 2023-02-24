@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SlimeEvolutions.Panel.Crossing.Behaviour
 {
@@ -25,9 +22,9 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             behaviourMap[typeof(MainBehaviour)] = new MainBehaviour();
         }
 
-        private void SetBehaviour<T>() where T:ICrossingBehaviour
+        private void SetBehaviour<T>() where T : ICrossingBehaviour
         {
-            if(currentBehaviour != null)
+            if (currentBehaviour != null)
             {
                 currentBehaviour.Exit();
             }
@@ -35,7 +32,7 @@ namespace SlimeEvolutions.Panel.Crossing.Behaviour
             currentBehaviour.Enter(crossPlaceLogic);
         }
 
-        private ICrossingBehaviour GetBehaviour<T>() where T:ICrossingBehaviour
+        private ICrossingBehaviour GetBehaviour<T>() where T : ICrossingBehaviour
         {
             return behaviourMap[typeof(T)];
         }
