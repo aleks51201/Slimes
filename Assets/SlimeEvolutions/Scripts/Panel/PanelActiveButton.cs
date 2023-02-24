@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Assets.Scripts.UI
@@ -9,12 +10,20 @@ namespace Assets.Scripts.UI
         [SerializeField] GameObject[] activPanel;
         [SerializeField] GameObject[] deactivPanel;
 
+
+        public static Action ButtonClickedStaticEvent;
+
+        public Action ButtonClickedEvent;
+
+
         public void ActivationPanel()
         {
             foreach (var i in activPanel)
             {
                 i.SetActive(true);
             }
+            ButtonClickedStaticEvent?.Invoke();
+            ButtonClickedEvent?.Invoke();
         }
 
         public void Deactivate()
@@ -23,6 +32,8 @@ namespace Assets.Scripts.UI
             {
                 i.SetActive(false);
             }
+            ButtonClickedStaticEvent?.Invoke();
+            ButtonClickedEvent?.Invoke();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
-using SlimeEvolutions.Inventory;
 using SlimeEvolutions.InventoryCell;
 using System;
 using UnityEngine;

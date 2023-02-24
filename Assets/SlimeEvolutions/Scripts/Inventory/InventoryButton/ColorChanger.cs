@@ -92,7 +92,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                     ClearColour();
                 }
             }
-            if(panelIaActive == PanelTypeIsActive.Main)
+            if (panelIaActive == PanelTypeIsActive.Main)
             {
                 if (isMarked)
                 {

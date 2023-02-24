@@ -62,6 +62,12 @@ namespace SlimeEvolutions.Panel.Crossing
             }
         }
 
+        public void ClearSpace()
+        {
+            crossPlaceView.LeftCrossSlimePositionView.ClearSpace();
+            crossPlaceView.RightCrossSlimePositionView.ClearSpace();
+        }
+
         private void LeftSpaceClear()
         {
             crossPlaceView.LeftCrossSlimePositionView.ClearSpace();
