@@ -41,7 +41,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerLogic.FinishedTimerEvent += ChangeBehaviour;
+            TimerLogic.FinishedTimerEvent += OnFinishedTimer;
             Debug.Log("subscribe");
             isSubscribe = true;
         }
@@ -52,7 +52,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerLogic.FinishedTimerEvent -= ChangeBehaviour;
+            TimerLogic.FinishedTimerEvent -= OnFinishedTimer;
             isSubscribe = false;
         }
 
@@ -67,6 +67,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private void ChangeBehaviour()
         {
             UpdateViewBehaviour.SetBehaviourByDefault();
+        }
+
+        private void OnFinishedTimer()
+        {
+            UpdateViewBehaviour.SetTimeIsNotAvailableBehaviour();
         }
     }
 }
