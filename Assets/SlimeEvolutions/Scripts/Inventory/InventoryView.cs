@@ -1,4 +1,5 @@
 using SlimeEvolutions.Inventory;
+using SlimeEvolutions.Panel.Crossing;
 using System;
 using UnityEngine;
 
@@ -6,11 +7,15 @@ public class InventoryView : MonoBehaviour
 {
     [SerializeField] private int inventorySize;
     [SerializeField] private GameObject buttonPrefab;//???
+    [SerializeField] private CrossPlaceView crossPlaceView;
 
     private InventoryLogic inventoryLogic;
 
+
     public int InventorySize => inventorySize;
     public Transform Inventory => this.transform;
+    public CrossPlaceView CrossPlaceView => crossPlaceView;
+
 
     private void LoadInventory(InventoryLogic inventoryLogic)
     {
@@ -43,7 +48,7 @@ public class InventoryView : MonoBehaviour
 
     private void Awake()
     {
-        inventoryLogic = new();
+        inventoryLogic = new(this);
         inventoryLogic.Awake();
     }
 

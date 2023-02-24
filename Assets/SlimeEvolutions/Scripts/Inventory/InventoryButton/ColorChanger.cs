@@ -26,6 +26,11 @@ namespace SlimeEvolutions.Inventory.InventoryButton
 
 
         public Type CurrentBehaviour { get; set; }
+        public ResearchPlaceView LeftObjectOnMainCross { get; set; }
+        public ResearchPlaceView RightObjectOnMainCross { get; set; }
+
+        private Slime LeftSlimesOnMainCross => LeftObjectOnMainCross.Slime;
+        private Slime RightSlimesOnMainCross => RightObjectOnMainCross.Slime;
 
 
         private Image Img
@@ -85,6 +90,22 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                 if (isMarked && slime.Id != Slime.Id && !slime.IsExplored)
                 {
                     ClearColour();
+                }
+            }
+            if(panelIaActive == PanelTypeIsActive.Main)
+            {
+                if (isMarked)
+                {
+                    if (LeftSlimesOnMainCross is null || RightSlimesOnMainCross is null)
+                    {
+                        return;
+                    }
+                    if (Slime.Id != LeftSlimesOnMainCross.Id && Slime.Id != RightSlimesOnMainCross.Id)
+                    {
+                        ClearColour();
+                        return;
+                    }
+                    return;
                 }
             }
         }

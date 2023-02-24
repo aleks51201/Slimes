@@ -19321,6 +19321,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3374904792713643623, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
+      propertyPath: crossPlaceView
+      value: 
+      objectReference: {fileID: 254032408}
     - target: {fileID: 5176867565957783592, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_Sprite
       value: 
