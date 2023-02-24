@@ -18,11 +18,15 @@ namespace SlimeEvolutions.Panel.Crossing
         public Slime RSlime => crossPlaceView.RightCrossSlimePositionView.Slime;
 
 
+        public static Action SlotsUpdatedStaticEvent;
+
+
         public CrossPlaceLogic(CrossPlaceView crossPlaceView)
         {
             this.crossPlaceView = crossPlaceView;
             crossingBehaviour = new(this);
         }
+
 
         public void UpdateSlots(Slime slime)
         {
@@ -36,6 +40,7 @@ namespace SlimeEvolutions.Panel.Crossing
                 RightSpaceUpdate(slime);
                 isLeft = true;
             }
+            SlotsUpdatedStaticEvent?.Invoke();
         }
 
         private void LeftSpaceUpdate(Slime slime)

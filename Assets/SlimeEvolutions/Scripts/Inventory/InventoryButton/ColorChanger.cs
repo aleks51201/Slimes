@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Buttons;
 using SlimeEvolutions.Inventory.Behaviour;
+using SlimeEvolutions.Panel.Crossing;
 using SlimeEvolutions.Panel.Laboratory;
 using System;
 using System.Collections.Generic;
@@ -92,6 +93,10 @@ namespace SlimeEvolutions.Inventory.InventoryButton
                     ClearColour();
                 }
             }
+        }
+
+        private void OnSlotsUpdated()
+        {
             if (panelIaActive == PanelTypeIsActive.Main)
             {
                 if (isMarked)
@@ -168,6 +173,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         {
             button.OnButtonClickEvent += OnButonClicked;
             SlimeGetter.ButtonClickedStaticEvent += OnInventoryButtonClicked;
+            CrossPlaceLogic.SlotsUpdatedStaticEvent += OnSlotsUpdated;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent += OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent += OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent += OnMainEntered;
@@ -178,6 +184,7 @@ namespace SlimeEvolutions.Inventory.InventoryButton
         {
             button.OnButtonClickEvent -= OnButonClicked;
             SlimeGetter.ButtonClickedStaticEvent -= OnInventoryButtonClicked;
+            CrossPlaceLogic.SlotsUpdatedStaticEvent -= OnSlotsUpdated;
             ResearchPlaceButtonView.OnButtonWithSlimeClickEvent -= OnResearchBtnClicked;
             MutatronBehaviour.MutatronBehaviourEnteredEvent -= OnMutatronEntered;
             MainBehaviour.MainBehaviourEnteredEvent -= OnMainEntered;
