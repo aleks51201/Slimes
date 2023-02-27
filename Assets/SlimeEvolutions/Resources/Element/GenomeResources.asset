@@ -15,3 +15,6 @@ MonoBehaviour:
   typeArray: 5
   genomeSprites:
   - {fileID: 11400000, guid: aaa21c580445a594395c2c5ad7044dc8, type: 2}
+  - {fileID: 11400000, guid: 718f9b8ce6b15864cbfe316117ca36bf, type: 2}
+  - {fileID: 11400000, guid: 7b0542c852fb2274c97e6539132d56cc, type: 2}
+  - {fileID: 11400000, guid: 8c4afb0740e952647a0306fbbcbd0f48, type: 2}
