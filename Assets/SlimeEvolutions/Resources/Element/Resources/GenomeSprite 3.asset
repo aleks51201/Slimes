@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29fd67c6c35b5604ea86842ac32782a1, type: 3}
-  m_Name: GenomeSprite
+  m_Name: GenomeSprite 3
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
   genes: 5
-  spr: {fileID: 21300000, guid: 4bae90fa972a0d74db6771962b4b5f21, type: 3}
-  name: None
+  spr: {fileID: 21300000, guid: c215aab12f9165546a775012a9ad1e47, type: 3}
+  name: Nature
   lvlForDrop: 0
-  weight: 5
+  weight: 1
