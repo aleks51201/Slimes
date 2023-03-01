@@ -1,5 +1,6 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 {
@@ -14,6 +15,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             ResearchSpaceUpdate();
             UpdateTextOnButton();
             Subscribe();
+            Debug.Log("AfterResearchBehaviour enter");
         }
 
         public void Exit()
@@ -23,7 +25,10 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         public void OnEnable()
         {
+            ResearchSpaceUpdate();
+            UpdateTextOnButton();
             Subscribe();
+            Debug.Log("AfterResearchBehaviour enable");
         }
 
         public void OnDisable()

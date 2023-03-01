@@ -1,6 +1,7 @@
 ﻿using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using System;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 {
@@ -15,6 +16,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             Subscribe();
             ResearchSpaceUpdate();
             TimerStart();
+            Debug.Log("ResearchBehaviour enter");
         }
 
         public void Exit()
@@ -26,6 +28,8 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             UpdateTimerText();
             Subscribe();
+            Debug.Log("ResearchBehaviour enable");
+            ChangeBehaviour();
         }
 
         public void OnDisable()
@@ -55,7 +59,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         private void TimerStart()
         {
-            float seconds= (float)(Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch - DateTime.Now).TotalSeconds;
+            float seconds = (float)(Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch - DateTime.Now).TotalSeconds;
             labLogic.StartTimer(seconds);
             UpdateTimerText(seconds);
             TimerSubscribe();
@@ -65,9 +69,10 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             if (labLogic.Timer is not null)
             {
-                labLogic.Timer.OnTimerFinishedEvent += ChangeBehaviour;
+                labLogic.Timer.OnTimerFinishedEvent += OnTimerFinished;
                 labLogic.Timer.OnTimerFinishedEvent += labLogic.EndResearch;
                 labLogic.Timer.OnTimerValueChangedEvent += labLogic.UpdateTimerText;
+                Debug.Log("timer sub");
             }
         }
 
@@ -75,16 +80,26 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         {
             if (labLogic.Timer is not null)
             {
-                labLogic.Timer.OnTimerFinishedEvent -= ChangeBehaviour;
+                labLogic.Timer.OnTimerFinishedEvent -= OnTimerFinished;
                 labLogic.Timer.OnTimerFinishedEvent -= labLogic.EndResearch;
                 labLogic.Timer.OnTimerValueChangedEvent -= labLogic.UpdateTimerText;
+                Debug.Log("timer unsub");
             }
         }
 
-
-        public void ChangeBehaviour()
+        public void OnTimerFinished()
         {
             labLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
+        }
+
+        private void ChangeBehaviour()
+        {
+                Debug.Log($"{Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch} .... {DateTime.Now}");
+                Debug.Log($"{Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch < DateTime.Now}");
+            if (Game.GetInteractor<LaboratoryDataInteractor>().EndTimeResearch < DateTime.Now)
+            {
+                labLogic.LaboratoryBehaviour.SetAfterResearchBehaviour();
+            }
         }
 
         private void ResearchSpaceUpdate()
