@@ -899,6 +899,7 @@ MonoBehaviour:
   lvlForOpen: 0
   slider: {fileID: 2754743583812256817}
   actionLayer: {fileID: 2754743584570782905}
+  blockLayer: {fileID: 2754743583316616917}
 --- !u!1 &2754743584132320204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,20 +1374,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2754743584478655352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SlimeEvolutions.Panel.Laboratory.ResearchButtonView,
-          Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &557267244
 MonoBehaviour:
   m_ObjectHideFlags: 0
