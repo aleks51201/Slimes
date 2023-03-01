@@ -25,6 +25,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
         public ButtonWithClick TakeButton => takeButton;
         public int LvlForOpen => lvlForOpen;
+        public GameObject Timer => timer;
 
 
         public Action InitializedCorrectInformationBehaviourEvent;

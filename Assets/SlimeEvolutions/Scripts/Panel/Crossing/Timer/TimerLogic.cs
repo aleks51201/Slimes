@@ -16,8 +16,11 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
         private bool IsAvaibleTime => CrossingSpaceData.HasBeenSlimeTaken || CrossingSpaceData.EndTimeCrossing < DateTime.Now;
 
 
-        public static Action StartedTimerEvent;
-        public static Action FinishedTimerEvent;
+        public static Action StartedTimerStaticEvent;
+        public static Action FinishedTimerStaticEvent;
+
+        public Action StartedTimerEvent;
+        public Action FinishedTimerEvent;
 
 
         public TimerLogic(TimerView timerView)
@@ -36,6 +39,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
             timer = new(TimerTypes.OneSecTick, seconds);
             timer.Start();
             UpdateTimerView(seconds);
+            StartedTimerStaticEvent?.Invoke();
             StartedTimerEvent?.Invoke();
         }
 
@@ -52,11 +56,13 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
                 return;
             }
             timer.Stop();
+            FinishedTimerStaticEvent?.Invoke();
             FinishedTimerEvent?.Invoke();
         }
 
         private void OnTimerFinished()
         {
+            FinishedTimerStaticEvent?.Invoke();
             FinishedTimerEvent?.Invoke();
         }
 

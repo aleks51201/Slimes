@@ -13,6 +13,7 @@ namespace SlimeEvolutions.Panel.Crossing.CrossTimer
 
         public TextMeshProUGUI TimerText => timerText;
         public int ID => id;
+        public TimerLogic TimerLogic => timerLogic;
 
 
         private void Awake()

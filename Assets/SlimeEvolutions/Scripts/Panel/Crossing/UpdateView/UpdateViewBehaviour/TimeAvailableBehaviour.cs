@@ -41,8 +41,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerLogic.FinishedTimerEvent += OnFinishedTimer;
-            Debug.Log("subscribe");
+            updateView.Timer.GetComponent<TimerView>().TimerLogic.FinishedTimerEvent += OnFinishedTimer;
             isSubscribe = true;
         }
 
@@ -52,7 +51,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TimerLogic.FinishedTimerEvent -= OnFinishedTimer;
+            updateView.Timer.GetComponent<TimerView>().TimerLogic.FinishedTimerEvent -= OnFinishedTimer;
             isSubscribe = false;
         }
 
