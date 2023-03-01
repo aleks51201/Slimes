@@ -8862,6 +8862,10 @@ MonoBehaviour:
   experienceView: {fileID: 46514031}
   researchTimeInMinutes: 1
   beforeResearch: Choose slime for research
+  prefixTime: awdawdawd
+  suffixTime: dawdwadaw
+  prefixCost: awdawdawd
+  suffixCost: awdawdaw
   afterResearch: Take your slime!
 --- !u!1 &954118548
 GameObject:
@@ -19638,7 +19642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000016212463
+      value: 6.000016
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
