@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Info.Data
 {
-    public class DataViewUpdater : MonoBehaviour
+    public class NameGeneDataViewUpdater : MonoBehaviour
     {
         [SerializeField] private Genome.Genes gene;
 
