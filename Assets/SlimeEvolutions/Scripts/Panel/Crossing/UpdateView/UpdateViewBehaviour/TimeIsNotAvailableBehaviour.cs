@@ -54,7 +54,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            updateView.TakeButton.OnButtonClickEvent += OnButtonClick;
+            updateView.TakeButton.OnButtonClickEvent -= OnButtonClick;
             //TakeButtonView.ButtonClickedEvent -= OnButtonClick;
             isSubscribe = false;
         }
