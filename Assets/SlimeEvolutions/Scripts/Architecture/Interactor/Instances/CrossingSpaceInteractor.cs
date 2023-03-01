@@ -83,11 +83,15 @@ namespace SlimeEvolutions.Architecture.Interactors.Instances
 
         public bool AreThereAnySlotsAvailable()
         {
+            var isAvailable = 0;
             for (int i = 0; i < countSlots; i++)
             {
-                return IsSlotEmpty(CrossingSpaces[i]);
+                if(IsSlotEmpty(CrossingSpaces[i]))
+                {
+                    isAvailable++;
+                }
             }
-            return false;
+            return isAvailable > 0;
         }
 
         private bool IsSlotEmpty(CrossingSpaceData crossingSpaceData)
