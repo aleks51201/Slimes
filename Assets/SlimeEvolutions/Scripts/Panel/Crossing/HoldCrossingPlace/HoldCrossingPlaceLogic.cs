@@ -51,7 +51,7 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             Slime rSlime = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID].RSlime;
             Slime lSlime = Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID].LSlime;
-            var exp = 25 + ((rSlime.Lvl + lSlime.Lvl) / 2) * 0.8 - ((rSlime.Lvl - lSlime.Lvl) * 1.7);
+            var exp = 25 + ((rSlime.Lvl + lSlime.Lvl) / 2.0) * 0.8 - ((rSlime.Lvl - lSlime.Lvl) * 1.7);
             if (exp < 0)
             {
                 exp = 0;

@@ -5,6 +5,7 @@ using SlimeEvolutions.Panel.Crossing.Behaviour;
 using SlimeEvolutions.Panel.MainScreen.Stuff;
 using SlimeEvolutions.Stuff;
 using System;
+using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -112,7 +113,7 @@ namespace SlimeEvolutions.Panel.Crossing
                     {
                         if (j.LvlForOpen <= ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50))
                         {
-                            int sec = ((LSlime.Lvl * RSlime.Lvl) / 2) * 10;
+                            float sec = ((LSlime.Lvl * RSlime.Lvl) / 2f) * 10;
                             var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddSeconds(sec));
                             DeleteSlimeFromInventory(LSlime);
                             DeleteSlimeFromInventory(RSlime);
