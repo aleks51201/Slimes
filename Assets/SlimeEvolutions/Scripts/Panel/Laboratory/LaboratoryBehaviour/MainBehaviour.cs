@@ -120,6 +120,10 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             {
                 return;
             }
+            if (!labLogic.CheckEnoughMutagen(labLogic.CalcMutagenCost()))
+            {
+                return;
+            }
             labLogic.StartResearch();
             SetResearchBehaviour();
         }

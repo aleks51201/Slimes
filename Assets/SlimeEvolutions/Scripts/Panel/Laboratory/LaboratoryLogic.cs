@@ -58,6 +58,11 @@ namespace SlimeEvolutions.Panel
             slime.IsExplored = true;
         }
 
+        public bool CheckEnoughMutagen(int mut)
+        {
+            return Game.GetInteractor<MutagenInteractor>().EnoughMutagen(mut);
+        }
+
         public void StartResearch()
         {
             RemoveSlimeFromInventoryData();
