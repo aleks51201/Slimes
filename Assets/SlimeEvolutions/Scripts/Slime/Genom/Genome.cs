@@ -154,11 +154,13 @@ public class Genome
 
     private void SetGenesId()
     {
+        System.Random rnd = new();
         int i = 0;
         foreach (Gene gene in genesMap.Values)
         {
             gene.Id = genesId[i];
             i++;
+            gene.IsDominant = rnd.Next(2) == 1;
         }
     }
 
