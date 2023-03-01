@@ -48,7 +48,7 @@ namespace SlimeEvolutions.Panel
         }
 
 
-        private Slime GetResearchableSlime()
+        public Slime GetResearchableSlime()
         {
             return ResearchPlaceView.Slime;
         }

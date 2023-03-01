@@ -16,6 +16,10 @@ namespace SlimeEvolutions.Panel
 
         [Header("Words on the button")]
         [SerializeField] private string beforeResearch;
+        [SerializeField] private string prefixTime;
+        [SerializeField] private string suffixTime;
+        [SerializeField] private string prefixCost;
+        [SerializeField] private string suffixCost;
         [SerializeField] private string afterResearch;
 
 
@@ -24,6 +28,10 @@ namespace SlimeEvolutions.Panel
         public TextMeshProUGUI Text => text;
         public float ResearchTimeInMinutes => researchTimeInMinutes;
         public string BeforeResearch => beforeResearch;
+        public string PrefixTime => prefixTime;
+        public string SuffixTime=> suffixTime;
+        public string PrefixCost=> prefixCost;
+        public string SuffixCost=> suffixCost;
         public string AfterResearch => afterResearch;
         public int Lvl => experienceView.Lvl;
 

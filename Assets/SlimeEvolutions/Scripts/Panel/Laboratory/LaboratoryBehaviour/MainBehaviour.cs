@@ -2,6 +2,7 @@
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Inventory.InventoryButton;
+using System;
 
 namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 {
@@ -85,7 +86,10 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
 
         private void TextUpdate()
         {
-            labLogic.UpdateTextOnButton($"{labLogic.CalcMutagenCost()}");
+            float seconds = labLogic.GetResearchableSlime().Lvl * 30;
+            var time = TimeSpan.FromSeconds(seconds);
+            labLogic.UpdateTextOnButton($"{labLogic.LaboratoryView.PrefixCost} {labLogic.CalcMutagenCost()} {labLogic.LaboratoryView.SuffixCost}\n " +
+                $"{labLogic.LaboratoryView.PrefixTime} {time:mm}:{time:ss} {labLogic.LaboratoryView.SuffixCost}");
         }
 
         private void ChangeBehaviour()
