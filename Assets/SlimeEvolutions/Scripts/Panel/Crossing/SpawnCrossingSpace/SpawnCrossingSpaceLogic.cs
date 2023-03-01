@@ -18,14 +18,12 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             var interactor = Game.GetInteractor<CrossingSpaceInteractor>();
             interactor.CountSlots = crossingView.HolderForCrossedPairsSlimes.CrossingPositions.Count;
-            Game.OnGameInitializedEvent -= SetCrossingSpaceInteractorCountSlot;
         }
 
         private void CreateCrossingSpaceDateList()
         {
             var interactor = Game.GetInteractor<CrossingSpaceInteractor>();
             interactor.CreateSpacesList();
-            Game.OnGameInitializedEvent -= CreateCrossingSpaceDateList;
         }
 
         private void SpawnCrossPlace()
@@ -43,15 +41,17 @@ namespace SlimeEvolutions.Panel.Crossing
             }
         }
 
+        private void OnGameInitialized()
+        {
+            SetCrossingSpaceInteractorCountSlot();
+            CreateCrossingSpaceDateList();
+            AssignId();
+            Game.OnGameInitializedEvent -= OnGameInitialized;
+        }
+
         public void Awake()
         {
-            /*            if (!Game.IsGameInitialized)
-                        {
-                            Game.OnGameInitializedEvent += SetCrossingSpaceInteractorCountSlot;
-                            Game.OnGameInitializedEvent += CreateCrossingSpaceDateList;
-                        }
-            */
-            AssignId();
+            Game.OnGameInitializedEvent += OnGameInitialized;
         }
 
         public void OnEnable()
