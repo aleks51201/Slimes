@@ -50,7 +50,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             }
             ResearchButtonView.OnButtonClickEvent += StartResearch;
             SlimeGetter.ButtonClickedStaticEvent += OnButtonClicked;
-            ResearchPlaceButtonView.OnButtonClickEvent +=ResearchSpaceClear;
+            ResearchPlaceButtonView.OnButtonClickEvent += ResearchSpaceClear;
             //InventoryButtonLogic.OnInventoryButtonClickEvent += ResearchSpaceUpdate;
             isSubscribe = true;
         }
@@ -63,7 +63,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             }
             ResearchButtonView.OnButtonClickEvent -= StartResearch;
             SlimeGetter.ButtonClickedStaticEvent -= OnButtonClicked;
-            ResearchPlaceButtonView.OnButtonClickEvent -=ResearchSpaceClear;
+            ResearchPlaceButtonView.OnButtonClickEvent -= ResearchSpaceClear;
             //InventoryButtonLogic.OnInventoryButtonClickEvent -= ResearchSpaceUpdate;
             isSubscribe = false;
         }
@@ -115,7 +115,11 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
         }
 
         private void StartResearch()
-        {
+        { 
+            if(labLogic.GetResearchableSlime() is null)
+            {
+                return;
+            }
             labLogic.StartResearch();
             SetResearchBehaviour();
         }
