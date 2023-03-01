@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace SlimeEvolutions.Buttons
@@ -19,12 +21,12 @@ namespace SlimeEvolutions.Buttons
 
         private void OnEnable()
         {
-            onPointerClickEvent += OnClick;
+            onPointerDownEvent += OnClick;
         }
 
         private void OnDisable()
         {
-            onPointerClickEvent -= OnClick;
+            onPointerDownEvent -= OnClick;
         }
     }
 }

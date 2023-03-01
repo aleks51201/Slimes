@@ -28,7 +28,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void OnEnable()
         {
-            ChangeBehaviour();
+            SetBehaviourByDefault();
             Subscribe();
         }
 
@@ -43,7 +43,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TakeButtonView.ButtonClickedEvent += OnButtonClick;
+            updateView.TakeButton.OnButtonClickEvent += OnButtonClick;
+            //TakeButtonView.ButtonClickedEvent += OnButtonClick;
             isSubscribe = true;
         }
 
@@ -53,7 +54,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            TakeButtonView.ButtonClickedEvent -= OnButtonClick;
+            updateView.TakeButton.OnButtonClickEvent += OnButtonClick;
+            //TakeButtonView.ButtonClickedEvent -= OnButtonClick;
             isSubscribe = false;
         }
 
@@ -64,14 +66,20 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             updateView.SliderSetActive(false);
             updateView.InitializedTimeNotAvailableBehaviourEvent?.Invoke();
         }
-        private void OnButtonClick(Slime _)
+
+        private void OnButtonClick()
         {
             ChangeBehaviour();
         }
 
         private void ChangeBehaviour()
         {
-            ChangeBehaviourEvent?.Invoke();
+            //ChangeBehaviourEvent?.Invoke();
+            updateView.UpdateViewBehaviour.SetIncorrectInformationBehaviour();
+        }
+
+        private void SetBehaviourByDefault()
+        {
             updateView.UpdateViewBehaviour.SetBehaviourByDefault();
         }
     }

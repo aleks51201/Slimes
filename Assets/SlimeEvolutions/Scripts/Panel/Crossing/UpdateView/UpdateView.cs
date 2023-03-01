@@ -16,13 +16,15 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         private ButtonWithClick takeButton;
         private ButtonMain lButton, rButton;
         private Slider slider;
-        private GameObject timer, activeLayer, prefab;
+        private GameObject timer, activeLayer, prefab, blockLayer;
         private CrossingSpaceInteractor crossInteractor;
-        private int id;
+        private int id, lvlForOpen;
 
 
         public CrossingSpaceData CrossingSpaceData => crossInteractor.CrossingSpaces[id];
         public UpdateViewBehaviour UpdateViewBehaviour => updateViewBehaviour;
+        public ButtonWithClick TakeButton => takeButton;
+        public int LvlForOpen => lvlForOpen;
 
 
         public Action InitializedCorrectInformationBehaviourEvent;
@@ -31,7 +33,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public Action InitializedTimeNotAvailableBehaviourEvent;
 
 
-        public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer)
+        public UpdateView(GameObject cellPrefab, ButtonWithClick takeButton, ButtonMain lButton, ButtonMain rButton, Slider slider, GameObject timer, GameObject activeLayer, GameObject blockLayer, int lvlForOpen)
         {
             this.prefab = cellPrefab;
             this.takeButton = takeButton;
@@ -40,6 +42,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update
             this.activeLayer = activeLayer;
             this.lButton = lButton;
             this.rButton = rButton;
+            this.blockLayer = blockLayer;
+            this.lvlForOpen = lvlForOpen;
         }
 
 
@@ -69,6 +73,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update
         public void ActiveLayerSetActive(bool isActive)
         {
             activeLayer.SetActive(isActive);
+        }
+
+        public void BlockLayerSetActive(bool isActive)
+        {
+            blockLayer.SetActive(isActive);
         }
 
         public void FillingCellData()

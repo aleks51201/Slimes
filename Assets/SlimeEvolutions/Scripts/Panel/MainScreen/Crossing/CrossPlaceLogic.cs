@@ -3,6 +3,7 @@ using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Crossing.Behaviour;
 using SlimeEvolutions.Panel.MainScreen.Stuff;
+using SlimeEvolutions.Stuff;
 using System;
 
 namespace SlimeEvolutions.Panel.Crossing
@@ -103,11 +104,23 @@ namespace SlimeEvolutions.Panel.Crossing
             var interact = Game.GetInteractor<CrossingSpaceInteractor>();
             if (interact.AreThereAnySlotsAvailable())
             {
-                int sec = ((LSlime.Lvl * RSlime.Lvl) / 2) * 10;
-                var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddSeconds(sec));
-                DeleteSlimeFromInventory(LSlime);
-                DeleteSlimeFromInventory(RSlime);
-                interact.SetCrossingSpaceData(interact.GetEmptySlotId(), i);
+                int id = interact.GetEmptySlotId();
+                int n = 0;
+                foreach (var j in crossPlaceView.HolderForCrossedPairsSlimes.CrossingPositions)
+                {
+                    if (n == id)
+                    {
+                        if (j.LvlForOpen <= ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50))
+                        {
+                            int sec = ((LSlime.Lvl * RSlime.Lvl) / 2) * 10;
+                            var i = new CrossingSpaceData(LSlime, RSlime, newSlime, DateTime.Now, DateTime.Now.AddSeconds(sec));
+                            DeleteSlimeFromInventory(LSlime);
+                            DeleteSlimeFromInventory(RSlime);
+                            interact.SetCrossingSpaceData(id, i);
+                        }
+                    }
+                    n++;
+                }
             }
         }
 

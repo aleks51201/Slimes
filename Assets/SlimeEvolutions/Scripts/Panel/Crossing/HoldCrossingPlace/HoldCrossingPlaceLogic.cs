@@ -2,7 +2,6 @@
 using SlimeEvolutions.Architecture.Interactors.Instances;
 using SlimeEvolutions.Architecture.Scene;
 using SlimeEvolutions.Panel.Crossing.Update;
-using SlimeEvolutions.Panel.Crossing.Update.Behaviours;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
@@ -11,6 +10,7 @@ namespace SlimeEvolutions.Panel.Crossing
         private HoldCrossingPlaceView holdCrossingPlaceView;
         private CrossingSpaceData crossingSpace;
         private UpdateView updateView;
+        private bool isSubscribe;
 
 
         private CrossingSpaceData CrossingSpace => Game.GetInteractor<CrossingSpaceInteractor>().CrossingSpaces[holdCrossingPlaceView.ID];
@@ -32,7 +32,9 @@ namespace SlimeEvolutions.Panel.Crossing
                 holdCrossingPlaceView.RightSlime,
                 holdCrossingPlaceView.Slider,
                 holdCrossingPlaceView.Timer,
-                holdCrossingPlaceView.ActionLayer
+                holdCrossingPlaceView.ActionLayer,
+                holdCrossingPlaceView.BlockLayer,
+                holdCrossingPlaceView.LvlForOpen
                 );
             updateView.Initialize(holdCrossingPlaceView.ID);
         }
@@ -73,18 +75,29 @@ namespace SlimeEvolutions.Panel.Crossing
 
         private void Subscribe()
         {
-            TimeIsNotAvailableBehaviour.ChangeBehaviourEvent += AcceptNewSlime;
-            // holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
+            if (isSubscribe)
+            {
+                return;
+            }
+            //TimeIsNotAvailableBehaviour.ChangeBehaviourEvent += AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent += AcceptNewSlime;
+            isSubscribe = true;
         }
 
         private void Unsubscribe()
         {
-            TimeIsNotAvailableBehaviour.ChangeBehaviourEvent -= AcceptNewSlime;
-            //holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
+            if (!isSubscribe)
+            {
+                return;
+            }
+            //TimeIsNotAvailableBehaviour.ChangeBehaviourEvent -= AcceptNewSlime;
+            holdCrossingPlaceView.AcceptButton.OnButtonClickEvent -= AcceptNewSlime;
+            isSubscribe = false;
         }
 
         public void Awake()
         {
+            Subscribe();
             UpdateInitialize();
         }
 

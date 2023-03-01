@@ -1,11 +1,10 @@
 ﻿using SlimeEvolutions.Buttons;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace SlimeEvolutions.Panel.Crossing
 {
-    public class HoldCrossingPlaceView : MonoBehaviour,IHavableID
+    public class HoldCrossingPlaceView : MonoBehaviour, IHavableID
     {
         [SerializeField] private ButtonWithHold leftSlime, rightSlime;
         [SerializeField] private ButtonWithClick acceptButton;
@@ -13,7 +12,7 @@ namespace SlimeEvolutions.Panel.Crossing
         [SerializeField] private GameObject prefab;
         [SerializeField] private int lvlForOpen;
         [SerializeField] private Slider slider;
-        [SerializeField] private GameObject actionLayer;
+        [SerializeField] private GameObject actionLayer, blockLayer;
 
 
         private HoldCrossingPlaceLogic holdCrossingPlaceLogic;
@@ -27,6 +26,8 @@ namespace SlimeEvolutions.Panel.Crossing
         public GameObject Prefab => prefab;
         public Slider Slider => slider;
         public GameObject ActionLayer => actionLayer;
+        public GameObject BlockLayer => blockLayer;
+        public int LvlForOpen => lvlForOpen;
 
 
         public GameObject Spawn(GameObject prefab, Vector2 position)
@@ -38,7 +39,7 @@ namespace SlimeEvolutions.Panel.Crossing
         {
             return Instantiate(prefab, parentTransform);
         }
-        
+
         public void Delete(GameObject go)
         {
             Destroy(go);

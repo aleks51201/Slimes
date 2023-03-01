@@ -60,6 +60,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         {
             updateView.FillingCellData();
             updateView.ActiveLayerSetActive(true);
+            updateView.BlockLayerSetActive(false);
             updateView.InitializedCorrectInformationBehaviourEvent?.Invoke();
         }
 

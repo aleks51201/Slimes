@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SlimeEvolutions.Architecture.Interactors.Instances;
+using SlimeEvolutions.Architecture.Scene;
+using SlimeEvolutions.Stuff;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
@@ -11,6 +13,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         private bool IsDataOk =>
             updateView is not null && !updateView.CrossingSpaceData.HasBeenSlimeTaken;
+        private bool IslvlOk => updateView.LvlForOpen <= ProgressionCalculator.CalcTotalLvlForExp(Game.GetInteractor<ExperienceInteractor>().Experience, 50);
         private UpdateViewBehaviour UpdateViewBehaviour => updateView.UpdateViewBehaviour;
 
 
@@ -66,7 +69,12 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
                 UpdateViewBehaviour.SetCorrectInformationBehaviour();
                 return;
             }
-            UpdateViewBehaviour.SetIncorrectInformationBehaviour();
+            if (IslvlOk)
+            {
+                UpdateViewBehaviour.SetIncorrectInformationBehaviour();
+                return;
+            }
+            UpdateViewBehaviour.SetInsufficientLevelBehaviour();
         }
 
         private void CleanCell()

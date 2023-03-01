@@ -51,6 +51,11 @@ namespace SlimeEvolutions.Panel.Crossing
 
         public void Awake()
         {
+            if (Game.IsGameInitialized)
+            {
+                OnGameInitialized();
+                return;
+            }
             Game.OnGameInitializedEvent += OnGameInitialized;
         }
 

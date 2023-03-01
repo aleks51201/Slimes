@@ -23,6 +23,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             behavioursMap[typeof(IncorrectInformationBehaviour)] = new IncorrectInformationBehaviour();
             behavioursMap[typeof(TimeAvailableBehaviour)] = new TimeAvailableBehaviour();
             behavioursMap[typeof(TimeIsNotAvailableBehaviour)] = new TimeIsNotAvailableBehaviour();
+            behavioursMap[typeof(InsufficientLevelBehaviour)] = new InsufficientLevelBehaviour();
         }
 
         private void SetBehaviour(IUpdateViewBehaviour newBehaviour)
@@ -77,6 +78,11 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         public void SetTimeIsNotAvailableBehaviour()
         {
             SetBehaviour(GetBehaviour<TimeIsNotAvailableBehaviour>());
+        }
+
+        public void SetInsufficientLevelBehaviour()
+        {
+            SetBehaviour(GetBehaviour<InsufficientLevelBehaviour>());
         }
     }
 }

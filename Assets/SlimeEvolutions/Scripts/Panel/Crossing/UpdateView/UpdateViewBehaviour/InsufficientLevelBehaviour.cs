@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 {
-    public class IncorrectInformationBehaviour : IUpdateViewBehaviour
+    class InsufficientLevelBehaviour: IUpdateViewBehaviour
     {
         private UpdateView updateView;
         private bool isSubscribe;
@@ -14,7 +18,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             CleanCell();
             Initialize();
             Subscribe();
-            Debug.Log("IncorrectInformationBehaviour enter");
+            Debug.Log("InsufficientLevelBehaviour enter");
         }
 
         public void Exit()
@@ -57,8 +61,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             updateView.TimerSetActive(false);
             updateView.SliderSetActive(false);
             updateView.ActiveLayerSetActive(false);
-            updateView.BlockLayerSetActive(false);
-            updateView.InitializedIncorrectInformationBehaviourEvent?.Invoke();
+            updateView.BlockLayerSetActive(true);
         }
 
         private void ChangeBehaviour()

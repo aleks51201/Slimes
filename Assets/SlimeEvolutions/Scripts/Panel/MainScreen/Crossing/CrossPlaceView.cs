@@ -8,9 +8,12 @@ namespace SlimeEvolutions.Panel.Crossing
         [SerializeField] private ResearchButtonView researchButtonView;
         [SerializeField] private ResearchPlaceView leftCrossSlimePositionView;
         [SerializeField] private ResearchPlaceView rightCrossSlimePositionView;
+        [SerializeField] private HolderForCrossedPairsSlimes holderForCrossedPairsSlimes;
+
 
         public ResearchPlaceView LeftCrossSlimePositionView => leftCrossSlimePositionView;
         public ResearchPlaceView RightCrossSlimePositionView => rightCrossSlimePositionView;
+        public HolderForCrossedPairsSlimes HolderForCrossedPairsSlimes => holderForCrossedPairsSlimes;
 
 
         private CrossPlaceLogic crossPlaceLogic;
