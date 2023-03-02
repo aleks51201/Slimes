@@ -26,8 +26,8 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
 
         public void OnEnable()
         {
-            ChangeBehaviour();
             Subscribe();
+            ChangeBehaviour();
         }
 
         public void OnDisable()
