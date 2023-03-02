@@ -89,7 +89,7 @@ namespace SlimeEvolutions.Panel.Laboratory.Behaviours
             float seconds = labLogic.GetResearchableSlime().Lvl * 30;
             var time = TimeSpan.FromSeconds(seconds);
             labLogic.UpdateTextOnButton($"{labLogic.LaboratoryView.PrefixCost} {labLogic.CalcMutagenCost()} {labLogic.LaboratoryView.SuffixCost}\n " +
-                $"{labLogic.LaboratoryView.PrefixTime} {time:mm}:{time:ss} {labLogic.LaboratoryView.SuffixCost}");
+                $"{labLogic.LaboratoryView.PrefixTime} {time:mm}:{time:ss} {labLogic.LaboratoryView.SuffixTime}");
         }
 
         private void ChangeBehaviour()
