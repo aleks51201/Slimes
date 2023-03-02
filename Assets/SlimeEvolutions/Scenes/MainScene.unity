@@ -10207,6 +10207,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 186973461}
     m_Modifications:
+    - target: {fileID: 2754743583858006065, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
+      propertyPath: m_text
+      value: 'Cross place blocked
+
+        Achieve 40 LVL to get access'
+      objectReference: {fileID: 0}
     - target: {fileID: 2754743584123236032, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10297,7 +10303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885020974218081428, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
       propertyPath: lvlForOpen
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
@@ -11252,6 +11258,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 186973461}
     m_Modifications:
+    - target: {fileID: 2754743583858006065, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
+      propertyPath: m_text
+      value: 'Cross place blocked
+
+        Achieve 25 LVL to get access'
+      objectReference: {fileID: 0}
     - target: {fileID: 2754743584123236032, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11342,7 +11354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885020974218081428, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
       propertyPath: lvlForOpen
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e59f9958277e84428aafb948de16c40, type: 3}
@@ -19772,7 +19784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962235049845, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 5.9999456
+      value: -0.00007724762
       objectReference: {fileID: 0}
     - target: {fileID: 7160343962336789066, guid: e916491dafeb86d4f8b5b5b19081fc02, type: 3}
       propertyPath: m_AnchorMax.x
