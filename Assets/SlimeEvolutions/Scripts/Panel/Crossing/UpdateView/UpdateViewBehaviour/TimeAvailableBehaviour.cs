@@ -1,4 +1,6 @@
-﻿using SlimeEvolutions.Panel.Crossing.CrossTimer;
+﻿using SlimeEvolutions.Architecture;
+using SlimeEvolutions.Panel.Crossing.CrossTimer;
+using System.Collections;
 using UnityEngine;
 
 namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
@@ -41,7 +43,7 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
             {
                 return;
             }
-            updateView.Timer.GetComponent<TimerView>().TimerLogic.FinishedTimerEvent += OnFinishedTimer;
+            Coroutines.StartRoutine(TimerSubscribe());
             isSubscribe = true;
         }
 
@@ -71,6 +73,16 @@ namespace SlimeEvolutions.Panel.Crossing.Update.Behaviours
         private void OnFinishedTimer()
         {
             UpdateViewBehaviour.SetTimeIsNotAvailableBehaviour();
+        }
+
+        private IEnumerator TimerSubscribe()
+        {
+            var timerView = updateView.Timer.GetComponent<TimerView>();
+            while(timerView.TimerLogic is null)
+            {
+                yield return null;
+            }
+            timerView.TimerLogic.FinishedTimerEvent += OnFinishedTimer;
         }
     }
 }
